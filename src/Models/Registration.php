@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace Coderstm\Core\Models;
 
 class Registration extends ClassSchedule
 {

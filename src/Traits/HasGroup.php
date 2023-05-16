@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Traits;
+namespace Coderstm\Core\Traits;
 
-use App\Models\Core\Group;
+use Coderstm\Core\Models\Core\Group;
 use Illuminate\Support\Collection;
 
 trait HasGroup

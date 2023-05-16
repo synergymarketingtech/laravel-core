@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Models;
+namespace Coderstm\Core\Models;
 
-use App\Enum\AppRag;
-use App\Models\Parq;
-use App\Enum\AppStatus;
-use App\Models\Core\Log;
-use App\Traits\Billable;
-use App\Models\Core\File;
-use App\Models\Plan\Price;
-use App\Models\Core\Enquiry;
-use App\Traits\HasBelongsToOne;
+use Coderstm\Core\Enum\AppRag;
+use Coderstm\Core\Models\Parq;
+use Coderstm\Core\Enum\AppStatus;
+use Coderstm\Core\Models\Core\Log;
+use Coderstm\Core\Traits\Billable;
+use Coderstm\Core\Models\Core\File;
+use Coderstm\Core\Models\Plan\Price;
+use Coderstm\Core\Models\Core\Enquiry;
+use Coderstm\Core\Traits\HasBelongsToOne;
 use Illuminate\Support\Facades\DB;
-use App\Models\Cashier\Subscription;
+use Coderstm\Core\Models\Cashier\Subscription;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Stripe\Subscription as StripeSubscription;
@@ -312,7 +312,7 @@ class User extends Admin implements MustVerifyEmail
     /**
      * The price that belong to the User
      *
-     * @return \App\Relations\BelongsToOne
+     * @return \Coderstm\Core\Relations\BelongsToOne
      */
     public function price()
     {

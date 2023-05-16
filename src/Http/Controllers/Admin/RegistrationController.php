@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace Coderstm\Core\Http\Controllers\Admin;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Models\Registration;
-use App\Http\Controllers\Controller;
-use App\Traits\Helpers;
+use Coderstm\Core\Models\Registration;
+use Coderstm\Core\Http\Controllers\Controller;
+use Coderstm\Core\Traits\Helpers;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 class RegistrationController extends Controller
@@ -117,7 +117,7 @@ class RegistrationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Registration  $registration
+     * @param  \Coderstm\Core\Models\Registration  $registration
      * @return \Illuminate\Http\Response
      */
     public function show(Registration $registration)
@@ -129,7 +129,7 @@ class RegistrationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Registration  $registration
+     * @param  \Coderstm\Core\Models\Registration  $registration
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Registration $registration)
@@ -166,7 +166,7 @@ class RegistrationController extends Controller
      * Change sign_off of specified resource from storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Registration  $registration
+     * @param  \Coderstm\Core\Models\Registration  $registration
      * @return \Illuminate\Http\Response
      */
     public function changeSignOff(Request $request, Registration $registration)
@@ -184,7 +184,7 @@ class RegistrationController extends Controller
      * Print the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Registration  $registration
+     * @param  \Coderstm\Core\Models\Registration  $registration
      * @return \Illuminate\Http\Response
      */
     public function pdf(Request $request, Registration $registration)

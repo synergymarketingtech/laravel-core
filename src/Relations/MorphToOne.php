@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Relations;
+namespace Coderstm\Core\Relations;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;

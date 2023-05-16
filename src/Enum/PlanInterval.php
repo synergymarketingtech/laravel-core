@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Enum;
+namespace Coderstm\Core\Enum;
 
 enum PlanInterval: string
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Listeners;
+namespace Coderstm\Core\Listeners;
 
-use App\Events\EnquiryCreated;
+use Coderstm\Core\Events\EnquiryCreated;
 use Illuminate\Queue\InteractsWithQueue;
-use App\Notifications\EnquiryNotification;
+use Coderstm\Core\Notifications\EnquiryNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Notification;
 
@@ -24,7 +24,7 @@ class SendEnquiryNotification implements ShouldQueue
     /**
      * Handle the event.
      *
-     * @param  \App\Events\EnquiryCreated  $event
+     * @param  \Coderstm\Core\Events\EnquiryCreated  $event
      * @return void
      */
     public function handle(EnquiryCreated $event)

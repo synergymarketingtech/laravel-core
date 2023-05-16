@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models\Shop;
+namespace Coderstm\Core\Models\Shop;
 
-use App\Traits\Core;
-use App\Traits\Fileable;
+use Coderstm\Core\Traits\Core;
+use Coderstm\Core\Traits\Fileable;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Illuminate\Database\Eloquent\Model;

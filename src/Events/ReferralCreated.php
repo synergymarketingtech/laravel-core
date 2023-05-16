@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Events;
+namespace Coderstm\Core\Events;
 
-use App\Models\Referral;
+use Coderstm\Core\Models\Referral;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;

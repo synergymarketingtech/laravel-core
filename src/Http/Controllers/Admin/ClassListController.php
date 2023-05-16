@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace Coderstm\Core\Http\Controllers\Admin;
 
-use App\Models\ClassList;
+use Coderstm\Core\Models\ClassList;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Coderstm\Core\Http\Controllers\Controller;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class ClassListController extends Controller
@@ -87,7 +87,7 @@ class ClassListController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ClassList  $classList
+     * @param  \Coderstm\Core\Models\ClassList  $classList
      * @return \Illuminate\Http\Response
      */
     public function show(ClassList $classList)
@@ -99,7 +99,7 @@ class ClassListController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ClassList  $classList
+     * @param  \Coderstm\Core\Models\ClassList  $classList
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, ClassList $classList)
@@ -126,7 +126,7 @@ class ClassListController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ClassList  $classList
+     * @param  \Coderstm\Core\Models\ClassList  $classList
      * @return \Illuminate\Http\Response
      */
     public function destroy(ClassList $classList)
@@ -140,7 +140,7 @@ class ClassListController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \App\Models\ClassList  $classList
+     * @param  \Coderstm\Core\Models\ClassList  $classList
      * @return \Illuminate\Http\Response
      */
     public function destroy_selected(Request $request, ClassList $classList)
@@ -159,7 +159,7 @@ class ClassListController extends Controller
     /**
      * Restore the specified resource from storage.
      *
-     * @param  \App\Models\ClassList  $classList
+     * @param  \Coderstm\Core\Models\ClassList  $classList
      * @return \Illuminate\Http\Response
      */
     public function restore($id)
@@ -176,7 +176,7 @@ class ClassListController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \App\Models\ClassList  $classList
+     * @param  \Coderstm\Core\Models\ClassList  $classList
      * @return \Illuminate\Http\Response
      */
     public function restore_selected(Request $request, ClassList $classList)
@@ -196,7 +196,7 @@ class ClassListController extends Controller
     /**
      * Change active of specified resource from storage.
      *
-     * @param  \App\Models\ClassList  $classList
+     * @param  \Coderstm\Core\Models\ClassList  $classList
      * @return \Illuminate\Http\Response
      */
     public function changeActive(Request $request, ClassList $classList)
@@ -213,7 +213,7 @@ class ClassListController extends Controller
     /**
      * Change active of specified resource from storage.
      *
-     * @param  \App\Models\ClassList  $classList
+     * @param  \Coderstm\Core\Models\ClassList  $classList
      * @return \Illuminate\Http\Response
      */
     public function changeHasDescription(Request $request, ClassList $classList)

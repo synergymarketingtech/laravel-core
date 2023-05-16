@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\Core\File;
-use App\Models\AppSetting;
+use Coderstm\Core\Models\Core\File;
+use Coderstm\Core\Models\AppSetting;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Storage;

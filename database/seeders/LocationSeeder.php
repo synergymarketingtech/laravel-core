@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Location;
-use App\Traits\Helpers;
+use Coderstm\Core\Models\Location;
+use Coderstm\Core\Traits\Helpers;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits;
+namespace Coderstm\Core\Traits;
 
 use PDO;
 use Browser;

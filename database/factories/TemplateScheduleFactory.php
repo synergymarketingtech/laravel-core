@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\Location;
-use App\Models\ClassList;
-use App\Models\Instructor;
+use Coderstm\Core\Models\Location;
+use Coderstm\Core\Models\ClassList;
+use Coderstm\Core\Models\Instructor;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Instructor>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Coderstm\Core\Models\Instructor>
  */
 class TemplateScheduleFactory extends Factory
 {

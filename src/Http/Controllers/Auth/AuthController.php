@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Coderstm\Core\Http\Controllers\Auth;
 
-use App\Enum\AppStatus;
-use App\Models\User;
-use App\Traits\Helpers;
+use Coderstm\Core\Enum\AppStatus;
+use Coderstm\Core\Models\User;
+use Coderstm\Core\Traits\Helpers;
 use Illuminate\Http\Request;
-use App\Notifications\UserLogin;
-use App\Http\Controllers\Controller;
+use Coderstm\Core\Notifications\UserLogin;
+use Coderstm\Core\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Requests\UpdateParqRequest;
+use Coderstm\Core\Http\Requests\UpdateParqRequest;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Validation\ValidationException;
-use App\Notifications\AvatarAttachedNotification;
+use Coderstm\Core\Notifications\AvatarAttachedNotification;
 
 class AuthController extends Controller
 {

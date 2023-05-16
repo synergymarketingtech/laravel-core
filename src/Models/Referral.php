@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace Coderstm\Core\Models;
 
-use App\Models\User;
-use App\Traits\Core;
-use App\Events\ReferralCreated;
+use Coderstm\Core\Models\User;
+use Coderstm\Core\Traits\Core;
+use Coderstm\Core\Events\ReferralCreated;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

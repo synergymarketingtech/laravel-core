@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Coderstm\Core\Http\Controllers;
 
-use App\Models\GuestPass;
+use Coderstm\Core\Models\GuestPass;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
@@ -72,7 +72,7 @@ class GuestPassController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\GuestPass  $guestPass
+     * @param  \Coderstm\Core\Models\GuestPass  $guestPass
      * @return \Illuminate\Http\Response
      */
     public function show(GuestPass $guestPass)
@@ -84,7 +84,7 @@ class GuestPassController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\GuestPass  $guestPass
+     * @param  \Coderstm\Core\Models\GuestPass  $guestPass
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, GuestPass $guestPass)
@@ -115,7 +115,7 @@ class GuestPassController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\GuestPass  $guestPass
+     * @param  \Coderstm\Core\Models\GuestPass  $guestPass
      * @return \Illuminate\Http\Response
      */
     public function destroy(GuestPass $guestPass)

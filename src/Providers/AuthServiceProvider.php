@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Providers;
+namespace Coderstm\Core\Providers;
 
-use App\Models\Admin;
-use App\Models\Core\Group;
-use App\Policies\AdminPolicy;
-use App\Policies\GroupPolicy;
+use Coderstm\Core\Models\Admin;
+use Coderstm\Core\Models\Core\Group;
+use Coderstm\Core\Policies\AdminPolicy;
+use Coderstm\Core\Policies\GroupPolicy;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;

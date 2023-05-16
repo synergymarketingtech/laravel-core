@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models\Core\Enquiry;
+namespace Coderstm\Core\Models\Core\Enquiry;
 
-use App\Enum\AppStatus;
-use App\Traits\Fileable;
-use App\Models\Core\Enquiry;
+use Coderstm\Core\Enum\AppStatus;
+use Coderstm\Core\Traits\Fileable;
+use Coderstm\Core\Models\Core\Enquiry;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Listeners;
+namespace Coderstm\Core\Listeners;
 
-use App\Models\User;
-use App\Enum\AppStatus;
-use App\Events\ReferralCreated;
+use Coderstm\Core\Models\User;
+use Coderstm\Core\Enum\AppStatus;
+use Coderstm\Core\Events\ReferralCreated;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Notification;
@@ -24,7 +24,7 @@ class CreateEnquiryMemberByReferral implements ShouldQueue
     /**
      * Handle the event.
      *
-     * @param  \App\Events\ReferralCreated  $event
+     * @param  \Coderstm\Core\Events\ReferralCreated  $event
      * @return void
      */
     public function handle(ReferralCreated $event)
@@ -44,7 +44,7 @@ class CreateEnquiryMemberByReferral implements ShouldQueue
             $user->log_options = [
                 'ref' => 'Member'
             ];
-            event('eloquent.created: App\Models\User', $user);
+            event('eloquent.created: Coderstm\Core\Models\User', $user);
             $user->logs()->create([
                 'message' => "<strong>{$event->referral->user->name}</strong> would like to refer a friend.",
                 'type' => 'referral',

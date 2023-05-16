@@ -133,15 +133,16 @@ abstract class Factory
      * @param  \Illuminate\Support\Collection|null  $recycle
      * @return void
      */
-    public function __construct($count = null,
-                                ?Collection $states = null,
-                                ?Collection $has = null,
-                                ?Collection $for = null,
-                                ?Collection $afterMaking = null,
-                                ?Collection $afterCreating = null,
-                                $connection = null,
-                                ?Collection $recycle = null)
-    {
+    public function __construct(
+        $count = null,
+        ?Collection $states = null,
+        ?Collection $has = null,
+        ?Collection $for = null,
+        ?Collection $afterMaking = null,
+        ?Collection $afterCreating = null,
+        $connection = null,
+        ?Collection $recycle = null
+    ) {
         $this->count = $count;
         $this->states = $states ?? new Collection;
         $this->has = $has ?? new Collection;
@@ -269,7 +270,7 @@ abstract class Factory
      */
     public function create($attributes = [], ?Model $parent = null)
     {
-        if (! empty($attributes)) {
+        if (!empty($attributes)) {
             return $this->state($attributes)->create([], $parent);
         }
 
@@ -323,7 +324,7 @@ abstract class Factory
     protected function store(Collection $results)
     {
         $results->each(function ($model) {
-            if (! isset($this->connection)) {
+            if (!isset($this->connection)) {
                 $model->setConnection($model->newQueryWithoutScopes()->getConnection()->getName());
             }
 
@@ -374,7 +375,7 @@ abstract class Factory
      */
     public function make($attributes = [], ?Model $parent = null)
     {
-        if (! empty($attributes)) {
+        if (!empty($attributes)) {
             return $this->state($attributes)->make([], $parent);
         }
 
@@ -480,7 +481,7 @@ abstract class Factory
                 return $attribute;
             })
             ->map(function ($attribute, $key) use (&$definition, $evaluateRelations) {
-                if (is_callable($attribute) && ! is_string($attribute) && ! is_array($attribute)) {
+                if (is_callable($attribute) && !is_string($attribute) && !is_array($attribute)) {
                     $attribute = $attribute($definition);
                 }
 
@@ -566,7 +567,8 @@ abstract class Factory
     {
         return $this->newInstance([
             'has' => $this->has->concat([new Relationship(
-                $factory, $relationship ?? $this->guessRelationship($factory->modelName())
+                $factory,
+                $relationship ?? $this->guessRelationship($factory->modelName())
             )]),
         ]);
     }
@@ -771,16 +773,18 @@ abstract class Factory
     {
         $resolver = static::$modelNameResolver ?? function (self $factory) {
             $namespacedFactoryBasename = Str::replaceLast(
-                'Factory', '', Str::replaceFirst(static::$namespace, '', get_class($factory))
+                'Factory',
+                '',
+                Str::replaceFirst(static::$namespace, '', get_class($factory))
             );
 
             $factoryBasename = Str::replaceLast('Factory', '', class_basename($factory));
 
             $appNamespace = static::appNamespace();
 
-            return class_exists($appNamespace.'Models\\'.$namespacedFactoryBasename)
-                        ? $appNamespace.'Models\\'.$namespacedFactoryBasename
-                        : $appNamespace.$factoryBasename;
+            return class_exists($appNamespace . 'Models\\' . $namespacedFactoryBasename)
+                ? $appNamespace . 'Models\\' . $namespacedFactoryBasename
+                : $appNamespace . $factoryBasename;
         };
 
         return $this->model ?? $resolver($this);
@@ -853,11 +857,11 @@ abstract class Factory
         $resolver = static::$factoryNameResolver ?? function (string $modelName) {
             $appNamespace = static::appNamespace();
 
-            $modelName = Str::startsWith($modelName, $appNamespace.'Models\\')
-                ? Str::after($modelName, $appNamespace.'Models\\')
+            $modelName = Str::startsWith($modelName, $appNamespace . 'Models\\')
+                ? Str::after($modelName, $appNamespace . 'Models\\')
                 : Str::after($modelName, $appNamespace);
 
-            return static::$namespace.$modelName.'Factory';
+            return static::$namespace . $modelName . 'Factory';
         };
 
         return $resolver($modelName);
@@ -872,10 +876,10 @@ abstract class Factory
     {
         try {
             return Container::getInstance()
-                            ->make(Application::class)
-                            ->getNamespace();
+                ->make(Application::class)
+                ->getNamespace();
         } catch (Throwable $e) {
-            return 'App\\';
+            return 'Coderstm\Core\\';
         }
     }
 
@@ -898,7 +902,7 @@ abstract class Factory
             ]);
         }
 
-        if (! Str::startsWith($method, ['for', 'has'])) {
+        if (!Str::startsWith($method, ['for', 'has'])) {
             static::throwBadMethodCallException($method);
         }
 

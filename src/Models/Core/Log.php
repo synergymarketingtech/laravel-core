@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models\Core;
+namespace Coderstm\Core\Models\Core;
 
-use App\Models\User;
-use App\Models\Admin;
-use App\Traits\Fileable;
-use App\Events\UserStatusUpdated;
+use Coderstm\Core\Models\User;
+use Coderstm\Core\Models\Admin;
+use Coderstm\Core\Traits\Fileable;
+use Coderstm\Core\Events\UserStatusUpdated;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 

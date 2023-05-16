@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models\Invoice;
+namespace Coderstm\Core\Models\Invoice;
 
-use App\Models\Invoice;
+use Coderstm\Core\Models\Invoice;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

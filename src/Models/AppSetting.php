@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models;
+namespace Coderstm\Core\Models;
 
-use App\Models\Core\File;
-use App\Traits\Core;
+use Coderstm\Core\Models\Core\File;
+use Coderstm\Core\Traits\Core;
 use Illuminate\Database\Eloquent\Model;
 
 class AppSetting extends Model

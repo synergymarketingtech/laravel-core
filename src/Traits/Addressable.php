@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Traits;
+namespace Coderstm\Core\Traits;
 
-use App\Models\Core\Address;
+use Coderstm\Core\Models\Core\Address;
 
 trait Addressable
 {

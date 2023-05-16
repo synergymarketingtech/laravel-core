@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Listeners\Usages;
+namespace Coderstm\Core\Listeners\Usages;
 
-use App\Events\BookingCreated;
+use Coderstm\Core\Events\BookingCreated;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
@@ -21,7 +21,7 @@ class AddClassesFeatureUsages
     /**
      * Handle the event.
      *
-     * @param  \App\Events\BookingCreated  $event
+     * @param  \Coderstm\Core\Events\BookingCreated  $event
      * @return void
      */
     public function handle(BookingCreated $event)

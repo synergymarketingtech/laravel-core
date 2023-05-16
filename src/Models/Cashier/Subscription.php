@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models\Cashier;
+namespace Coderstm\Core\Models\Cashier;
 
-use App\Models\Plan\Price;
-use App\Traits\HasFeature;
-use App\Events\Cashier\SubscriptionProcessed;
+use Coderstm\Core\Models\Plan\Price;
+use Coderstm\Core\Traits\HasFeature;
+use Coderstm\Core\Events\Cashier\SubscriptionProcessed;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Laravel\Cashier\Subscription as CashierSubscription;
 

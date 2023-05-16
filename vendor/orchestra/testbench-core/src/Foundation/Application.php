@@ -113,7 +113,8 @@ class Application
         }
 
         $this->config = Arr::only(
-            $options['extra'] ?? [], array_keys($this->config)
+            $options['extra'] ?? [],
+            array_keys($this->config)
         );
 
         return $this;
@@ -217,8 +218,8 @@ class Application
     {
         $kernel = 'Orchestra\Testbench\Console\Kernel';
 
-        if (file_exists($app->basePath('app/Console/Kernel.php')) && class_exists('App\Console\Kernel')) {
-            $kernel = 'App\Console\Kernel';
+        if (file_exists($app->basePath('app/Console/Kernel.php')) && class_exists('Coderstm\Core\Console\Kernel')) {
+            $kernel = 'Coderstm\Core\Console\Kernel';
         }
 
         $app->singleton('Illuminate\Contracts\Console\Kernel', $kernel);
@@ -234,8 +235,8 @@ class Application
     {
         $kernel = 'Orchestra\Testbench\Http\Kernel';
 
-        if (file_exists($app->basePath('app/Http/Kernel.php')) && class_exists('App\Http\Kernel')) {
-            $kernel = 'App\Http\Kernel';
+        if (file_exists($app->basePath('app/Http/Kernel.php')) && class_exists('Coderstm\Core\Http\Kernel')) {
+            $kernel = 'Coderstm\Core\Http\Kernel';
         }
 
         $app->singleton('Illuminate\Contracts\Http\Kernel', $kernel);

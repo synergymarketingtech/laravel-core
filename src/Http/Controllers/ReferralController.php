@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Coderstm\Core\Http\Controllers;
 
-use App\Models\Referral;
+use Coderstm\Core\Models\Referral;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
@@ -66,7 +66,7 @@ class ReferralController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Referral  $referral
+     * @param  \Coderstm\Core\Models\Referral  $referral
      * @return \Illuminate\Http\Response
      */
     public function show(Referral $referral)
@@ -78,7 +78,7 @@ class ReferralController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Referral  $referral
+     * @param  \Coderstm\Core\Models\Referral  $referral
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Referral $referral)
@@ -107,7 +107,7 @@ class ReferralController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Referral  $referral
+     * @param  \Coderstm\Core\Models\Referral  $referral
      * @return \Illuminate\Http\Response
      */
     public function destroy(Referral $referral)

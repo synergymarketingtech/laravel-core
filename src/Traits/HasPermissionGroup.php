@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Traits;
+namespace Coderstm\Core\Traits;
 
-use App\Models\Core\Module;
+use Coderstm\Core\Models\Core\Module;
 use Illuminate\Support\Collection;
 
 trait HasPermissionGroup

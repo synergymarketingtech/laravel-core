@@ -23,7 +23,7 @@ using the constructor or any API of the class itself:
     <?php
 
     use Doctrine\Instantiator\Instantiator;
-    use App\Entities\User;
+    use Coderstm\Core\Entities\User;
 
     $instantiator = new Instantiator();
 

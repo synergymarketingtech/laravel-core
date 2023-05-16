@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace Coderstm\Core\Http\Controllers\Admin;
 
-use App\Models\Location;
+use Coderstm\Core\Models\Location;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Coderstm\Core\Http\Controllers\Controller;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class LocationController extends Controller
@@ -85,7 +85,7 @@ class LocationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Location  $location
+     * @param  \Coderstm\Core\Models\Location  $location
      * @return \Illuminate\Http\Response
      */
     public function show(Location $location)
@@ -97,7 +97,7 @@ class LocationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Location  $location
+     * @param  \Coderstm\Core\Models\Location  $location
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Location $location)
@@ -122,7 +122,7 @@ class LocationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Location  $location
+     * @param  \Coderstm\Core\Models\Location  $location
      * @return \Illuminate\Http\Response
      */
     public function destroy(Location $location)
@@ -136,7 +136,7 @@ class LocationController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \App\Models\Location  $location
+     * @param  \Coderstm\Core\Models\Location  $location
      * @return \Illuminate\Http\Response
      */
     public function destroy_selected(Request $request, Location $location)
@@ -155,7 +155,7 @@ class LocationController extends Controller
     /**
      * Restore the specified resource from storage.
      *
-     * @param  \App\Models\Location  $location
+     * @param  \Coderstm\Core\Models\Location  $location
      * @return \Illuminate\Http\Response
      */
     public function restore($id)
@@ -172,7 +172,7 @@ class LocationController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \App\Models\Location  $location
+     * @param  \Coderstm\Core\Models\Location  $location
      * @return \Illuminate\Http\Response
      */
     public function restore_selected(Request $request, Location $location)
@@ -192,7 +192,7 @@ class LocationController extends Controller
     /**
      * Change active of specified resource from storage.
      *
-     * @param  \App\Models\Location  $location
+     * @param  \Coderstm\Core\Models\Location  $location
      * @return \Illuminate\Http\Response
      */
     public function changeActive(Request $request, Location $location)

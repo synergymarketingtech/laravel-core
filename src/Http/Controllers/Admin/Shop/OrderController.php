@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Shop;
+namespace Coderstm\Core\Http\Controllers\Admin\Shop;
 
-use App\Models\Shop\Order;
+use Coderstm\Core\Models\Shop\Order;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Coderstm\Core\Http\Controllers\Controller;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class OrderController extends Controller
@@ -78,7 +78,7 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Shop\Order  $order
+     * @param  \Coderstm\Core\Models\Shop\Order  $order
      * @return \Illuminate\Http\Response
      */
     public function show(Order $order)
@@ -90,7 +90,7 @@ class OrderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Shop\Order  $order
+     * @param  \Coderstm\Core\Models\Shop\Order  $order
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Order $order)
@@ -129,7 +129,7 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Shop\Order  $order
+     * @param  \Coderstm\Core\Models\Shop\Order  $order
      * @return \Illuminate\Http\Response
      */
     public function destroy(Order $order)
@@ -143,7 +143,7 @@ class OrderController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \App\Models\Shop\Order  $order
+     * @param  \Coderstm\Core\Models\Shop\Order  $order
      * @return \Illuminate\Http\Response
      */
     public function destroy_selected(Request $request, Order $order)
@@ -162,7 +162,7 @@ class OrderController extends Controller
     /**
      * Restore the specified resource from storage.
      *
-     * @param  \App\Models\Shop\Order  $order
+     * @param  \Coderstm\Core\Models\Shop\Order  $order
      * @return \Illuminate\Http\Response
      */
     public function restore($id)
@@ -179,7 +179,7 @@ class OrderController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \App\Models\Shop\Order  $order
+     * @param  \Coderstm\Core\Models\Shop\Order  $order
      * @return \Illuminate\Http\Response
      */
     public function restore_selected(Request $request, Order $order)

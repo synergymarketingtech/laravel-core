@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Plan;
+namespace Coderstm\Core\Models\Plan;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;

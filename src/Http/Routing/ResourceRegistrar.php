@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Routing;
+namespace Coderstm\Core\Http\Routing;
 
 use Illuminate\Support\Str;
 use Illuminate\Routing\RouteCollection;

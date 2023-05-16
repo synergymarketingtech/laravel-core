@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace Coderstm\Core\Models;
 
-use App\Traits\Core;
-use App\Enum\PlanInterval;
-use App\Models\Plan\Price;
-use App\Models\Plan\Feature;
+use Coderstm\Core\Traits\Core;
+use Coderstm\Core\Enum\PlanInterval;
+use Coderstm\Core\Models\Plan\Price;
+use Coderstm\Core\Models\Plan\Feature;
 use Laravel\Cashier\Cashier;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;

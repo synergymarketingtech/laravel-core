@@ -1,17 +1,15 @@
-Routing Component
-=================
+# Routing Component
 
 The Routing component maps an HTTP request to a set of configuration variables.
 
-Getting Started
----------------
+## Getting Started
 
 ```
 $ composer require symfony/routing
 ```
 
 ```php
-use App\Controller\BlogController;
+use Coderstm\Core\Controller\BlogController;
 use Symfony\Component\Routing\Generator\UrlGenerator;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\Routing\RequestContext;
@@ -28,7 +26,7 @@ $context = new RequestContext();
 $matcher = new UrlMatcher($routes, $context);
 $parameters = $matcher->match('/blog/lorem-ipsum');
 // $parameters = [
-//     '_controller' => 'App\Controller\BlogController',
+//     '_controller' => 'Coderstm\Core\Controller\BlogController',
 //     'slug' => 'lorem-ipsum',
 //     '_route' => 'blog_show'
 // ]
@@ -41,11 +39,10 @@ $url = $generator->generate('blog_show', [
 // $url = '/blog/my-blog-post'
 ```
 
-Resources
----------
+## Resources
 
- * [Documentation](https://symfony.com/doc/current/routing.html)
- * [Contributing](https://symfony.com/doc/current/contributing/index.html)
- * [Report issues](https://github.com/symfony/symfony/issues) and
-   [send Pull Requests](https://github.com/symfony/symfony/pulls)
-   in the [main Symfony repository](https://github.com/symfony/symfony)
+- [Documentation](https://symfony.com/doc/current/routing.html)
+- [Contributing](https://symfony.com/doc/current/contributing/index.html)
+- [Report issues](https://github.com/symfony/symfony/issues) and
+  [send Pull Requests](https://github.com/symfony/symfony/pulls)
+  in the [main Symfony repository](https://github.com/symfony/symfony)

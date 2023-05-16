@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exceptions;
+namespace Coderstm\Core\Exceptions;
 
 use Throwable;
 use Illuminate\Auth\Access\AuthorizationException;

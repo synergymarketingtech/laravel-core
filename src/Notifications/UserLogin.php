@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Notifications;
+namespace Coderstm\Core\Notifications;
 
-use App\Models\Core\Log;
+use Coderstm\Core\Models\Core\Log;
 use Illuminate\Http\Request;
 use Illuminate\Bus\Queueable;
 use Illuminate\Support\HtmlString;

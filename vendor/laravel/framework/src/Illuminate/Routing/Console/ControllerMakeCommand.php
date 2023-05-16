@@ -60,8 +60,8 @@ class ControllerMakeCommand extends GeneratorCommand
             $stub = "/stubs/controller.{$type}.stub";
         } elseif ($this->option('parent')) {
             $stub = $this->option('singleton')
-                        ? '/stubs/controller.nested.singleton.stub'
-                        : '/stubs/controller.nested.stub';
+                ? '/stubs/controller.nested.singleton.stub'
+                : '/stubs/controller.nested.stub';
         } elseif ($this->option('model')) {
             $stub = '/stubs/controller.model.stub';
         } elseif ($this->option('invokable')) {
@@ -74,7 +74,7 @@ class ControllerMakeCommand extends GeneratorCommand
 
         if ($this->option('api') && is_null($stub)) {
             $stub = '/stubs/controller.api.stub';
-        } elseif ($this->option('api') && ! is_null($stub) && ! $this->option('invokable')) {
+        } elseif ($this->option('api') && !is_null($stub) && !$this->option('invokable')) {
             $stub = str_replace('.stub', '.api.stub', $stub);
         }
 
@@ -92,8 +92,8 @@ class ControllerMakeCommand extends GeneratorCommand
     protected function resolveStubPath($stub)
     {
         return file_exists($customPath = $this->laravel->basePath(trim($stub, '/')))
-                        ? $customPath
-                        : __DIR__.$stub;
+            ? $customPath
+            : __DIR__ . $stub;
     }
 
     /**
@@ -104,7 +104,7 @@ class ControllerMakeCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\Http\Controllers';
+        return $rootNamespace . '\Http\Controllers';
     }
 
     /**
@@ -136,7 +136,9 @@ class ControllerMakeCommand extends GeneratorCommand
         $replace["use {$controllerNamespace}\Controller;\n"] = '';
 
         return str_replace(
-            array_keys($replace), array_values($replace), parent::buildClass($name)
+            array_keys($replace),
+            array_values($replace),
+            parent::buildClass($name)
         );
     }
 
@@ -149,8 +151,10 @@ class ControllerMakeCommand extends GeneratorCommand
     {
         $parentModelClass = $this->parseModel($this->option('parent'));
 
-        if (! class_exists($parentModelClass) &&
-            $this->components->confirm("A {$parentModelClass} model does not exist. Do you want to generate it?", true)) {
+        if (
+            !class_exists($parentModelClass) &&
+            $this->components->confirm("A {$parentModelClass} model does not exist. Do you want to generate it?", true)
+        ) {
             $this->call('make:model', ['name' => $parentModelClass]);
         }
 
@@ -177,7 +181,7 @@ class ControllerMakeCommand extends GeneratorCommand
     {
         $modelClass = $this->parseModel($this->option('model'));
 
-        if (! class_exists($modelClass) && $this->components->confirm("A {$modelClass} model does not exist. Do you want to generate it?", true)) {
+        if (!class_exists($modelClass) && $this->components->confirm("A {$modelClass} model does not exist. Do you want to generate it?", true)) {
             $this->call('make:model', ['name' => $modelClass]);
         }
 
@@ -227,17 +231,19 @@ class ControllerMakeCommand extends GeneratorCommand
         ];
 
         if ($this->option('requests')) {
-            $namespace = 'App\\Http\\Requests';
+            $namespace = 'Coderstm\Core\\Http\\Requests';
 
             [$storeRequestClass, $updateRequestClass] = $this->generateFormRequests(
-                $modelClass, $storeRequestClass, $updateRequestClass
+                $modelClass,
+                $storeRequestClass,
+                $updateRequestClass
             );
         }
 
-        $namespacedRequests = $namespace.'\\'.$storeRequestClass.';';
+        $namespacedRequests = $namespace . '\\' . $storeRequestClass . ';';
 
         if ($storeRequestClass !== $updateRequestClass) {
-            $namespacedRequests .= PHP_EOL.'use '.$namespace.'\\'.$updateRequestClass.';';
+            $namespacedRequests .= PHP_EOL . 'use ' . $namespace . '\\' . $updateRequestClass . ';';
         }
 
         return array_merge($replace, [
@@ -245,10 +251,10 @@ class ControllerMakeCommand extends GeneratorCommand
             '{{storeRequest}}' => $storeRequestClass,
             '{{ updateRequest }}' => $updateRequestClass,
             '{{updateRequest}}' => $updateRequestClass,
-            '{{ namespacedStoreRequest }}' => $namespace.'\\'.$storeRequestClass,
-            '{{namespacedStoreRequest}}' => $namespace.'\\'.$storeRequestClass,
-            '{{ namespacedUpdateRequest }}' => $namespace.'\\'.$updateRequestClass,
-            '{{namespacedUpdateRequest}}' => $namespace.'\\'.$updateRequestClass,
+            '{{ namespacedStoreRequest }}' => $namespace . '\\' . $storeRequestClass,
+            '{{namespacedStoreRequest}}' => $namespace . '\\' . $storeRequestClass,
+            '{{ namespacedUpdateRequest }}' => $namespace . '\\' . $updateRequestClass,
+            '{{namespacedUpdateRequest}}' => $namespace . '\\' . $updateRequestClass,
             '{{ namespacedRequests }}' => $namespacedRequests,
             '{{namespacedRequests}}' => $namespacedRequests,
         ]);
@@ -264,13 +270,13 @@ class ControllerMakeCommand extends GeneratorCommand
      */
     protected function generateFormRequests($modelClass, $storeRequestClass, $updateRequestClass)
     {
-        $storeRequestClass = 'Store'.class_basename($modelClass).'Request';
+        $storeRequestClass = 'Store' . class_basename($modelClass) . 'Request';
 
         $this->call('make:request', [
             'name' => $storeRequestClass,
         ]);
 
-        $updateRequestClass = 'Update'.class_basename($modelClass).'Request';
+        $updateRequestClass = 'Update' . class_basename($modelClass) . 'Request';
 
         $this->call('make:request', [
             'name' => $updateRequestClass,

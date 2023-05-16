@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Console\Commands;
+namespace Coderstm\Core\Console\Commands;
 
-use App\Models\User;
+use Coderstm\Core\Models\User;
 use Illuminate\Console\Command;
 
 class CheckBlockUser extends Command

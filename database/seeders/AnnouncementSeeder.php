@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Announcement;
+use Coderstm\Core\Models\Announcement;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 

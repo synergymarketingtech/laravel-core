@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Traits;
+namespace Coderstm\Core\Traits;
 
-use App\Models\Booking;
-use App\Events\BookingCanceled;
-use App\Events\BookingCreated;
+use Coderstm\Core\Models\Booking;
+use Coderstm\Core\Events\BookingCanceled;
+use Coderstm\Core\Events\BookingCreated;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 

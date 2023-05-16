@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace Coderstm\Core\Http\Controllers\Admin;
 
-use App\Models\Announcement;
+use Coderstm\Core\Models\Announcement;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Coderstm\Core\Http\Controllers\Controller;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class AnnouncementController extends Controller
@@ -70,7 +70,7 @@ class AnnouncementController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Announcement  $announcement
+     * @param  \Coderstm\Core\Models\Announcement  $announcement
      * @return \Illuminate\Http\Response
      */
     public function show(Announcement $announcement)
@@ -82,7 +82,7 @@ class AnnouncementController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Announcement  $announcement
+     * @param  \Coderstm\Core\Models\Announcement  $announcement
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Announcement $announcement)
@@ -108,7 +108,7 @@ class AnnouncementController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Announcement  $announcement
+     * @param  \Coderstm\Core\Models\Announcement  $announcement
      * @return \Illuminate\Http\Response
      */
     public function destroy(Announcement $announcement)
@@ -122,7 +122,7 @@ class AnnouncementController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \App\Models\Announcement  $announcement
+     * @param  \Coderstm\Core\Models\Announcement  $announcement
      * @return \Illuminate\Http\Response
      */
     public function destroy_selected(Request $request, Announcement $announcement)
@@ -141,7 +141,7 @@ class AnnouncementController extends Controller
     /**
      * Restore the specified resource from storage.
      *
-     * @param  \App\Models\Announcement  $announcement
+     * @param  \Coderstm\Core\Models\Announcement  $announcement
      * @return \Illuminate\Http\Response
      */
     public function restore($id)
@@ -158,7 +158,7 @@ class AnnouncementController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \App\Models\Announcement  $announcement
+     * @param  \Coderstm\Core\Models\Announcement  $announcement
      * @return \Illuminate\Http\Response
      */
     public function restore_selected(Request $request, Announcement $announcement)

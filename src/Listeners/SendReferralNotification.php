@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Listeners;
+namespace Coderstm\Core\Listeners;
 
-use App\Events\ReferralCreated;
+use Coderstm\Core\Events\ReferralCreated;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\Notifications\ReferralNotification;
+use Coderstm\Core\Notifications\ReferralNotification;
 
 class SendReferralNotification implements ShouldQueue
 {
@@ -23,7 +23,7 @@ class SendReferralNotification implements ShouldQueue
     /**
      * Handle the event.
      *
-     * @param  \App\Events\ReferralCreated  $event
+     * @param  \Coderstm\Core\Events\ReferralCreated  $event
      * @return void
      */
     public function handle(ReferralCreated $event)

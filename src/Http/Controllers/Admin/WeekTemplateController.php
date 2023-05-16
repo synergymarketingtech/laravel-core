@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace Coderstm\Core\Http\Controllers\Admin;
 
-use App\Models\WeekTemplate;
+use Coderstm\Core\Models\WeekTemplate;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\ClassSchedule;
-use App\Models\Template;
-use App\Traits\Helpers;
+use Coderstm\Core\Http\Controllers\Controller;
+use Coderstm\Core\Models\ClassSchedule;
+use Coderstm\Core\Models\Template;
+use Coderstm\Core\Traits\Helpers;
 use Carbon\Carbon;
 
 class WeekTemplateController extends Controller

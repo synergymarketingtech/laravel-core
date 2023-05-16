@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models\Shop;
+namespace Coderstm\Core\Models\Shop;
 
-use App\Models\User;
-use App\Traits\Core;
-use App\Models\Shop\Product;
+use Coderstm\Core\Models\User;
+use Coderstm\Core\Traits\Core;
+use Coderstm\Core\Models\Shop\Product;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;

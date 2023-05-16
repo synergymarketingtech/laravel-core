@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Listeners;
+namespace Coderstm\Core\Listeners;
 
-use App\Events\BookingCreated;
-use App\Events\BookingCanceled;
+use Coderstm\Core\Events\BookingCreated;
+use Coderstm\Core\Events\BookingCanceled;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Notification;
-use App\Notifications\BookingCanceledNotification;
+use Coderstm\Core\Notifications\BookingCanceledNotification;
 
 class ProcessStandbyBooking implements ShouldQueue
 {
@@ -24,7 +24,7 @@ class ProcessStandbyBooking implements ShouldQueue
     /**
      * Handle the event.
      *
-     * @param  \App\Events\BookingCanceled  $event
+     * @param  \Coderstm\Core\Events\BookingCanceled  $event
      * @return void
      */
     public function handle(BookingCanceled $event)

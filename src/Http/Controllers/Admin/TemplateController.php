@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace Coderstm\Core\Http\Controllers\Admin;
 
-use App\Models\Template;
-use App\Models\WeekTemplate;
+use Coderstm\Core\Models\Template;
+use Coderstm\Core\Models\WeekTemplate;
 use Illuminate\Http\Request;
-use App\Models\ClassSchedule;
-use App\Http\Controllers\Controller;
+use Coderstm\Core\Models\ClassSchedule;
+use Coderstm\Core\Http\Controllers\Controller;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class TemplateController extends Controller
@@ -78,7 +78,7 @@ class TemplateController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Template  $template
+     * @param  \Coderstm\Core\Models\Template  $template
      * @return \Illuminate\Http\Response
      */
     public function show(Template $template)
@@ -90,7 +90,7 @@ class TemplateController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Template  $template
+     * @param  \Coderstm\Core\Models\Template  $template
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Template $template)
@@ -135,7 +135,7 @@ class TemplateController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Template  $template
+     * @param  \Coderstm\Core\Models\Template  $template
      * @return \Illuminate\Http\Response
      */
     public function destroy(Template $template)
@@ -149,7 +149,7 @@ class TemplateController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \App\Models\Template  $template
+     * @param  \Coderstm\Core\Models\Template  $template
      * @return \Illuminate\Http\Response
      */
     public function destroy_selected(Request $request, Template $template)
@@ -168,7 +168,7 @@ class TemplateController extends Controller
     /**
      * Restore the specified resource from storage.
      *
-     * @param  \App\Models\Template  $template
+     * @param  \Coderstm\Core\Models\Template  $template
      * @return \Illuminate\Http\Response
      */
     public function restore($id)
@@ -185,7 +185,7 @@ class TemplateController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \App\Models\Template  $template
+     * @param  \Coderstm\Core\Models\Template  $template
      * @return \Illuminate\Http\Response
      */
     public function restore_selected(Request $request, Template $template)
@@ -205,7 +205,7 @@ class TemplateController extends Controller
     /**
      * Change active of specified resource from storage.
      *
-     * @param  \App\Models\Template  $template
+     * @param  \Coderstm\Core\Models\Template  $template
      * @return \Illuminate\Http\Response
      */
     public function changeActive(Request $request, Template $template)
@@ -222,7 +222,7 @@ class TemplateController extends Controller
     /**
      * Make duplicate of specified resource from storage.
      *
-     * @param  \App\Models\Template  $template
+     * @param  \Coderstm\Core\Models\Template  $template
      * @return \Illuminate\Http\Response
      */
     public function duplicate(Request $request, Template $template)

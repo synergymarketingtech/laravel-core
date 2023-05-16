@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace Coderstm\Core\Models;
 
-use App\Traits\Core;
+use Coderstm\Core\Traits\Core;
 use Illuminate\Database\Eloquent\Model;
 
 class Location extends Model

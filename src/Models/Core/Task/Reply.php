@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models\Core\Task;
+namespace Coderstm\Core\Models\Core\Task;
 
-use App\Enum\AppStatus;
-use App\Models\Admin;
-use App\Traits\Fileable;
-use App\Models\Core\Task;
+use Coderstm\Core\Enum\AppStatus;
+use Coderstm\Core\Models\Admin;
+use Coderstm\Core\Traits\Fileable;
+use Coderstm\Core\Models\Core\Task;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 

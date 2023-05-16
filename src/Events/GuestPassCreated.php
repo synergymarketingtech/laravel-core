@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Events;
+namespace Coderstm\Core\Events;
 
-use App\Models\GuestPass;
+use Coderstm\Core\Models\GuestPass;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;

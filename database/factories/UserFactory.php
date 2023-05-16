@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\Plan;
-use App\Models\User;
+use Coderstm\Core\Models\Plan;
+use Coderstm\Core\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Coderstm\Core\Models\User>
  */
 class UserFactory extends Factory
 {

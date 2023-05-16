@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace Coderstm\Core\Http\Controllers\Admin;
 
-use App\Models\User;
+use Coderstm\Core\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Admin\UserController as AdminUserController;
+use Coderstm\Core\Http\Controllers\Admin\UserController as AdminUserController;
 
 class ReportController extends AdminUserController
 {

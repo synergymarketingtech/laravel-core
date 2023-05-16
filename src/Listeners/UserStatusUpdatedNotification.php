@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Listeners;
+namespace Coderstm\Core\Listeners;
 
-use App\Enum\AppStatus;
-use App\Events\UserStatusUpdated;
+use Coderstm\Core\Enum\AppStatus;
+use Coderstm\Core\Events\UserStatusUpdated;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Notification;
-use App\Notifications\HoldMemberNotification;
-use App\Notifications\ActiveMemberNotification;
-use App\Notifications\DeactiveMemberNotification;
+use Coderstm\Core\Notifications\HoldMemberNotification;
+use Coderstm\Core\Notifications\ActiveMemberNotification;
+use Coderstm\Core\Notifications\DeactiveMemberNotification;
 
 class UserStatusUpdatedNotification implements ShouldQueue
 {
@@ -27,7 +27,7 @@ class UserStatusUpdatedNotification implements ShouldQueue
     /**
      * Handle the event.
      *
-     * @param  \App\Events\UserStatusUpdated  $event
+     * @param  \Coderstm\Core\Events\UserStatusUpdated  $event
      * @return void
      */
     public function handle(UserStatusUpdated $event)

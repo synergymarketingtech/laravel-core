@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Admin;
-use App\Models\Core\Enquiry;
-use App\Models\Core\Enquiry\Reply;
+use Coderstm\Core\Models\Admin;
+use Coderstm\Core\Models\Core\Enquiry;
+use Coderstm\Core\Models\Core\Enquiry\Reply;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 

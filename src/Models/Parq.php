@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models;
+namespace Coderstm\Core\Models;
 
-use App\Traits\Logable;
-use App\Models\Core\Log;
+use Coderstm\Core\Traits\Logable;
+use Coderstm\Core\Models\Core\Log;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 

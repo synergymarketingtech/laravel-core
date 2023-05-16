@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Listeners;
+namespace Coderstm\Core\Listeners;
 
-use App\Models\User;
-use App\Enum\AppStatus;
-use App\Events\GuestPassCreated;
+use Coderstm\Core\Models\User;
+use Coderstm\Core\Enum\AppStatus;
+use Coderstm\Core\Events\GuestPassCreated;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Notification;
@@ -24,7 +24,7 @@ class CreateEnquiryMemberByGuestPass implements ShouldQueue
     /**
      * Handle the event.
      *
-     * @param  \App\Events\GuestPassCreated  $event
+     * @param  \Coderstm\Core\Events\GuestPassCreated  $event
      * @return void
      */
     public function handle(GuestPassCreated $event)
@@ -44,7 +44,7 @@ class CreateEnquiryMemberByGuestPass implements ShouldQueue
             $user->log_options = [
                 'ref' => 'Member'
             ];
-            event('eloquent.created: App\Models\User', $user);
+            event('eloquent.created: Coderstm\Core\Models\User', $user);
             $user->logs()->create([
                 'message' => "Guest Pass request from <strong>{$event->guestPass->user->name}</strong>.",
                 'type' => 'guest_pass',

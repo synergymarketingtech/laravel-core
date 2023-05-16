@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Console\Commands;
+namespace Coderstm\Core\Console\Commands;
 
-use App\Models\User;
-use App\Enum\AppStatus;
-use App\Notifications\HoldMemberNotification;
+use Coderstm\Core\Models\User;
+use Coderstm\Core\Enum\AppStatus;
+use Coderstm\Core\Notifications\HoldMemberNotification;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Notification;
 

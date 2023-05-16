@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Cashier;
+namespace Coderstm\Core\Traits\Cashier;
 
 use Laravel\Cashier\Concerns\ManagesCustomer as CashierManagesCustomer;
 

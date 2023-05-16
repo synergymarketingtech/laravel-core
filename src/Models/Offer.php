@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models;
+namespace Coderstm\Core\Models;
 
-use App\Traits\Core;
-use App\Traits\Fileable;
+use Coderstm\Core\Traits\Core;
+use Coderstm\Core\Traits\Fileable;
 use Illuminate\Database\Eloquent\Model;
 
 class Offer extends Model

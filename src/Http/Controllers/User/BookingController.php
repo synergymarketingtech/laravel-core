@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace Coderstm\Core\Http\Controllers\User;
 
-use App\Models\Booking;
-use App\Events\BookingCanceled;
-use App\Http\Controllers\Controller;
+use Coderstm\Core\Models\Booking;
+use Coderstm\Core\Events\BookingCanceled;
+use Coderstm\Core\Http\Controllers\Controller;
 
 class BookingController extends Controller
 {
     /**
      * Cancel the specified resource from storage.
      *
-     * @param  \App\Models\Booking  $booking
+     * @param  \Coderstm\Core\Models\Booking  $booking
      * @return \Illuminate\Http\Response
      */
     public function cancel(Booking $booking)

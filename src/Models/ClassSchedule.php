@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models;
+namespace Coderstm\Core\Models;
 
 use Carbon\Carbon;
-use App\Traits\Core;
-use App\Enum\AppDay;
-use App\Models\Booking;
-use App\Traits\Bookingable;
+use Coderstm\Core\Traits\Core;
+use Coderstm\Core\Enum\AppDay;
+use Coderstm\Core\Models\Booking;
+use Coderstm\Core\Traits\Bookingable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;

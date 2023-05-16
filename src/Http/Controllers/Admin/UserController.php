@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace Coderstm\Core\Http\Controllers\Admin;
 
 use Carbon\Carbon;
-use App\Models\User;
-use App\Models\Booking;
-use App\Traits\Helpers;
-use App\Enum\AppStatus;
+use Coderstm\Core\Models\User;
+use Coderstm\Core\Models\Booking;
+use Coderstm\Core\Traits\Helpers;
+use Coderstm\Core\Enum\AppStatus;
 use Illuminate\Http\Request;
-use App\Models\ClassSchedule;
+use Coderstm\Core\Models\ClassSchedule;
 use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\UpdateParqRequest;
-use App\Models\Invoice;
+use Coderstm\Core\Http\Controllers\Controller;
+use Coderstm\Core\Http\Requests\UpdateParqRequest;
+use Coderstm\Core\Models\Invoice;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
@@ -201,7 +201,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Coderstm\Core\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
@@ -213,7 +213,7 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @param  \Coderstm\Core\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
@@ -277,7 +277,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Coderstm\Core\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)
@@ -291,7 +291,7 @@ class UserController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Coderstm\Core\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function destroy_selected(Request $request, User $user)
@@ -310,7 +310,7 @@ class UserController extends Controller
     /**
      * Restore the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Coderstm\Core\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function restore($id)
@@ -327,7 +327,7 @@ class UserController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Coderstm\Core\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function restore_selected(Request $request, User $user)
@@ -347,7 +347,7 @@ class UserController extends Controller
     /**
      * Send reset password request to specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Coderstm\Core\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function resetPasswordRequest(Request $request, User $user)
@@ -365,7 +365,7 @@ class UserController extends Controller
     /**
      * Change active of specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Coderstm\Core\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function changeActive(Request $request, User $user)
@@ -382,7 +382,7 @@ class UserController extends Controller
     /**
      * Change checked specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Coderstm\Core\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function checked(Request $request, User $user)
@@ -399,7 +399,7 @@ class UserController extends Controller
     /**
      * Change request_parq of specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Coderstm\Core\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function requestParq(Request $request, User $user)
@@ -416,7 +416,7 @@ class UserController extends Controller
     /**
      * Change request_avatar of specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Coderstm\Core\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function requestAvatar(Request $request, User $user)
@@ -433,7 +433,7 @@ class UserController extends Controller
     /**
      * Display a schedules listing of specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Coderstm\Core\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function schedules(Request $request, User $user)
@@ -507,7 +507,7 @@ class UserController extends Controller
     /**
      * Create notes for specified resource from storage.
      *
-     * @param  \App\Models\User $user
+     * @param  \Coderstm\Core\Models\User $user
      * @return \Illuminate\Http\Response
      */
     public function notes(Request $request, User $user)
@@ -547,7 +547,7 @@ class UserController extends Controller
     /**
      * Change block of specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Coderstm\Core\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function changeBlock(Request $request, User $user)

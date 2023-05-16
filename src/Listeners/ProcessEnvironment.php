@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Listeners;
+namespace Coderstm\Core\Listeners;
 
 use Illuminate\Support\Str;
 use Illuminate\Queue\InteractsWithQueue;

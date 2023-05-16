@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Listeners;
+namespace Coderstm\Core\Listeners;
 
-use App\Events\BookingCanceled;
-use App\Notifications\BookingCanceledNotification;
+use Coderstm\Core\Events\BookingCanceled;
+use Coderstm\Core\Notifications\BookingCanceledNotification;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Notification;
@@ -23,7 +23,7 @@ class SendBookingCanceled implements ShouldQueue
     /**
      * Handle the event.
      *
-     * @param  \App\Events\BookingCanceled  $event
+     * @param  \Coderstm\Core\Events\BookingCanceled  $event
      * @return void
      */
     public function handle(BookingCanceled $event)

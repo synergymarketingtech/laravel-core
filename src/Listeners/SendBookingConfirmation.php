@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Listeners;
+namespace Coderstm\Core\Listeners;
 
-use App\Events\BookingCreated;
-use App\Notifications\BookingConfirmationNotification;
+use Coderstm\Core\Events\BookingCreated;
+use Coderstm\Core\Notifications\BookingConfirmationNotification;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Notification;
@@ -23,7 +23,7 @@ class SendBookingConfirmation implements ShouldQueue
     /**
      * Handle the event.
      *
-     * @param  \App\Events\BookingCreated  $event
+     * @param  \Coderstm\Core\Events\BookingCreated  $event
      * @return void
      */
     public function handle(BookingCreated $event)

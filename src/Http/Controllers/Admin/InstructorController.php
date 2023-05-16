@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace Coderstm\Core\Http\Controllers\Admin;
 
-use App\Models\Core\File;
-use App\Models\Instructor;
+use Coderstm\Core\Models\Core\File;
+use Coderstm\Core\Models\Instructor;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Coderstm\Core\Http\Controllers\Controller;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class InstructorController extends Controller
@@ -140,7 +140,7 @@ class InstructorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Instructor  $instructor
+     * @param  \Coderstm\Core\Models\Instructor  $instructor
      * @return \Illuminate\Http\Response
      */
     public function show(Instructor $instructor)
@@ -152,7 +152,7 @@ class InstructorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Instructor  $instructor
+     * @param  \Coderstm\Core\Models\Instructor  $instructor
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Instructor $instructor)
@@ -216,7 +216,7 @@ class InstructorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Instructor  $instructor
+     * @param  \Coderstm\Core\Models\Instructor  $instructor
      * @return \Illuminate\Http\Response
      */
     public function destroy(Instructor $instructor)
@@ -230,7 +230,7 @@ class InstructorController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \App\Models\Instructor  $instructor
+     * @param  \Coderstm\Core\Models\Instructor  $instructor
      * @return \Illuminate\Http\Response
      */
     public function destroy_selected(Request $request, Instructor $instructor)
@@ -249,7 +249,7 @@ class InstructorController extends Controller
     /**
      * Restore the specified resource from storage.
      *
-     * @param  \App\Models\Instructor  $instructor
+     * @param  \Coderstm\Core\Models\Instructor  $instructor
      * @return \Illuminate\Http\Response
      */
     public function restore($id)
@@ -266,7 +266,7 @@ class InstructorController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \App\Models\Instructor  $instructor
+     * @param  \Coderstm\Core\Models\Instructor  $instructor
      * @return \Illuminate\Http\Response
      */
     public function restore_selected(Request $request, Instructor $instructor)

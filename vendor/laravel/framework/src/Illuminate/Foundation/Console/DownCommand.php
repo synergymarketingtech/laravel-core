@@ -2,7 +2,7 @@
 
 namespace Illuminate\Foundation\Console;
 
-use App\Http\Middleware\PreventRequestsDuringMaintenance;
+use Coderstm\Core\Http\Middleware\PreventRequestsDuringMaintenance;
 use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Events\MaintenanceModeEnabled;
@@ -61,7 +61,7 @@ class DownCommand extends Command
 
             file_put_contents(
                 storage_path('framework/maintenance.php'),
-                file_get_contents(__DIR__.'/stubs/maintenance-mode.stub')
+                file_get_contents(__DIR__ . '/stubs/maintenance-mode.stub')
             );
 
             $this->laravel->get('events')->dispatch(new MaintenanceModeEnabled());
@@ -117,7 +117,7 @@ class DownCommand extends Command
     protected function redirectPath()
     {
         if ($this->option('redirect') && $this->option('redirect') !== '/') {
-            return '/'.trim($this->option('redirect'), '/');
+            return '/' . trim($this->option('redirect'), '/');
         }
 
         return $this->option('redirect');

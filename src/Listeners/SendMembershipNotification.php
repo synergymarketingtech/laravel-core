@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Listeners;
+namespace Coderstm\Core\Listeners;
 
-use App\Events\MembershipCreated;
+use Coderstm\Core\Events\MembershipCreated;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\Notifications\MembershipNotification;
+use Coderstm\Core\Notifications\MembershipNotification;
 
 class SendMembershipNotification implements ShouldQueue
 {
@@ -23,7 +23,7 @@ class SendMembershipNotification implements ShouldQueue
     /**
      * Handle the event.
      *
-     * @param  \App\Events\MembershipCreated  $event
+     * @param  \Coderstm\Core\Events\MembershipCreated  $event
      * @return void
      */
     public function handle(MembershipCreated $event)

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models;
+namespace Coderstm\Core\Models;
 
-use App\Enum\AppStatus;
-use App\Traits\Core;
-use App\Traits\Fileable;
-use App\Models\Core\File;
-use App\Traits\HasMorphToOne;
+use Coderstm\Core\Enum\AppStatus;
+use Coderstm\Core\Traits\Core;
+use Coderstm\Core\Traits\Fileable;
+use Coderstm\Core\Models\Core\File;
+use Coderstm\Core\Traits\HasMorphToOne;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;

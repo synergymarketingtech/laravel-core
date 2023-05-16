@@ -3,7 +3,10 @@
   "autoload": {
     "psr-4": {
       "Coderstm\\Core\\": "src/"
-    }
+    },
+    "files": [
+      "lib/helpers.php"
+    ]
   },
   "authors": [
     {

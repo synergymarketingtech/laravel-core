@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Traits;
+namespace Coderstm\Core\Traits;
 
-use App\Models\Core\Permission;
+use Coderstm\Core\Models\Core\Permission;
 use Illuminate\Support\Collection;
 
 trait HasPermission

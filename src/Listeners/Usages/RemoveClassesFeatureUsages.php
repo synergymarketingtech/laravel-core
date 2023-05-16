@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Listeners\Usages;
+namespace Coderstm\Core\Listeners\Usages;
 
-use App\Events\BookingCanceled;
+use Coderstm\Core\Events\BookingCanceled;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
@@ -21,7 +21,7 @@ class RemoveClassesFeatureUsages
     /**
      * Handle the event.
      *
-     * @param  \App\Events\BookingCanceled  $event
+     * @param  \Coderstm\Core\Events\BookingCanceled  $event
      * @return void
      */
     public function handle(BookingCanceled $event)

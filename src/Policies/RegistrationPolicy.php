@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Policies;
+namespace Coderstm\Core\Policies;
 
-use App\Models\Admin;
+use Coderstm\Core\Models\Admin;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class RegistrationPolicy
@@ -12,7 +12,7 @@ class RegistrationPolicy
     /**
      * Perform pre-authorization checks.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \Coderstm\Core\Models\Admin  $admin
      * @param  string  $ability
      * @return void|bool
      */
@@ -26,7 +26,7 @@ class RegistrationPolicy
     /**
      * Determine whether the admin can view any models.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \Coderstm\Core\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function viewAny(Admin $admin)
@@ -37,7 +37,7 @@ class RegistrationPolicy
     /**
      * Determine whether the admin can view the model.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \Coderstm\Core\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function view(Admin $admin)
@@ -48,7 +48,7 @@ class RegistrationPolicy
     /**
      * Determine whether the admin can update the model.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \Coderstm\Core\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function update(Admin $admin)

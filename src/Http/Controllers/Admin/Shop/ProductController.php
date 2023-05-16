@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Shop;
+namespace Coderstm\Core\Http\Controllers\Admin\Shop;
 
-use App\Models\Shop\Product;
+use Coderstm\Core\Models\Shop\Product;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Coderstm\Core\Http\Controllers\Controller;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class ProductController extends Controller
@@ -83,7 +83,7 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Shop\Product $product
+     * @param  \Coderstm\Core\Models\Shop\Product $product
      * @return \Illuminate\Http\Response
      */
     public function show(Product $product)
@@ -95,7 +95,7 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Shop\Product $product
+     * @param  \Coderstm\Core\Models\Shop\Product $product
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Product $product)
@@ -128,7 +128,7 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Shop\Product $product
+     * @param  \Coderstm\Core\Models\Shop\Product $product
      * @return \Illuminate\Http\Response
      */
     public function destroy(Product $product)
@@ -142,7 +142,7 @@ class ProductController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \App\Models\Shop\Product $product
+     * @param  \Coderstm\Core\Models\Shop\Product $product
      * @return \Illuminate\Http\Response
      */
     public function destroy_selected(Request $request, Product $product)
@@ -161,7 +161,7 @@ class ProductController extends Controller
     /**
      * Restore the specified resource from storage.
      *
-     * @param  \App\Models\Shop\Product $product
+     * @param  \Coderstm\Core\Models\Shop\Product $product
      * @return \Illuminate\Http\Response
      */
     public function restore($id)
@@ -178,7 +178,7 @@ class ProductController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \App\Models\Shop\Product $product
+     * @param  \Coderstm\Core\Models\Shop\Product $product
      * @return \Illuminate\Http\Response
      */
     public function restore_selected(Request $request, Product $product)
@@ -198,7 +198,7 @@ class ProductController extends Controller
     /**
      * Change active of specified resource from storage.
      *
-     * @param  \App\Models\Shop\Product  $product
+     * @param  \Coderstm\Core\Models\Shop\Product  $product
      * @return \Illuminate\Http\Response
      */
     public function changeActive(Request $request, Product $product)
@@ -215,7 +215,7 @@ class ProductController extends Controller
     /**
      * Update or Create related of selected resource from storage.
      *
-     * @param  \App\Models\Shop\Product $product
+     * @param  \Coderstm\Core\Models\Shop\Product $product
      */
     protected function saveRelated(Request $request, Product $product)
     {

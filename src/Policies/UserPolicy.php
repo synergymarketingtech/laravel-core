@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Policies;
+namespace Coderstm\Core\Policies;
 
-use App\Models\User;
-use App\Models\Admin;
+use Coderstm\Core\Models\User;
+use Coderstm\Core\Models\Admin;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class UserPolicy
@@ -13,7 +13,7 @@ class UserPolicy
     /**
      * Perform pre-authorization checks.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \Coderstm\Core\Models\Admin  $admin
      * @param  string  $ability
      * @return void|bool
      */
@@ -27,7 +27,7 @@ class UserPolicy
     /**
      * Determine whether the admin can view any models.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \Coderstm\Core\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function viewAny(Admin $admin)
@@ -38,8 +38,8 @@ class UserPolicy
     /**
      * Determine whether the admin can view the model.
      *
-     * @param  \App\Models\Admin  $admin
-     * @param  \App\Models\User  $user
+     * @param  \Coderstm\Core\Models\Admin  $admin
+     * @param  \Coderstm\Core\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function view(Admin $admin, User $user)
@@ -53,7 +53,7 @@ class UserPolicy
     /**
      * Determine whether the admin can create models.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \Coderstm\Core\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function create(Admin $admin)
@@ -64,7 +64,7 @@ class UserPolicy
     /**
      * Determine whether the admin can update the model.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \Coderstm\Core\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function update(Admin $admin)
@@ -75,7 +75,7 @@ class UserPolicy
     /**
      * Determine whether the admin can delete the model.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \Coderstm\Core\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function delete(Admin $admin)
@@ -86,7 +86,7 @@ class UserPolicy
     /**
      * Determine whether the admin can restore the model.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \Coderstm\Core\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function restore(Admin $admin)
@@ -97,7 +97,7 @@ class UserPolicy
     /**
      * Determine whether the admin can permanently delete the model.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \Coderstm\Core\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function forceDelete(Admin $admin)
@@ -108,7 +108,7 @@ class UserPolicy
     /**
      * Determine whether the admin can view monthly reports of the model.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \Coderstm\Core\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function reports_monthly(Admin $admin)
@@ -119,7 +119,7 @@ class UserPolicy
     /**
      * Determine whether the admin can view yearly reports of the model.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \Coderstm\Core\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function reports_yearly(Admin $admin)
@@ -129,8 +129,8 @@ class UserPolicy
     /**
      * Determine whether the admin can update parq of the model.
      *
-     * @param  \App\Models\Admin  $admin
-     * @param  \App\Models\User  $user
+     * @param  \Coderstm\Core\Models\Admin  $admin
+     * @param  \Coderstm\Core\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function update_parq(Admin $admin, User $user)
@@ -144,7 +144,7 @@ class UserPolicy
     /**
      * Determine whether the admin can view enquiry of the model.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \Coderstm\Core\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function enquiry(Admin $admin)
@@ -155,7 +155,7 @@ class UserPolicy
     /**
      * Determine whether the admin can update admin of the model.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \Coderstm\Core\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function admin(Admin $admin)
@@ -166,7 +166,7 @@ class UserPolicy
     /**
      * Determine whether the admin can update membership of the model.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \Coderstm\Core\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function membership(Admin $admin)
@@ -177,7 +177,7 @@ class UserPolicy
     /**
      * Determine whether the admin can update types of the model.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \Coderstm\Core\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function types(Admin $admin)
@@ -188,7 +188,7 @@ class UserPolicy
     /**
      * Determine whether the admin can use reconciles of the model.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \Coderstm\Core\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function reconciles(Admin $admin)

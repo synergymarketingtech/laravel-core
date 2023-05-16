@@ -2,14 +2,14 @@
 
 namespace Database\Seeders;
 
-use App\Models\Location;
-use App\Models\Template;
-use App\Models\ClassList;
-use App\Models\Instructor;
-use App\Models\WeekTemplate;
+use Coderstm\Core\Models\Location;
+use Coderstm\Core\Models\Template;
+use Coderstm\Core\Models\ClassList;
+use Coderstm\Core\Models\Instructor;
+use Coderstm\Core\Models\WeekTemplate;
 use Illuminate\Database\Seeder;
-use App\Models\TemplateSchedule;
-use App\Traits\Helpers;
+use Coderstm\Core\Models\TemplateSchedule;
+use Coderstm\Core\Traits\Helpers;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class TemplateSeeder extends Seeder

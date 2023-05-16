@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Notifications;
+namespace Coderstm\Core\Notifications;
 
-use App\Models\Admin;
-use App\Models\Core\Task;
+use Coderstm\Core\Models\Admin;
+use Coderstm\Core\Models\Core\Task;
 use Illuminate\Bus\Queueable;
 use Illuminate\Support\HtmlString;
 use Illuminate\Notifications\Notification;

@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Shop\Product;
+use Coderstm\Core\Models\Shop\Product;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 

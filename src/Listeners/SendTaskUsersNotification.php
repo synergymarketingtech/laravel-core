@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Listeners;
+namespace Coderstm\Core\Listeners;
 
-use App\Events\TaskCreated;
+use Coderstm\Core\Events\TaskCreated;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\Notifications\TaskUserNotification;
+use Coderstm\Core\Notifications\TaskUserNotification;
 use Illuminate\Support\Facades\Notification;
 
 class SendTaskUsersNotification implements ShouldQueue
@@ -24,7 +24,7 @@ class SendTaskUsersNotification implements ShouldQueue
     /**
      * Handle the event.
      *
-     * @param  \App\Events\TaskCreated  $event
+     * @param  \Coderstm\Core\Events\TaskCreated  $event
      * @return void
      */
     public function handle(TaskCreated $event)

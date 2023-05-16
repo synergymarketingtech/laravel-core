@@ -1,8 +1,8 @@
 <?php
 
-use App\Models\Admin;
+use Coderstm\Core\Models\Admin;
 use Illuminate\Support\Str;
-use App\Models\Core\Address;
+use Coderstm\Core\Models\Core\Address;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;

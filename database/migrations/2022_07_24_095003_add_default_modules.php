@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\Core\Module;
-use App\Models\Core\Permission;
+use Coderstm\Core\Models\Core\Module;
+use Coderstm\Core\Models\Core\Permission;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Str;
 

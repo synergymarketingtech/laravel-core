@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Core;
+namespace Coderstm\Core\Http\Controllers\Core;
 
-use App\Models\Core\Task;
+use Coderstm\Core\Models\Core\Task;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Coderstm\Core\Http\Controllers\Controller;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
@@ -82,7 +82,7 @@ class TaskController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Core\Task  $task
+     * @param  \Coderstm\Core\Models\Core\Task  $task
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, Task $task)
@@ -93,7 +93,7 @@ class TaskController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Core\Task  $task
+     * @param  \Coderstm\Core\Models\Core\Task  $task
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, Task $task)
@@ -107,7 +107,7 @@ class TaskController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \App\Models\Core\Task  $task
+     * @param  \Coderstm\Core\Models\Core\Task  $task
      * @return \Illuminate\Http\Response
      */
     public function destroy_selected(Request $request, Task $task)
@@ -126,7 +126,7 @@ class TaskController extends Controller
     /**
      * Restore the specified resource from storage.
      *
-     * @param  \App\Models\Core\Task  $task
+     * @param  \Coderstm\Core\Models\Core\Task  $task
      * @return \Illuminate\Http\Response
      */
     public function restore($id)
@@ -143,7 +143,7 @@ class TaskController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \App\Models\Core\Task  $task
+     * @param  \Coderstm\Core\Models\Core\Task  $task
      * @return \Illuminate\Http\Response
      */
     public function restore_selected(Request $request, Task $task)
@@ -163,7 +163,7 @@ class TaskController extends Controller
     /**
      * Create reply for the specified resource.
      *
-     * @param  \App\Models\Core\Task  $task
+     * @param  \Coderstm\Core\Models\Core\Task  $task
      * @return \Illuminate\Http\Response
      */
     public function reply(Request $request, Task $task)
@@ -193,7 +193,7 @@ class TaskController extends Controller
     /**
      * Change archived of specified resource from storage.
      *
-     * @param  \App\Models\Core\Task  $task
+     * @param  \Coderstm\Core\Models\Core\Task  $task
      * @return \Illuminate\Http\Response
      */
     public function changeArchived(Request $request, Task $task)

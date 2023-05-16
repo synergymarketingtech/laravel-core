@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Console\Commands;
+namespace Coderstm\Core\Console\Commands;
 
-use App\Enum\AppStatus;
+use Coderstm\Core\Enum\AppStatus;
 use Illuminate\Console\Command;
-use App\Models\Cashier\Subscription;
+use Coderstm\Core\Models\Cashier\Subscription;
 
 class SubscriptionsCancel extends Command
 {

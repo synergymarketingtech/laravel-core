@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Core;
+namespace Coderstm\Core\Http\Controllers\Core;
 
-use App\Models\Admin;
-use App\Models\Core\Group;
-use App\Models\Core\Module;
+use Coderstm\Core\Models\Admin;
+use Coderstm\Core\Models\Core\Group;
+use Coderstm\Core\Models\Core\Module;
 use Illuminate\Http\Request;
-use App\Models\Core\Permission;
+use Coderstm\Core\Models\Core\Permission;
 use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Controller;
+use Coderstm\Core\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
@@ -110,7 +110,7 @@ class AdminController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  App\Models\Admin $admin
+     * @param  Coderstm\Core\Models\Admin $admin
      * @return \Illuminate\Http\Response
      */
     public function show(Admin $admin)
@@ -127,7 +127,7 @@ class AdminController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  App\Models\Admin $admin
+     * @param  Coderstm\Core\Models\Admin $admin
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Admin $admin)
@@ -168,7 +168,7 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  App\Models\Admin $admin
+     * @param  Coderstm\Core\Models\Admin $admin
      * @return \Illuminate\Http\Response
      */
     public function destroy(Admin $admin)
@@ -182,7 +182,7 @@ class AdminController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  App\Models\Admin $admin
+     * @param  Coderstm\Core\Models\Admin $admin
      * @return \Illuminate\Http\Response
      */
     public function destroy_selected(Request $request, Admin $admin)
@@ -201,7 +201,7 @@ class AdminController extends Controller
     /**
      * Restore the specified resource from storage.
      *
-     * @param  App\Models\Admin $admin
+     * @param  Coderstm\Core\Models\Admin $admin
      * @return \Illuminate\Http\Response
      */
     public function restore($id)
@@ -218,7 +218,7 @@ class AdminController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  App\Models\Admin $admin
+     * @param  Coderstm\Core\Models\Admin $admin
      * @return \Illuminate\Http\Response
      */
     public function restore_selected(Request $request, Admin $admin)
@@ -262,7 +262,7 @@ class AdminController extends Controller
     /**
      * Send reset password request to specified resource from storage.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \Coderstm\Core\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
     public function resetPasswordRequest(Request $request, Admin $admin)
@@ -280,7 +280,7 @@ class AdminController extends Controller
     /**
      * Change admin of specified resource from storage.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \Coderstm\Core\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
     public function changeAdmin(Request $request, Admin $admin)
@@ -303,7 +303,7 @@ class AdminController extends Controller
     /**
      * Change active of specified resource from storage.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \Coderstm\Core\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
     public function changeActive(Request $request, Admin $admin)

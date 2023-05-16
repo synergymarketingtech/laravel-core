@@ -67,6 +67,7 @@ if ($position = Location::get()) {
 ```
 
 > **Note**:
+>
 > - This method retrieves the user's IP address via `request()->ip()`.
 > - In the default configuration, `testing.enabled` is active, the returned IP address is in the USA. Disable it to get the client's real IP address.
 
@@ -102,13 +103,13 @@ To set up MaxMind to retrieve the user's location from your own server, you must
 2. Sign in.
 3. Click "Download Files" from the left-hand navigation menu.
 4. Download the `GeoLite2-City.tar.gz` or `GeoLite2-Country.tar.gz` GZIP file depending on how precisely you need to locate people.
-3. Extract the downloaded file (you may need to use an application such as [7zip](http://www.7-zip.org/download.html) if on Windows).
-4. Create a `maxmind` folder inside your Laravel application's `database` directory (`database/maxmind`).
-5. Place the `GeoLite2-City.mmdb` or `GeoLite2-Country.mmdb` file into the `maxmind` directory. You should end up with a folder path of:
-    - `my-laravel-app/database/maxmind/GeoLite2-*.mmdb`.
-6. Inside `config/location.php`, set your default location `driver` to `Stevebauman\Location\Drivers\MaxMind::class`.
-7. If you opted for the country database, edit `maxmind.local.type` to `country` and update `maxmind.local.path`.
-8. That's it, you're all set!
+5. Extract the downloaded file (you may need to use an application such as [7zip](http://www.7-zip.org/download.html) if on Windows).
+6. Create a `maxmind` folder inside your Laravel application's `database` directory (`database/maxmind`).
+7. Place the `GeoLite2-City.mmdb` or `GeoLite2-Country.mmdb` file into the `maxmind` directory. You should end up with a folder path of:
+   - `my-laravel-app/database/maxmind/GeoLite2-*.mmdb`.
+8. Inside `config/location.php`, set your default location `driver` to `Stevebauman\Location\Drivers\MaxMind::class`.
+9. If you opted for the country database, edit `maxmind.local.type` to `country` and update `maxmind.local.path`.
+10. That's it, you're all set!
 
 > **Note**: Keep in mind, you'll need to update this file on a regular basis to retrieve the most current information from clients.
 
@@ -126,7 +127,7 @@ providers API changes), it will automatically use the next driver in line.
 To create your own driver, simply create a class in your application, and extend the abstract Driver:
 
 ```php
-namespace App\Location\Drivers;
+namespace Coderstm\Core\Location\Drivers;
 
 use Illuminate\Support\Fluent;
 use Stevebauman\Location\Position;
@@ -138,12 +139,12 @@ class MyDriver extends Driver
     {
         return "http://driver-url.com?ip=$ip";
     }
-    
+
     protected function process($ip)
     {
         return rescue(function () use ($ip) {
             $response = json_decode(file_get_contents($this->url($ip)), true);
-            
+
             return new Fluent($response);
         }, $rescue = false);
     }
@@ -169,7 +170,7 @@ Then, insert your driver class name into the configuration file:
 |
 */
 
-'driver' => App\Locations\MyDriver::class,
+'driver' => Coderstm\Core\Locations\MyDriver::class,
 ```
 
 ## Versioning

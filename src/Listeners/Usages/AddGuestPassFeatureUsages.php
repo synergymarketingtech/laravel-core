@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Listeners\Usages;
+namespace Coderstm\Core\Listeners\Usages;
 
-use App\Events\GuestPassCreated;
+use Coderstm\Core\Events\GuestPassCreated;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
@@ -21,7 +21,7 @@ class AddGuestPassFeatureUsages
     /**
      * Handle the event.
      *
-     * @param  \App\Events\GuestPassCreated  $event
+     * @param  \Coderstm\Core\Events\GuestPassCreated  $event
      * @return void
      */
     public function handle(GuestPassCreated $event)

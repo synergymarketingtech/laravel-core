@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Events\Cashier;
+namespace Coderstm\Core\Events\Cashier;
 
-use App\Models\Cashier\Subscription;
+use Coderstm\Core\Models\Cashier\Subscription;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;

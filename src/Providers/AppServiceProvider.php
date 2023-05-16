@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Providers;
+namespace Coderstm\Core\Providers;
 
 use Laravel\Cashier\Cashier;
-use App\Models\Cashier\Subscription;
+use Coderstm\Core\Models\Cashier\Subscription;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
-use App\Models\Cashier\SubscriptionItem;
+use Coderstm\Core\Models\Cashier\SubscriptionItem;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
 class AppServiceProvider extends ServiceProvider
@@ -29,10 +29,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Relation::morphMap([
-            'User' => 'App\Models\User',
-            'Admin' => 'App\Models\Admin',
-            'Address' => 'App\Models\Core\Address',
-            'Group' => 'App\Models\Core\Group',
+            'User' => 'Coderstm\Core\Models\User',
+            'Admin' => 'Coderstm\Core\Models\Admin',
+            'Address' => 'Coderstm\Core\Models\Core\Address',
+            'Group' => 'Coderstm\Core\Models\Core\Group',
         ]);
 
         Paginator::useBootstrapFive();
