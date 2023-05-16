@@ -1,0 +1,37 @@
+label,description,monthly_fee,yearly_fee,classes,guest
+Free Membership,"Max <strong>0/mo</strong> Guest pass
+Max <strong>2/mo</strong> Classes
+Full Access to the Facilities
+Classes and Online Portal",0,0,2,0
+Couples Membership,"Max <strong>2/mo</strong> Guest pass
+Max <strong>15/mo</strong> Classes
+Full Access to the Facilities
+Classes and Online Portal",4.99,49.9,15,2
+Education/Corporate ,"Max <strong>5/mo</strong> Guest pass
+Max <strong>20/mo</strong> Classes
+Full Access to the Facilities
+Classes and Online Portal",9.99,99.9,20,5
+Family Membership,"Max <strong>5/mo</strong> Guest pass
+Max <strong>25/mo</strong> Classes
+Full Access to the Facilities
+Classes and Online Portal",19.99,199.9,25,5
+Flexible Membership,"Max <strong>5/mo</strong> Guest pass
+Max <strong>30/mo</strong> Classes
+Full Access to the Facilities
+Classes and Online Portal",29.99,299.9,30,5
+Maternity Membership ,"Max <strong>10/mo</strong> Guest pass
+Max <strong>40/mo</strong> Classes
+Full Access to the Facilities
+Classes and Online Portal",39.99,399.9,40,10
+Rolling Cooerpate ,"Max <strong>10/mo</strong> Guest pass
+Max <strong>50/mo</strong> Classes
+Full Access to the Facilities
+Classes and Online Portal",49.99,499.9,50,10
+Centre Membership,"Max <strong>10/mo</strong> Guest pass
+Max <strong>60/mo</strong> Classes
+Full Access to the Facilities
+Classes and Online Portal",59.99,599.9,60,10
+Contract,"Max <strong>10/mo</strong> Guest pass
+Max <strong>70/mo</strong> Classes
+Full Access to the Facilities
+Classes and Online Portal",79.99,799.9,70,10
