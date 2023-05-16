@@ -5,7 +5,7 @@ namespace Coderstm\Core\Models;
 use Coderstm\Core\Enum\AppStatus;
 use Coderstm\Core\Traits\Core;
 use Coderstm\Core\Traits\Fileable;
-use Coderstm\Core\Models\Core\File;
+use Coderstm\Core\Models\File;
 use Coderstm\Core\Traits\HasMorphToOne;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;

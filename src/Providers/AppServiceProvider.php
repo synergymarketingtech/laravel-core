@@ -31,8 +31,8 @@ class AppServiceProvider extends ServiceProvider
         Relation::morphMap([
             'User' => 'Coderstm\Core\Models\User',
             'Admin' => 'Coderstm\Core\Models\Admin',
-            'Address' => 'Coderstm\Core\Models\Core\Address',
-            'Group' => 'Coderstm\Core\Models\Core\Group',
+            'Address' => 'Coderstm\Core\Models\Address',
+            'Group' => 'Coderstm\Core\Models\Group',
         ]);
 
         Paginator::useBootstrapFive();

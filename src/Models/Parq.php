@@ -3,7 +3,7 @@
 namespace Coderstm\Core\Models;
 
 use Coderstm\Core\Traits\Logable;
-use Coderstm\Core\Models\Core\Log;
+use Coderstm\Core\Models\Log;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 

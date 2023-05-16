@@ -2,7 +2,7 @@
 
 namespace Coderstm\Core\Events;
 
-use Coderstm\Core\Models\Core\Task;
+use Coderstm\Core\Models\Task;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;

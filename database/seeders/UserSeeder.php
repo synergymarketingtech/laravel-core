@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Coderstm\Core\Models\User;
 use Coderstm\Core\Enum\AppStatus;
-use Coderstm\Core\Models\Core\Address;
+use Coderstm\Core\Models\Address;
 use Illuminate\Database\Seeder;
 use Coderstm\Core\Models\Cashier\Subscription;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;

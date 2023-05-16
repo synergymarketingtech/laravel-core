@@ -1,6 +1,6 @@
 <?php
 
-namespace Coderstm\Core\Models\Core;
+namespace Coderstm\Core\Models;
 
 use Coderstm\Core\Models\User;
 use Coderstm\Core\Models\Admin;

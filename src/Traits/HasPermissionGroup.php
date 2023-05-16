@@ -2,7 +2,7 @@
 
 namespace Coderstm\Core\Traits;
 
-use Coderstm\Core\Models\Core\Module;
+use Coderstm\Core\Models\Module;
 use Illuminate\Support\Collection;
 
 trait HasPermissionGroup

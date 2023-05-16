@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Coderstm\Core\Models\Instructor>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory
  */
 class ClassScheduleFactory extends Factory
 {

@@ -3,7 +3,7 @@
 namespace Coderstm\Core\Policies;
 
 use Coderstm\Core\Models\Admin;
-use Coderstm\Core\Models\Core\Task;
+use Coderstm\Core\Models\Task;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class TaskPolicy
@@ -39,7 +39,7 @@ class TaskPolicy
      * Determine whether the admin can view the model.
      *
      * @param  \Coderstm\Core\Models\Admin  $admin
-     * @param  \Coderstm\Core\Models\Core\Task  $task
+     * @param  \Coderstm\Core\Models\Task  $task
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function view(Admin $admin, Task $task)
@@ -62,7 +62,7 @@ class TaskPolicy
      * Determine whether the admin can update the model.
      *
      * @param  \Coderstm\Core\Models\Admin  $admin
-     * @param  \Coderstm\Core\Models\Core\Task  $task
+     * @param  \Coderstm\Core\Models\Task  $task
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function update(Admin $admin, Task $task)

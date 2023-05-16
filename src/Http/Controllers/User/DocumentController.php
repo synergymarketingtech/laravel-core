@@ -2,7 +2,7 @@
 
 namespace Coderstm\Core\Http\Controllers\User;
 
-use Coderstm\Core\Models\Core\File;
+use Coderstm\Core\Models\File;
 use Illuminate\Http\Request;
 use Coderstm\Core\Http\Controllers\Controller;
 
@@ -31,7 +31,7 @@ class DocumentController extends Controller
     /**
      * Read the specified document
      *
-     * @param  \Coderstm\Core\Models\Core\File  $document
+     * @param  \Coderstm\Core\Models\File  $document
      * @return \Illuminate\Http\Response
      */
     public function show(File $document)

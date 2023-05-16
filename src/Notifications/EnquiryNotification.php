@@ -2,7 +2,7 @@
 
 namespace Coderstm\Core\Notifications;
 
-use Coderstm\Core\Models\Core\Enquiry;
+use Coderstm\Core\Models\Enquiry;
 use Illuminate\Bus\Queueable;
 use Illuminate\Support\HtmlString;
 use Illuminate\Notifications\Notification;

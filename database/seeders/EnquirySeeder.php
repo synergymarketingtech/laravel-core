@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use Coderstm\Core\Models\Admin;
-use Coderstm\Core\Models\Core\Enquiry;
-use Coderstm\Core\Models\Core\Enquiry\Reply;
+use Coderstm\Core\Models\Enquiry;
+use Coderstm\Core\Models\Enquiry\Reply;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 

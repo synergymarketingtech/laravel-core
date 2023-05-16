@@ -3,7 +3,7 @@
 namespace Coderstm\Core\Models;
 
 use Coderstm\Core\Traits\Core;
-use Coderstm\Core\Models\Core\Log;
+use Coderstm\Core\Models\Log;
 use Coderstm\Core\Traits\Fileable;
 use Coderstm\Core\Traits\Addressable;
 use Laravel\Sanctum\HasApiTokens;

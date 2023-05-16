@@ -1,6 +1,6 @@
 <?php
 
-namespace Coderstm\Core\Models\Core;
+namespace Coderstm\Core\Models;
 
 use Coderstm\Core\Models\User;
 use Coderstm\Core\Traits\Core;
@@ -8,7 +8,7 @@ use Coderstm\Core\Enum\AppStatus;
 use Coderstm\Core\Traits\Fileable;
 use Coderstm\Core\Models\Shop\Order;
 use Coderstm\Core\Events\EnquiryCreated;
-use Coderstm\Core\Models\Core\Enquiry\Reply;
+use Coderstm\Core\Models\Enquiry\Reply;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

@@ -2,7 +2,7 @@
 
 namespace Coderstm\Core\Traits;
 
-use Coderstm\Core\Models\Core\Address;
+use Coderstm\Core\Models\Address;
 
 trait Addressable
 {

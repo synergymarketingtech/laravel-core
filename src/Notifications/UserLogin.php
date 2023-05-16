@@ -2,7 +2,7 @@
 
 namespace Coderstm\Core\Notifications;
 
-use Coderstm\Core\Models\Core\Log;
+use Coderstm\Core\Models\Log;
 use Illuminate\Http\Request;
 use Illuminate\Bus\Queueable;
 use Illuminate\Support\HtmlString;

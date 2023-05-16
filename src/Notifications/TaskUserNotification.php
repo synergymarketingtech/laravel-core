@@ -3,7 +3,7 @@
 namespace Coderstm\Core\Notifications;
 
 use Coderstm\Core\Models\Admin;
-use Coderstm\Core\Models\Core\Task;
+use Coderstm\Core\Models\Task;
 use Illuminate\Bus\Queueable;
 use Illuminate\Support\HtmlString;
 use Illuminate\Notifications\Notification;

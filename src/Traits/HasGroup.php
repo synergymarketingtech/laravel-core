@@ -2,7 +2,7 @@
 
 namespace Coderstm\Core\Traits;
 
-use Coderstm\Core\Models\Core\Group;
+use Coderstm\Core\Models\Group;
 use Illuminate\Support\Collection;
 
 trait HasGroup

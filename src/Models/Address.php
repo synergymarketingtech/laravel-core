@@ -1,6 +1,6 @@
 <?php
 
-namespace Coderstm\Core\Models\Core;
+namespace Coderstm\Core\Models;
 
 use Coderstm\Core\Traits\Core;
 use Illuminate\Database\Eloquent\Model;

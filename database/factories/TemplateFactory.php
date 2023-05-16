@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Coderstm\Core\Models\Instructor>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory
  */
 class TemplateFactory extends Factory
 {

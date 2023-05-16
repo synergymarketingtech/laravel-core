@@ -3,7 +3,7 @@
 namespace Coderstm\Core\Traits;
 
 use Coderstm\Core\Enum\LogType;
-use Coderstm\Core\Models\Core\Log;
+use Coderstm\Core\Models\Log;
 use Coderstm\Core\Models\Plan;
 use Illuminate\Support\Str;
 

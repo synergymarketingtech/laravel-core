@@ -3,10 +3,10 @@
 namespace Coderstm\Core\Http\Controllers\Core;
 
 use Coderstm\Core\Models\Admin;
-use Coderstm\Core\Models\Core\Group;
-use Coderstm\Core\Models\Core\Module;
+use Coderstm\Core\Models\Group;
+use Coderstm\Core\Models\Module;
 use Illuminate\Http\Request;
-use Coderstm\Core\Models\Core\Permission;
+use Coderstm\Core\Models\Permission;
 use Illuminate\Support\Facades\DB;
 use Coderstm\Core\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Password;

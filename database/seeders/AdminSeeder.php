@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Coderstm\Core\Models\Admin;
-use Coderstm\Core\Models\Core\Address;
+use Coderstm\Core\Models\Address;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 

@@ -7,9 +7,9 @@ use Coderstm\Core\Models\AppSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Coderstm\Core\Http\Controllers\Controller;
-use Coderstm\Core\Models\Core\Enquiry;
-use Coderstm\Core\Models\Core\Message;
-use Coderstm\Core\Models\Core\Task;
+use Coderstm\Core\Models\Enquiry;
+use Coderstm\Core\Models\Message;
+use Coderstm\Core\Models\Task;
 use Coderstm\Core\Models\Issue;
 
 class ApplicationController extends Controller

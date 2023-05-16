@@ -5,7 +5,7 @@ namespace Coderstm\Core\Http\Controllers\User;
 use Coderstm\Core\Models\Shop\Order;
 use Illuminate\Http\Request;
 use Coderstm\Core\Http\Controllers\Controller;
-use Coderstm\Core\Models\Core\Enquiry;
+use Coderstm\Core\Models\Enquiry;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class OrderController extends Controller

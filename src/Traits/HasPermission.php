@@ -2,7 +2,7 @@
 
 namespace Coderstm\Core\Traits;
 
-use Coderstm\Core\Models\Core\Permission;
+use Coderstm\Core\Models\Permission;
 use Illuminate\Support\Collection;
 
 trait HasPermission

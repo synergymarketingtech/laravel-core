@@ -2,7 +2,7 @@
 
 namespace Coderstm\Core\Http\Controllers\Core;
 
-use Coderstm\Core\Models\Core\Group;
+use Coderstm\Core\Models\Group;
 use Illuminate\Http\Request;
 use Coderstm\Core\Http\Controllers\Controller;
 use Illuminate\Http\Resources\Json\ResourceCollection;
@@ -89,7 +89,7 @@ class GroupController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Coderstm\Core\Models\Core\Group $group
+     * @param  \Coderstm\Core\Models\Group $group
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Group $group)
@@ -124,7 +124,7 @@ class GroupController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \Coderstm\Core\Models\Core\Group $group
+     * @param  \Coderstm\Core\Models\Group $group
      * @return \Illuminate\Http\Response
      */
     public function destroy(Group $group)
@@ -138,7 +138,7 @@ class GroupController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \Coderstm\Core\Models\Core\Group $group
+     * @param  \Coderstm\Core\Models\Group $group
      * @return \Illuminate\Http\Response
      */
     public function destroy_selected(Request $request, Group $group)
@@ -157,7 +157,7 @@ class GroupController extends Controller
     /**
      * Restore the specified resource from storage.
      *
-     * @param  \Coderstm\Core\Models\Core\Group $group
+     * @param  \Coderstm\Core\Models\Group $group
      * @return \Illuminate\Http\Response
      */
     public function restore($id)
@@ -174,7 +174,7 @@ class GroupController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \Coderstm\Core\Models\Core\Group $group
+     * @param  \Coderstm\Core\Models\Group $group
      * @return \Illuminate\Http\Response
      */
     public function restore_selected(Request $request, Group $group)

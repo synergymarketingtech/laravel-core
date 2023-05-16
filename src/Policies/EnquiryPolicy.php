@@ -3,7 +3,7 @@
 namespace Coderstm\Core\Policies;
 
 use Coderstm\Core\Models\Admin;
-use Coderstm\Core\Models\Core\Enquiry;
+use Coderstm\Core\Models\Enquiry;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class EnquiryPolicy
@@ -42,7 +42,7 @@ class EnquiryPolicy
      * Determine whether the admin can view the model.
      *
      * @param  \Coderstm\Core\Models\Admin  $admin
-     * @param  \Coderstm\Core\Models\Core\Enquiry  $enquiry
+     * @param  \Coderstm\Core\Models\Enquiry  $enquiry
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function view(Admin $admin, Enquiry $enquiry)
@@ -71,7 +71,7 @@ class EnquiryPolicy
      * Determine whether the admin can update the model.
      *
      * @param  \Coderstm\Core\Models\Admin  $admin
-     * @param  \Coderstm\Core\Models\Core\Enquiry  $enquiry
+     * @param  \Coderstm\Core\Models\Enquiry  $enquiry
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function update(Admin $admin, Enquiry $enquiry)

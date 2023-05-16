@@ -1,8 +1,8 @@
 <?php
 
-namespace Coderstm\Core\Models\Core;
+namespace Coderstm\Core\Models;
 
-use Coderstm\Core\Models\Core\Permission;
+use Coderstm\Core\Models\Permission;
 use Coderstm\Core\Traits\Core;
 use Coderstm\Core\Traits\HasPermission;
 use Illuminate\Database\Eloquent\Model;

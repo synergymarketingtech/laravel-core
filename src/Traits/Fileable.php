@@ -2,7 +2,7 @@
 
 namespace Coderstm\Core\Traits;
 
-use Coderstm\Core\Models\Core\File;
+use Coderstm\Core\Models\File;
 use Coderstm\Core\Traits\HasMorphToOne;
 
 trait Fileable

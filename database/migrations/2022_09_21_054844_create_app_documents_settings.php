@@ -1,6 +1,6 @@
 <?php
 
-use Coderstm\Core\Models\Core\File;
+use Coderstm\Core\Models\File;
 use Coderstm\Core\Models\AppSetting;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Schema;

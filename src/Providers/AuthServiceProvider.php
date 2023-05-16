@@ -3,7 +3,7 @@
 namespace Coderstm\Core\Providers;
 
 use Coderstm\Core\Models\Admin;
-use Coderstm\Core\Models\Core\Group;
+use Coderstm\Core\Models\Group;
 use Coderstm\Core\Policies\AdminPolicy;
 use Coderstm\Core\Policies\GroupPolicy;
 use Illuminate\Support\Facades\Gate;

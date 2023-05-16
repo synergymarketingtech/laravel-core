@@ -8,7 +8,7 @@ use Coderstm\Core\Models\Instructor;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Coderstm\Core\Models\Instructor>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory
  */
 class TemplateScheduleFactory extends Factory
 {
