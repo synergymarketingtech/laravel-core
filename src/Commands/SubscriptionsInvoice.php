@@ -1,6 +1,6 @@
 <?php
 
-namespace Coderstm\Core\Console\Commands;
+namespace Coderstm\Core\Commands;
 
 use Coderstm\Core\Enum\AppStatus;
 use Illuminate\Console\Command;

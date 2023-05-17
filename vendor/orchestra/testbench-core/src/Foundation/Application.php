@@ -218,8 +218,8 @@ class Application
     {
         $kernel = 'Orchestra\Testbench\Console\Kernel';
 
-        if (file_exists($app->basePath('app/Console/Kernel.php')) && class_exists('Coderstm\Core\Console\Kernel')) {
-            $kernel = 'Coderstm\Core\Console\Kernel';
+        if (file_exists($app->basePath('app/Console/Kernel.php')) && class_exists('Coderstm\Core\Kernel')) {
+            $kernel = 'Coderstm\Core\Kernel';
         }
 
         $app->singleton('Illuminate\Contracts\Console\Kernel', $kernel);
