@@ -30,7 +30,7 @@ class EnquiryNotification extends Notification
         $this->contactUs = empty($this->enquiry->subject);
 
         if ($this->contactUs) {
-            $this->message = '<p style="color:red"><small>This email was sent through the general enquirey form at nitrofit28.coderstm.com/contact</small></p>';
+            $this->message = '<p style="color:red"><small>This email was sent through the general enquirey form</small></p>';
         }
 
         $this->message .= "<p><b>Name</b>: {$enquiry->name}<br>";
