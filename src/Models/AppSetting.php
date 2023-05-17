@@ -3,12 +3,12 @@
 namespace Coderstm\Core\Models;
 
 use Coderstm\Core\Models\File;
-use Coderstm\Core\Traits\Core;
+use Coderstm\Core\Traits\Base;
 use Illuminate\Database\Eloquent\Model;
 
 class AppSetting extends Model
 {
-    use Core;
+    use Base;
 
     /**
      * The attributes that are mass assignable.

@@ -3,7 +3,7 @@
 namespace Coderstm\Core\Models;
 
 use Coderstm\Core\Models\User;
-use Coderstm\Core\Traits\Core;
+use Coderstm\Core\Traits\Base;
 use Coderstm\Core\Events\ReferralCreated;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Referral extends Model
 {
-    use Core;
+    use Base;
 
     /**
      * The event map for the model.

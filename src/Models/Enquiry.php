@@ -3,7 +3,7 @@
 namespace Coderstm\Core\Models;
 
 use Coderstm\Core\Models\User;
-use Coderstm\Core\Traits\Core;
+use Coderstm\Core\Traits\Base;
 use Coderstm\Core\Enum\AppStatus;
 use Coderstm\Core\Traits\Fileable;
 use Coderstm\Core\Models\Shop\Order;
@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Enquiry extends Model
 {
-    use Core, Fileable;
+    use Base, Fileable;
 
     /**
      * The event map for the model.

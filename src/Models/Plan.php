@@ -2,7 +2,7 @@
 
 namespace Coderstm\Core\Models;
 
-use Coderstm\Core\Traits\Core;
+use Coderstm\Core\Traits\Base;
 use Coderstm\Core\Enum\PlanInterval;
 use Coderstm\Core\Models\Plan\Price;
 use Coderstm\Core\Models\Plan\Feature;
@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Plan extends Model
 {
-    use Core;
+    use Base;
 
     /**
      * The attributes that are mass assignable.
