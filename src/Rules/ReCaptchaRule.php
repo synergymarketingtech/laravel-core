@@ -24,12 +24,7 @@ class ReCaptchaRule implements Rule
             'remoteip' => request()->ip()
         ])->json();
 
-
-        if ($response['success'] === true) {
-            return true;
-        }
-
-        return false;
+        return $response['success'] === true ?? false;
     }
 
     /**
