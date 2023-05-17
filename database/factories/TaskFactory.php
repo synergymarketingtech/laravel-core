@@ -1,11 +1,10 @@
 <?php
 
-namespace Database\Factories\Core\Enquiry;
+namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
-class ReplyFactory extends Factory
+class TaskFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -15,6 +14,7 @@ class ReplyFactory extends Factory
     public function definition()
     {
         return [
+            'subject' => $this->faker->sentence(),
             'message' => $this->faker->paragraph(),
         ];
     }

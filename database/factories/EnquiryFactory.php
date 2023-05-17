@@ -1,10 +1,10 @@
 <?php
 
-namespace Database\Factories\Core;
+namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class TaskFactory extends Factory
+class EnquiryFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,8 +14,12 @@ class TaskFactory extends Factory
     public function definition()
     {
         return [
+            'name' => $this->faker->name(),
+            'email' => $this->faker->email(),
+            'phone' => $this->faker->phoneNumber(),
             'subject' => $this->faker->sentence(),
             'message' => $this->faker->paragraph(),
+            'status' => ['Pending', 'Replied', 'Staff Replied', 'Resolved'][rand(0, 3)],
         ];
     }
 }
