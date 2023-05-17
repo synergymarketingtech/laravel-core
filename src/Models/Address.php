@@ -1,8 +1,8 @@
 <?php
 
-namespace Coderstm\Core\Models;
+namespace CoderstmCore\Models;
 
-use Coderstm\Core\Traits\Base;
+use CoderstmCore\Traits\Base;
 use Illuminate\Database\Eloquent\Model;
 
 class Address extends Model

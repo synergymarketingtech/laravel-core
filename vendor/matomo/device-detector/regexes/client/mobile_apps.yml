@@ -753,17 +753,17 @@
   version: "$1"
 
 # Lazada
-- regex: '(?:lazada_android|AliCoderstm\Core\(LA)[/ _](\d+\.[\d.]+)'
+- regex: '(?:lazada_android|AliCoderstmCore\(LA)[/ _](\d+\.[\d.]+)'
   name: "Lazada"
   version: "$1"
 
 # Taobao
-- regex: '(?:taobao_android|AliCoderstm\Core\(TB)[/ _](\d+\.[\d.]+)'
+- regex: '(?:taobao_android|AliCoderstmCore\(TB)[/ _](\d+\.[\d.]+)'
   name: "Taobao"
   version: "$1"
 
 # Alipay
-- regex: '(?:AlipayClient|AliCoderstm\Core\(AP)[/ _](\d+\.[\d.]+)'
+- regex: '(?:AlipayClient|AliCoderstmCore\(AP)[/ _](\d+\.[\d.]+)'
   name: "Alipay"
   version: "$1"
 

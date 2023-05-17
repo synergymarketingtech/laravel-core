@@ -2,14 +2,14 @@
 
 namespace Database\Seeders;
 
-use Coderstm\Core\Models\Location;
-use Coderstm\Core\Models\Template;
-use Coderstm\Core\Models\ClassList;
-use Coderstm\Core\Models\Instructor;
-use Coderstm\Core\Models\WeekTemplate;
+use CoderstmCore\Models\Location;
+use CoderstmCore\Models\Template;
+use CoderstmCore\Models\ClassList;
+use CoderstmCore\Models\Instructor;
+use CoderstmCore\Models\WeekTemplate;
 use Illuminate\Database\Seeder;
-use Coderstm\Core\Models\TemplateSchedule;
-use Coderstm\Core\Traits\Helpers;
+use CoderstmCore\Models\TemplateSchedule;
+use CoderstmCore\Traits\Helpers;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class TemplateSeeder extends Seeder

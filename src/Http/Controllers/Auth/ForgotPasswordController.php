@@ -1,10 +1,10 @@
 <?php
 
-namespace Coderstm\Core\Http\Controllers\Auth;
+namespace CoderstmCore\Http\Controllers\Auth;
 
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Coderstm\Core\Http\Controllers\Controller;
+use CoderstmCore\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Auth\Events\PasswordReset;

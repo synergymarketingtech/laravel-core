@@ -1,6 +1,6 @@
 <?php
 
-namespace Coderstm\Core\Services;
+namespace CoderstmCore\Services;
 
 use Carbon\Carbon;
 

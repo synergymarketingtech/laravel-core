@@ -1,10 +1,10 @@
 <?php
 
-namespace Coderstm\Core\Traits;
+namespace CoderstmCore\Traits;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Coderstm\Core\Traits\Logable;
+use CoderstmCore\Traits\Logable;
 
 trait Base
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Coderstm\Core\Rules;
+namespace CoderstmCore\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Facades\Http;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Coderstm\Core\Models;
+namespace CoderstmCore\Models;
 
-use Coderstm\Core\Traits\Base;
-use Coderstm\Core\Enum\AppStatus;
-use Coderstm\Core\Traits\Fileable;
-use Coderstm\Core\Traits\TaskUser;
-use Coderstm\Core\Events\TaskCreated;
-use Coderstm\Core\Models\Admin;
-use Coderstm\Core\Models\Task\Reply;
+use CoderstmCore\Traits\Base;
+use CoderstmCore\Enum\AppStatus;
+use CoderstmCore\Traits\Fileable;
+use CoderstmCore\Traits\TaskUser;
+use CoderstmCore\Events\TaskCreated;
+use CoderstmCore\Models\Admin;
+use CoderstmCore\Models\Task\Reply;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -113,7 +113,7 @@ class Task extends Model
      * Create new replies for the Task
      *
      * @param array $attributes
-     * @return \Coderstm\Core\Models\Task\Reply
+     * @return \CoderstmCore\Models\Task\Reply
      */
     public function createReply(array $attributes = [])
     {

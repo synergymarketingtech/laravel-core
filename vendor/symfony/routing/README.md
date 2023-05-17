@@ -9,7 +9,7 @@ $ composer require symfony/routing
 ```
 
 ```php
-use Coderstm\Core\Controller\BlogController;
+use CoderstmCore\Controller\BlogController;
 use Symfony\Component\Routing\Generator\UrlGenerator;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\Routing\RequestContext;
@@ -26,7 +26,7 @@ $context = new RequestContext();
 $matcher = new UrlMatcher($routes, $context);
 $parameters = $matcher->match('/blog/lorem-ipsum');
 // $parameters = [
-//     '_controller' => 'Coderstm\Core\Controller\BlogController',
+//     '_controller' => 'CoderstmCore\Controller\BlogController',
 //     'slug' => 'lorem-ipsum',
 //     '_route' => 'blog_show'
 // ]

@@ -81,7 +81,7 @@ class Cashier
      *
      * @var string
      */
-    public static $customerModel = 'Coderstm\Core\\Models\\User';
+    public static $customerModel = 'CoderstmCore\\Models\\User';
 
     /**
      * The subscription model class name.

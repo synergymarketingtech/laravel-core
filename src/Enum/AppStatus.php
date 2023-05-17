@@ -1,6 +1,6 @@
 <?php
 
-namespace Coderstm\Core\Enum;
+namespace CoderstmCore\Enum;
 
 enum AppStatus: string
 {

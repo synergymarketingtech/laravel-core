@@ -199,12 +199,12 @@ return [
         /*
          * Application Service Providers...
          */
-        Coderstm\Core\Providers\AppServiceProvider::class,
-        Coderstm\Core\Providers\AuthServiceProvider::class,
-        // Coderstm\Core\Providers\BroadcastServiceProvider::class,
-        Coderstm\Core\Providers\EventServiceProvider::class,
-        Coderstm\Core\Providers\RouteServiceProvider::class,
-        Coderstm\Core\Providers\PermissionsServiceProvider::class,
+        CoderstmCore\Providers\AppServiceProvider::class,
+        CoderstmCore\Providers\AuthServiceProvider::class,
+        // CoderstmCore\Providers\BroadcastServiceProvider::class,
+        CoderstmCore\Providers\EventServiceProvider::class,
+        CoderstmCore\Providers\RouteServiceProvider::class,
+        CoderstmCore\Providers\PermissionsServiceProvider::class,
 
     ],
 
@@ -220,7 +220,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'ExampleClass' => Coderstm\Core\Example\ExampleClass::class,
+        // 'ExampleClass' => CoderstmCore\Example\ExampleClass::class,
     ])->toArray(),
 
 ];

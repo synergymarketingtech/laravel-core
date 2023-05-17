@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use Coderstm\Core\Models\User;
-use Coderstm\Core\Enum\AppStatus;
-use Coderstm\Core\Models\Address;
+use CoderstmCore\Models\User;
+use CoderstmCore\Enum\AppStatus;
+use CoderstmCore\Models\Address;
 use Illuminate\Database\Seeder;
-use Coderstm\Core\Models\Cashier\Subscription;
+use CoderstmCore\Models\Cashier\Subscription;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class UserSeeder extends Seeder

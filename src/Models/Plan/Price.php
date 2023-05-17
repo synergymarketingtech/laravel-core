@@ -1,9 +1,9 @@
 <?php
 
-namespace Coderstm\Core\Models\Plan;
+namespace CoderstmCore\Models\Plan;
 
-use Coderstm\Core\Models\Plan;
-use Coderstm\Core\Enum\PlanInterval;
+use CoderstmCore\Models\Plan;
+use CoderstmCore\Enum\PlanInterval;
 use Laravel\Cashier\Cashier;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

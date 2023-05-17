@@ -1,6 +1,6 @@
 <?php
 
-namespace Coderstm\Core\Traits\Cashier;
+namespace CoderstmCore\Traits\Cashier;
 
 use Laravel\Cashier\Concerns\ManagesSubscriptions as CashierManagesSubscriptions;
 

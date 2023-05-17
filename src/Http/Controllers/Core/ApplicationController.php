@@ -1,16 +1,16 @@
 <?php
 
-namespace Coderstm\Core\Http\Controllers\Core;
+namespace CoderstmCore\Http\Controllers\Core;
 
-use Coderstm\Core\Models\User;
-use Coderstm\Core\Models\AppSetting;
+use CoderstmCore\Models\User;
+use CoderstmCore\Models\AppSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Coderstm\Core\Http\Controllers\Controller;
-use Coderstm\Core\Models\Enquiry;
-use Coderstm\Core\Models\Message;
-use Coderstm\Core\Models\Task;
-use Coderstm\Core\Models\Issue;
+use CoderstmCore\Http\Controllers\Controller;
+use CoderstmCore\Models\Enquiry;
+use CoderstmCore\Models\Message;
+use CoderstmCore\Models\Task;
+use CoderstmCore\Models\Issue;
 
 class ApplicationController extends Controller
 {

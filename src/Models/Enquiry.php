@@ -1,14 +1,14 @@
 <?php
 
-namespace Coderstm\Core\Models;
+namespace CoderstmCore\Models;
 
-use Coderstm\Core\Models\User;
-use Coderstm\Core\Traits\Base;
-use Coderstm\Core\Enum\AppStatus;
-use Coderstm\Core\Traits\Fileable;
-use Coderstm\Core\Models\Shop\Order;
-use Coderstm\Core\Events\EnquiryCreated;
-use Coderstm\Core\Models\Enquiry\Reply;
+use CoderstmCore\Models\User;
+use CoderstmCore\Traits\Base;
+use CoderstmCore\Enum\AppStatus;
+use CoderstmCore\Traits\Fileable;
+use CoderstmCore\Models\Shop\Order;
+use CoderstmCore\Events\EnquiryCreated;
+use CoderstmCore\Models\Enquiry\Reply;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

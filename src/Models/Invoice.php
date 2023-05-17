@@ -1,11 +1,11 @@
 <?php
 
-namespace Coderstm\Core\Models;
+namespace CoderstmCore\Models;
 
-use Coderstm\Core\Traits\Base;
+use CoderstmCore\Traits\Base;
 use Laravel\Cashier\Cashier;
-use Coderstm\Core\Models\Invoice\LineItem;
-use Coderstm\Core\Models\Cashier\Subscription;
+use CoderstmCore\Models\Invoice\LineItem;
+use CoderstmCore\Models\Cashier\Subscription;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

@@ -2,7 +2,7 @@
 
 namespace Illuminate\Foundation\Console;
 
-use Coderstm\Core\Http\Middleware\PreventRequestsDuringMaintenance;
+use CoderstmCore\Http\Middleware\PreventRequestsDuringMaintenance;
 use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Events\MaintenanceModeEnabled;

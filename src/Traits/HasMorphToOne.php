@@ -1,9 +1,9 @@
 <?php
 
-namespace Coderstm\Core\Traits;
+namespace CoderstmCore\Traits;
 
 use Illuminate\Support\Str;
-use Coderstm\Core\Relations\MorphToOne;
+use CoderstmCore\Relations\MorphToOne;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 

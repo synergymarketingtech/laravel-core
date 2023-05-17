@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Coderstm\Core\Models\Admin;
-use Coderstm\Core\Models\Task;
+use CoderstmCore\Models\Admin;
+use CoderstmCore\Models\Task;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 

@@ -1,19 +1,19 @@
 <?php
 
-namespace Coderstm\Core\Http\Controllers;
+namespace CoderstmCore\Http\Controllers;
 
-use Coderstm\Core\Models\Plan;
-use Coderstm\Core\Models\User;
-use Coderstm\Core\Models\Offer;
-use Coderstm\Core\Enum\AppStatus;
-use Coderstm\Core\Models\File;
-use Coderstm\Core\Models\AppSetting;
-use Coderstm\Core\Models\Plan\Price;
-use Coderstm\Core\Models\Announcement;
-use Coderstm\Core\Models\Enquiry;
-use Coderstm\Core\Rules\ReCaptchaRule;
+use CoderstmCore\Models\Plan;
+use CoderstmCore\Models\User;
+use CoderstmCore\Models\Offer;
+use CoderstmCore\Enum\AppStatus;
+use CoderstmCore\Models\File;
+use CoderstmCore\Models\AppSetting;
+use CoderstmCore\Models\Plan\Price;
+use CoderstmCore\Models\Announcement;
+use CoderstmCore\Models\Enquiry;
+use CoderstmCore\Rules\ReCaptchaRule;
 use Illuminate\Http\Request;
-use Coderstm\Core\Events\MembershipCreated;
+use CoderstmCore\Events\MembershipCreated;
 
 class PageController extends Controller
 {

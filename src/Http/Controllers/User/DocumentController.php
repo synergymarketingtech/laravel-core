@@ -1,10 +1,10 @@
 <?php
 
-namespace Coderstm\Core\Http\Controllers\User;
+namespace CoderstmCore\Http\Controllers\User;
 
-use Coderstm\Core\Models\File;
+use CoderstmCore\Models\File;
 use Illuminate\Http\Request;
-use Coderstm\Core\Http\Controllers\Controller;
+use CoderstmCore\Http\Controllers\Controller;
 
 class DocumentController extends Controller
 {
@@ -31,7 +31,7 @@ class DocumentController extends Controller
     /**
      * Read the specified document
      *
-     * @param  \Coderstm\Core\Models\File  $document
+     * @param  \CoderstmCore\Models\File  $document
      * @return \Illuminate\Http\Response
      */
     public function show(File $document)

@@ -1,6 +1,6 @@
 <?php
 
-namespace Coderstm\Core\Http\Middleware;
+namespace CoderstmCore\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;

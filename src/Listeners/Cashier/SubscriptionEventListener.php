@@ -1,9 +1,9 @@
 <?php
 
-namespace Coderstm\Core\Listeners\Cashier;
+namespace CoderstmCore\Listeners\Cashier;
 
-use Coderstm\Core\Events\Cashier\SubscriptionProcessed;
-use Coderstm\Core\Models\Invoice;
+use CoderstmCore\Events\Cashier\SubscriptionProcessed;
+use CoderstmCore\Models\Invoice;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 class SubscriptionEventListener
@@ -11,7 +11,7 @@ class SubscriptionEventListener
     /**
      * Handle received Cashier webhooks.
      *
-     * @param  \Coderstm\Core\Events\Cashier\SubscriptionProcessed  $event
+     * @param  \CoderstmCore\Events\Cashier\SubscriptionProcessed  $event
      * @return void
      */
     public function handle(SubscriptionProcessed $event)

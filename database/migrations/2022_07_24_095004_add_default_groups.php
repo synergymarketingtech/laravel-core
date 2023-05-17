@@ -1,8 +1,8 @@
 <?php
 
-use Coderstm\Core\Models\Admin;
-use Coderstm\Core\Models\Group;
-use Coderstm\Core\Models\Permission;
+use CoderstmCore\Models\Admin;
+use CoderstmCore\Models\Group;
+use CoderstmCore\Models\Permission;
 use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration

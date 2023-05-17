@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use Coderstm\Core\Models\Plan;
+use CoderstmCore\Models\Plan;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 

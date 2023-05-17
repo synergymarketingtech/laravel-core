@@ -1,8 +1,8 @@
 <?php
 
-namespace Coderstm\Core\Providers;
+namespace CoderstmCore\Providers;
 
-use Coderstm\Core\Http\Routing\Router;
+use CoderstmCore\Http\Routing\Router;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -27,7 +27,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string|null
      */
-    // protected $namespace = 'Coderstm\Core\\Http\\Controllers';
+    // protected $namespace = 'CoderstmCore\\Http\\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.

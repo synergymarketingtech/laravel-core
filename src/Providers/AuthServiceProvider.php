@@ -1,11 +1,11 @@
 <?php
 
-namespace Coderstm\Core\Providers;
+namespace CoderstmCore\Providers;
 
-use Coderstm\Core\Models\Admin;
-use Coderstm\Core\Models\Group;
-use Coderstm\Core\Policies\AdminPolicy;
-use Coderstm\Core\Policies\GroupPolicy;
+use CoderstmCore\Models\Admin;
+use CoderstmCore\Models\Group;
+use CoderstmCore\Policies\AdminPolicy;
+use CoderstmCore\Policies\GroupPolicy;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;

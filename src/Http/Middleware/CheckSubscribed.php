@@ -1,9 +1,9 @@
 <?php
 
-namespace Coderstm\Core\Http\Middleware;
+namespace CoderstmCore\Http\Middleware;
 
 use Closure;
-use Coderstm\Core\Models\User;
+use CoderstmCore\Models\User;
 
 class CheckSubscribed
 {
@@ -34,8 +34,8 @@ class CheckSubscribed
 
     private function user()
     {
-        if (request()->filled('user_id') && is_admin()) {
-            return User::findOrFail(request()->user_id);
+        if (request()->filled('user_id') && is_admin() && config('coderstm.user')) {
+            return config('coderstm.user')::findOrFail(request()->user_id);
         }
         return currentUser();
     }

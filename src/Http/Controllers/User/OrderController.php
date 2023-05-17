@@ -1,11 +1,11 @@
 <?php
 
-namespace Coderstm\Core\Http\Controllers\User;
+namespace CoderstmCore\Http\Controllers\User;
 
-use Coderstm\Core\Models\Shop\Order;
+use CoderstmCore\Models\Shop\Order;
 use Illuminate\Http\Request;
-use Coderstm\Core\Http\Controllers\Controller;
-use Coderstm\Core\Models\Enquiry;
+use CoderstmCore\Http\Controllers\Controller;
+use CoderstmCore\Models\Enquiry;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class OrderController extends Controller
@@ -75,7 +75,7 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \Coderstm\Core\Models\Shop\Order  $order
+     * @param  \CoderstmCore\Models\Shop\Order  $order
      * @return \Illuminate\Http\Response
      */
     public function show(Order $order)
@@ -87,7 +87,7 @@ class OrderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Coderstm\Core\Models\Shop\Order  $order
+     * @param  \CoderstmCore\Models\Shop\Order  $order
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Order $order)
@@ -128,7 +128,7 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \Coderstm\Core\Models\Shop\Order  $order
+     * @param  \CoderstmCore\Models\Shop\Order  $order
      * @return \Illuminate\Http\Response
      */
     public function destroy(Order $order)

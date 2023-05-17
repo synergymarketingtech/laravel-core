@@ -1,6 +1,6 @@
 <?php
 
-namespace Coderstm\Core\Traits\Cashier;
+namespace CoderstmCore\Traits\Cashier;
 
 use Illuminate\Support\Arr;
 use Laravel\Cashier\Concerns\ManagesPaymentMethods as CashierManagesPaymentMethods;

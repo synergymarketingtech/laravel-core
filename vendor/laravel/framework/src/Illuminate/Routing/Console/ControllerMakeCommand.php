@@ -231,7 +231,7 @@ class ControllerMakeCommand extends GeneratorCommand
         ];
 
         if ($this->option('requests')) {
-            $namespace = 'Coderstm\Core\\Http\\Requests';
+            $namespace = 'CoderstmCore\\Http\\Requests';
 
             [$storeRequestClass, $updateRequestClass] = $this->generateFormRequests(
                 $modelClass,

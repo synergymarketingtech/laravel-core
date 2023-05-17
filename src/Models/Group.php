@@ -1,10 +1,10 @@
 <?php
 
-namespace Coderstm\Core\Models;
+namespace CoderstmCore\Models;
 
-use Coderstm\Core\Models\Permission;
-use Coderstm\Core\Traits\Base;
-use Coderstm\Core\Traits\HasPermission;
+use CoderstmCore\Models\Permission;
+use CoderstmCore\Traits\Base;
+use CoderstmCore\Traits\HasPermission;
 use Illuminate\Database\Eloquent\Model;
 
 class Group extends Model

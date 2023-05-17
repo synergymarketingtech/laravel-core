@@ -1,9 +1,9 @@
 <?php
 
-namespace Coderstm\Core\Http\Routing;
+namespace CoderstmCore\Http\Routing;
 
 use Illuminate\Container\Container;
-use Coderstm\Core\Http\Routing\ResourceRegistrar;
+use CoderstmCore\Http\Routing\ResourceRegistrar;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Routing\Router as BaseRouter;
 use Illuminate\Routing\PendingResourceRegistration;

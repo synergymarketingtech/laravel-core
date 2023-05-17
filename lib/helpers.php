@@ -1,8 +1,8 @@
 <?php
 
-use Coderstm\Core\Models\Plan;
-use Coderstm\Core\Models\AppSetting;
-use Coderstm\Core\Models\Plan\Price;
+use CoderstmCore\Models\Plan;
+use CoderstmCore\Models\AppSetting;
+use CoderstmCore\Models\Plan\Price;
 use Illuminate\Support\Facades\Notification;
 
 if (!function_exists('guard')) {

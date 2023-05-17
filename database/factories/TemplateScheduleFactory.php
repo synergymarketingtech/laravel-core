@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
-use Coderstm\Core\Models\Location;
-use Coderstm\Core\Models\ClassList;
-use Coderstm\Core\Models\Instructor;
+use CoderstmCore\Models\Location;
+use CoderstmCore\Models\ClassList;
+use CoderstmCore\Models\Instructor;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

@@ -1,8 +1,8 @@
 <?php
 
-namespace Coderstm\Core\Models\Cashier;
+namespace CoderstmCore\Models\Cashier;
 
-use Coderstm\Core\Models\Plan\Price;
+use CoderstmCore\Models\Plan\Price;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Laravel\Cashier\SubscriptionItem as CashierSubscriptionItem;
 

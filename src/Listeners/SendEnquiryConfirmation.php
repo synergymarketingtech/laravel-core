@@ -1,13 +1,13 @@
 <?php
 
-namespace Coderstm\Core\Listeners;
+namespace CoderstmCore\Listeners;
 
-use Coderstm\Core\Events\EnquiryCreated;
+use CoderstmCore\Events\EnquiryCreated;
 use Illuminate\Queue\InteractsWithQueue;
-use Coderstm\Core\Notifications\EnquiryConfirmation;
+use CoderstmCore\Notifications\EnquiryConfirmation;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Notification;
-use Coderstm\Core\Notifications\EnquirySourceNotification;
+use CoderstmCore\Notifications\EnquirySourceNotification;
 
 class SendEnquiryConfirmation implements ShouldQueue
 {
@@ -24,7 +24,7 @@ class SendEnquiryConfirmation implements ShouldQueue
     /**
      * Handle the event.
      *
-     * @param  \Coderstm\Core\Events\EnquiryCreated  $event
+     * @param  \CoderstmCore\Events\EnquiryCreated  $event
      * @return void
      */
     public function handle(EnquiryCreated $event)

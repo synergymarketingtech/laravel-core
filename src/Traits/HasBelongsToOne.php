@@ -1,8 +1,8 @@
 <?php
 
-namespace Coderstm\Core\Traits;
+namespace CoderstmCore\Traits;
 
-use Coderstm\Core\Relations\BelongsToOne;
+use CoderstmCore\Relations\BelongsToOne;
 
 trait HasBelongsToOne
 {

@@ -2,7 +2,8 @@
   "name": "coderstm/core",
   "autoload": {
     "psr-4": {
-      "Coderstm\\Core\\": "src/"
+      "CoderstmCore\\": "src/",
+      "CoderstmCore\\Database\\Factories\\": "database/factories/"
     },
     "files": [
       "lib/helpers.php"
@@ -45,5 +46,12 @@
     "mockery/mockery": "^1.0",
     "orchestra/testbench": "^7.0|^8.0",
     "phpunit/phpunit": "^9.0"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "CoderstmCore\\CoderstmCoreServiceProvider"
+      ]
+    }
   }
 }

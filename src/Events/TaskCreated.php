@@ -1,8 +1,8 @@
 <?php
 
-namespace Coderstm\Core\Events;
+namespace CoderstmCore\Events;
 
-use Coderstm\Core\Models\Task;
+use CoderstmCore\Models\Task;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;

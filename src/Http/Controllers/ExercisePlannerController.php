@@ -1,9 +1,9 @@
 <?php
 
-namespace Coderstm\Core\Http\Controllers;
+namespace CoderstmCore\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Coderstm\Core\Models\ExercisePlanner;
+use CoderstmCore\Models\ExercisePlanner;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class ExercisePlannerController extends Controller
@@ -63,7 +63,7 @@ class ExercisePlannerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \Coderstm\Core\Models\ExercisePlanner  $exercisePlanner
+     * @param  \CoderstmCore\Models\ExercisePlanner  $exercisePlanner
      * @return \Illuminate\Http\Response
      */
     public function show(ExercisePlanner $exercisePlanner)
@@ -75,7 +75,7 @@ class ExercisePlannerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Coderstm\Core\Models\ExercisePlanner  $exercisePlanner
+     * @param  \CoderstmCore\Models\ExercisePlanner  $exercisePlanner
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, ExercisePlanner $exercisePlanner)
@@ -101,7 +101,7 @@ class ExercisePlannerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \Coderstm\Core\Models\ExercisePlanner  $exercisePlanner
+     * @param  \CoderstmCore\Models\ExercisePlanner  $exercisePlanner
      * @return \Illuminate\Http\Response
      */
     public function destroy(ExercisePlanner $exercisePlanner)
@@ -115,7 +115,7 @@ class ExercisePlannerController extends Controller
     /**
      * Change active of specified resource from storage.
      *
-     * @param  \Coderstm\Core\Models\ExercisePlanner  $exercisePlanner
+     * @param  \CoderstmCore\Models\ExercisePlanner  $exercisePlanner
      * @return \Illuminate\Http\Response
      */
     public function changeActive(Request $request, ExercisePlanner $exercisePlanner)
