@@ -93,10 +93,6 @@ class CoderstmServiceProvider extends ServiceProvider
             ], 'coderstm-migrations');
 
             $this->publishes([
-                __DIR__ . '/../resources/views' => $this->app->resourcePath('views/vendor/coderstm'),
-            ], 'coderstm-views');
-
-            $this->publishes([
                 __DIR__ . '/../stubs/CoderstmRouteServiceProvider.stub' => app_path('Providers/CoderstmRouteServiceProvider.php'),
                 __DIR__ . '/../stubs/app.blade.stub' => $this->app->resourcePath('views/app.blade.php'),
                 __DIR__ . '/../stubs/admin.stub' => $this->app->basePath('routes/admin.php'),
@@ -114,7 +110,8 @@ class CoderstmServiceProvider extends ServiceProvider
         if (Coderstm::shouldRegistersRoutes()) {
             // register tunnel domain
             if (config('coderstm.tunnel_domain')) {
-                Route::group(['domain' => config('coderstm.tunnel_domain'),
+                Route::group([
+                    'domain' => config('coderstm.tunnel_domain'),
                     'middleware' => 'api',
                     'as' => 'coderstm.tunnel.',
                 ], function () {
@@ -159,7 +156,8 @@ class CoderstmServiceProvider extends ServiceProvider
     protected function registerCommands()
     {
         if ($this->app->runningInConsole()) {
-            $this->commands([InstallCommand::class,
+            $this->commands([
+                InstallCommand::class,
                 SubscriptionsCancel::class,
                 SubscriptionsInvoice::class,
             ]);
