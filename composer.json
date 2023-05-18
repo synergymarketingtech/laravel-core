@@ -1,6 +1,13 @@
 {
-  "name": "coderstm/core",
+  "name": "coderstm/laravel-core",
   "version": "1.0",
+  "description": "Laravel package that provides essential core functionalities and utilities for Laravel applications.",
+  "keywords": ["laravel", "sanctum", "auth"],
+  "license": "MIT",
+  "support": {
+      "issues": "https://github.com/coders-tm/laravel-core/issues",
+      "source": "https://github.com/coders-tm/laravel-core"
+  },
   "autoload": {
     "psr-4": {
       "Coderstm\\": "src/",
