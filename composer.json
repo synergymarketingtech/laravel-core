@@ -1,5 +1,6 @@
 {
   "name": "coderstm/core",
+  "version": "1.0",
   "autoload": {
     "psr-4": {
       "Coderstm\\": "src/",
