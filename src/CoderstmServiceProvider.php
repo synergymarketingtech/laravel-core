@@ -6,7 +6,12 @@ use Coderstm\Http\Routing\Router;
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Cashier\Events\WebhookReceived;
+use Coderstm\Http\Middleware\CheckSubscribed;
 use Coderstm\Http\Middleware\GuardMiddleware;
+use Coderstm\Events\Cashier\SubscriptionProcessed;
+use Coderstm\Listeners\Cashier\CashierEventListener;
+use Coderstm\Listeners\Cashier\SubscriptionEventListener;
 
 class CoderstmServiceProvider extends ServiceProvider
 {
@@ -52,7 +57,7 @@ class CoderstmServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register Sanctum's migration files.
+     * Register Coderstm's migration files.
      *
      * @return void
      */
@@ -64,7 +69,7 @@ class CoderstmServiceProvider extends ServiceProvider
     }
 
     /**
-     * Define the Sanctum routes.
+     * Define the Coderstm routes.
      *
      * @return void
      */
@@ -104,7 +109,7 @@ class CoderstmServiceProvider extends ServiceProvider
     }
 
     /**
-     * Configure the Sanctum middleware and priority.
+     * Configure the Coderstm middleware and priority.
      *
      * @return void
      */
@@ -119,5 +124,22 @@ class CoderstmServiceProvider extends ServiceProvider
         $kernel->middlewareGroup('subscribed', [
             CheckSubscribed::class
         ]);
+    }
+
+    /**
+     * Configure the Coderstm event listeners.
+     *
+     * @return void
+     */
+    protected function registerEventListeners()
+    {
+        $this->app->events->listen(
+            SubscriptionProcessed::class,
+            CashierEventListener::class
+        );
+        $this->app->events->listen(
+            WebhookReceived::class,
+            SubscriptionEventListener::class
+        );
     }
 }

@@ -52,7 +52,8 @@
     "laravel": {
       "providers": [
         "Coderstm\\CoderstmServiceProvider",
-        "Coderstm\\CoderstmPermissionsServiceProvider"
+        "Coderstm\\CoderstmPermissionsServiceProvider",
+        "Coderstm\\CoderstmEventServiceProvider"
       ]
     }
   }
