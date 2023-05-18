@@ -14,7 +14,7 @@ class SubscriptionsCancel extends Command
      *
      * @var string
      */
-    protected $signature = 'subscriptions:sync-invoice';
+    protected $signature = 'subscriptions:invoices';
 
     /**
      * The console command description.

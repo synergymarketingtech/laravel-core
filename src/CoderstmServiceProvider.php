@@ -54,6 +54,11 @@ class CoderstmServiceProvider extends ServiceProvider
 
         $this->defineRoutes();
         $this->configureMiddleware();
+
+        $this->commands([
+            SubscriptionsCancel::class,
+            SubscriptionsInvoice::class,
+        ]);
     }
 
     /**
