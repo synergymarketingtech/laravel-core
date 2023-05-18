@@ -24,7 +24,7 @@ return new class extends Migration
             'description' => 'Limited access to the system',
         ]);
 
-        Admin::first()->groups()->attach($group);
+        // Admin::first()->groups()->attach($group);
 
         $group->syncPermissions(collect(Permission::all())->mapWithKeys(function ($permission, $key) {
             return [$key => [

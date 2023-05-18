@@ -7,7 +7,7 @@ use Illuminate\Console\Command;
 use Coderstm\Models\Cashier\Subscription;
 use Coderstm\Models\Invoice;
 
-class SubscriptionsCancel extends Command
+class SubscriptionsInvoice extends Command
 {
     /**
      * The name and signature of the console command.

@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Coderstm\Commands\SubscriptionsCancel;
+use Coderstm\Commands\SubscriptionsInvoice;
 use Coderstm\Http\Middleware\CheckSubscribed;
 use Coderstm\Http\Middleware\GuardMiddleware;
 
@@ -31,10 +33,10 @@ class CoderstmServiceProvider extends ServiceProvider
     {
         $this->registerRoutes();
         // $this->registerMiddleware();
-        // $this->registerResources();
-        // $this->registerMigrations();
-        // $this->registerPublishing();
-        // $this->registerCommands();
+        $this->registerResources();
+        $this->registerMigrations();
+        $this->registerPublishing();
+        $this->registerCommands();
 
         DB::statement('SET @@auto_increment_offset = 100000');
     }
