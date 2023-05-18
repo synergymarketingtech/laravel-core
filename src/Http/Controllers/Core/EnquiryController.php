@@ -1,10 +1,10 @@
 <?php
 
-namespace CoderstmCore\Http\Controllers\Core;
+namespace Coderstm\Http\Controllers\Core;
 
-use CoderstmCore\Models\Enquiry;
+use Coderstm\Models\Enquiry;
 use Illuminate\Http\Request;
-use CoderstmCore\Http\Controllers\Controller;
+use Coderstm\Http\Controllers\Controller;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class EnquiryController extends Controller
@@ -115,7 +115,7 @@ class EnquiryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \CoderstmCore\Models\Enquiry  $enquiry
+     * @param  \Coderstm\Models\Enquiry  $enquiry
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, Enquiry $enquiry)
@@ -127,7 +127,7 @@ class EnquiryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \CoderstmCore\Models\Enquiry  $enquiry
+     * @param  \Coderstm\Models\Enquiry  $enquiry
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, Enquiry $enquiry)
@@ -141,7 +141,7 @@ class EnquiryController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \CoderstmCore\Models\Enquiry  $enquiry
+     * @param  \Coderstm\Models\Enquiry  $enquiry
      * @return \Illuminate\Http\Response
      */
     public function destroy_selected(Request $request, Enquiry $enquiry)
@@ -160,7 +160,7 @@ class EnquiryController extends Controller
     /**
      * Restore the specified resource from storage.
      *
-     * @param  \CoderstmCore\Models\Enquiry  $enquiry
+     * @param  \Coderstm\Models\Enquiry  $enquiry
      * @return \Illuminate\Http\Response
      */
     public function restore($id)
@@ -177,7 +177,7 @@ class EnquiryController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \CoderstmCore\Models\Enquiry  $enquiry
+     * @param  \Coderstm\Models\Enquiry  $enquiry
      * @return \Illuminate\Http\Response
      */
     public function restore_selected(Request $request, Enquiry $enquiry)
@@ -197,7 +197,7 @@ class EnquiryController extends Controller
     /**
      * Create reply for the specified resource.
      *
-     * @param  \CoderstmCore\Models\Enquiry  $enquiry
+     * @param  \Coderstm\Models\Enquiry  $enquiry
      * @return \Illuminate\Http\Response
      */
     public function reply(Request $request, Enquiry $enquiry)
@@ -227,7 +227,7 @@ class EnquiryController extends Controller
     /**
      * Change archived of specified resource from storage.
      *
-     * @param  \CoderstmCore\Models\Enquiry  $enquiry
+     * @param  \Coderstm\Models\Enquiry  $enquiry
      * @return \Illuminate\Http\Response
      */
     public function changeArchived(Request $request, Enquiry $enquiry)
@@ -244,7 +244,7 @@ class EnquiryController extends Controller
     /**
      * Change user archived of specified resource from storage.
      *
-     * @param  \CoderstmCore\Models\Enquiry  $enquiry
+     * @param  \Coderstm\Models\Enquiry  $enquiry
      * @return \Illuminate\Http\Response
      */
     public function changeUserArchived(Request $request, Enquiry $enquiry)

@@ -1,10 +1,10 @@
 <?php
 
-namespace CoderstmCore\Http\Controllers\Admin;
+namespace Coderstm\Http\Controllers\Admin;
 
-use CoderstmCore\Models\Plan;
+use Coderstm\Models\Plan;
 use Illuminate\Http\Request;
-use CoderstmCore\Http\Controllers\Controller;
+use Coderstm\Http\Controllers\Controller;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class PlanController extends Controller
@@ -78,7 +78,7 @@ class PlanController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \CoderstmCore\Models\Plan  $plan
+     * @param  \Coderstm\Models\Plan  $plan
      * @return \Illuminate\Http\Response
      */
     public function show(Plan $plan)
@@ -90,7 +90,7 @@ class PlanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \CoderstmCore\Models\Plan  $plan
+     * @param  \Coderstm\Models\Plan  $plan
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Plan $plan)
@@ -121,7 +121,7 @@ class PlanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \CoderstmCore\Models\Plan  $plan
+     * @param  \Coderstm\Models\Plan  $plan
      * @return \Illuminate\Http\Response
      */
     public function destroy(Plan $plan)
@@ -135,7 +135,7 @@ class PlanController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \CoderstmCore\Models\Plan  $plan
+     * @param  \Coderstm\Models\Plan  $plan
      * @return \Illuminate\Http\Response
      */
     public function destroy_selected(Request $request, Plan $plan)
@@ -154,7 +154,7 @@ class PlanController extends Controller
     /**
      * Restore the specified resource from storage.
      *
-     * @param  \CoderstmCore\Models\Plan  $plan
+     * @param  \Coderstm\Models\Plan  $plan
      * @return \Illuminate\Http\Response
      */
     public function restore($id)
@@ -171,7 +171,7 @@ class PlanController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \CoderstmCore\Models\Plan  $plan
+     * @param  \Coderstm\Models\Plan  $plan
      * @return \Illuminate\Http\Response
      */
     public function restore_selected(Request $request, Plan $plan)
@@ -191,7 +191,7 @@ class PlanController extends Controller
     /**
      * Change active of specified resource from storage.
      *
-     * @param  \CoderstmCore\Models\Plan  $plan
+     * @param  \Coderstm\Models\Plan  $plan
      * @return \Illuminate\Http\Response
      */
     public function changeActive(Request $request, Plan $plan)

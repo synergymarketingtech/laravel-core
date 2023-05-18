@@ -78,12 +78,12 @@ return [
     'providers' => [
         'admins' => [
             'driver' => 'eloquent',
-            'model' => CoderstmCore\Models\Admin::class,
+            'model' => Coderstm\Models\Admin::class,
         ],
 
         'users' => [
             'driver' => 'eloquent',
-            'model' => CoderstmCore\Models\User::class,
+            'model' => Coderstm\Models\User::class,
         ],
 
         // 'users' => [

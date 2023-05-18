@@ -3,9 +3,9 @@
 namespace Database\Factories;
 
 use Carbon\Carbon;
-use CoderstmCore\Models\Location;
-use CoderstmCore\Models\ClassList;
-use CoderstmCore\Models\Instructor;
+use Coderstm\Models\Location;
+use Coderstm\Models\ClassList;
+use Coderstm\Models\Instructor;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 

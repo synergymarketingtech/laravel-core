@@ -1,14 +1,14 @@
 <?php
 
-namespace CoderstmCore\Http\Controllers\User;
+namespace Coderstm\Http\Controllers\User;
 
-use CoderstmCore\Events\BookingCreated;
+use Coderstm\Events\BookingCreated;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use CoderstmCore\Models\ClassSchedule;
-use CoderstmCore\Http\Controllers\Controller;
-use CoderstmCore\Models\Booking;
-use CoderstmCore\Traits\Helpers;
+use Coderstm\Models\ClassSchedule;
+use Coderstm\Http\Controllers\Controller;
+use Coderstm\Models\Booking;
+use Coderstm\Traits\Helpers;
 
 class ClassScheduleController extends Controller
 {
@@ -64,7 +64,7 @@ class ClassScheduleController extends Controller
      * Book the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \CoderstmCore\Models\ClassSchedule  $classSchedule
+     * @param  \Coderstm\Models\ClassSchedule  $classSchedule
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, ClassSchedule $classSchedule)

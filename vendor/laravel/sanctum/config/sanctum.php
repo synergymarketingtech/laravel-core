@@ -60,8 +60,8 @@ return [
     */
 
     'middleware' => [
-        'verify_csrf_token' => CoderstmCore\Http\Middleware\VerifyCsrfToken::class,
-        'encrypt_cookies' => CoderstmCore\Http\Middleware\EncryptCookies::class,
+        'verify_csrf_token' => Coderstm\Http\Middleware\VerifyCsrfToken::class,
+        'encrypt_cookies' => Coderstm\Http\Middleware\EncryptCookies::class,
     ],
 
 ];

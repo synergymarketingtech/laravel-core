@@ -1,8 +1,8 @@
 <?php
 
-namespace CoderstmCore\Traits;
+namespace Coderstm\Traits;
 
-use CoderstmCore\Models\Admin;
+use Coderstm\Models\Admin;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;

@@ -1,6 +1,6 @@
 <?php
 
-use CoderstmCore\Models\AppSetting;
+use Coderstm\Models\AppSetting;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;

@@ -1,9 +1,9 @@
 <?php
 
-namespace CoderstmCore\Http\Controllers\Core;
+namespace Coderstm\Http\Controllers\Core;
 
-use CoderstmCore\Http\Controllers\Controller;
-use CoderstmCore\Models\Log;
+use Coderstm\Http\Controllers\Controller;
+use Coderstm\Models\Log;
 use Illuminate\Http\Request;
 
 class LogController extends Controller
@@ -12,7 +12,7 @@ class LogController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \CoderstmCore\Models\Log $log
+     * @param  \Coderstm\Models\Log $log
      * @return \Illuminate\Http\Response
      */
     public function show(Log $log)
@@ -27,7 +27,7 @@ class LogController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \CoderstmCore\Models\Log $log
+     * @param  \Coderstm\Models\Log $log
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Log $log)
@@ -59,7 +59,7 @@ class LogController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \CoderstmCore\Models\Log $log
+     * @param  \Coderstm\Models\Log $log
      * @return \Illuminate\Http\Response
      */
     public function destroy(Log $log)
@@ -74,7 +74,7 @@ class LogController extends Controller
      * Store a reply to specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \CoderstmCore\Models\Log $log
+     * @param  \Coderstm\Models\Log $log
      * @return \Illuminate\Http\Response
      */
     public function reply(Request $request, Log $log)

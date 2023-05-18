@@ -24,7 +24,7 @@ within the same method:
     // Rectangle.php
     <?php
     namespace App;
-    use CoderstmCore\Point;
+    use Coderstm\Point;
 
     class Rectangle {
         public function create($x1, $y1, $x2, $y2) {
@@ -52,18 +52,18 @@ And that you want to test that a logic in ``Rectangle->create()`` calls
 properly each used thing - in this case calls ``Point->setPoint()``, but
 ``Rectangle->draw()`` does some graphical stuff that you want to avoid calling.
 
-You set the mocks for ``CoderstmCore\Point`` and ``CoderstmCore\Rectangle``:
+You set the mocks for ``Coderstm\Point`` and ``Coderstm\Rectangle``:
 
 .. code-block:: php
 
     <?php
     class MyTest extends PHPUnit\Framework\TestCase {
         public function testCreate() {
-            $point = Mockery::mock("CoderstmCore\Point");
+            $point = Mockery::mock("Coderstm\Point");
             // check if our mock is called
             $point->shouldReceive("setPoint")->andThrow(Exception::class);
 
-            $rect = Mockery::mock("CoderstmCore\Rectangle")->makePartial();
+            $rect = Mockery::mock("Coderstm\Rectangle")->makePartial();
             $rect->shouldReceive("draw");
 
             $rect->create(0, 0, 100, 100);  // does not throw exception
@@ -73,10 +73,10 @@ You set the mocks for ``CoderstmCore\Point`` and ``CoderstmCore\Rectangle``:
 
 and the test does not work. Why? The mocking relies on the class not being
 present yet, but the class is autoloaded therefore the mock alone for
-``CoderstmCore\Point`` is useless which you can see with ``echo`` being executed.
+``Coderstm\Point`` is useless which you can see with ``echo`` being executed.
 
 Mocks however work for the first class in the order of loading i.e.
-``CoderstmCore\Rectangle``, which loads the ``CoderstmCore\Point`` class. In more complex example
+``Coderstm\Rectangle``, which loads the ``Coderstm\Point`` class. In more complex example
 that would be a single point that initiates the whole loading (``use Class``)
 such as::
 
@@ -116,7 +116,7 @@ look at ``Rectangle->create()`` method:
     }
 
 We create a custom function to encapsulate ``new`` keyword that would otherwise
-just use the autoloaded class ``CoderstmCore\Point`` and in our test we mock that function
+just use the autoloaded class ``Coderstm\Point`` and in our test we mock that function
 so that it returns our mock:
 
 .. code-block:: php
@@ -124,15 +124,15 @@ so that it returns our mock:
     <?php
     class MyTest extends PHPUnit\Framework\TestCase {
         public function testCreate() {
-            $point = Mockery::mock("CoderstmCore\Point");
+            $point = Mockery::mock("Coderstm\Point");
             // check if our mock is called
             $point->shouldReceive("setPoint")->andThrow(Exception::class);
 
-            $rect = Mockery::mock("CoderstmCore\Rectangle")->makePartial();
+            $rect = Mockery::mock("Coderstm\Rectangle")->makePartial();
             $rect->shouldReceive("draw");
 
-            // pass the CoderstmCore\Point mock into CoderstmCore\Rectangle as an alternative
-            // to using new CoderstmCore\Point() in-place.
+            // pass the Coderstm\Point mock into Coderstm\Rectangle as an alternative
+            // to using new Coderstm\Point() in-place.
             $rect->shouldReceive("newPoint")->andReturn($point);
 
             $this->expectException(Exception::class);

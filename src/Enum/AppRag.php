@@ -1,6 +1,6 @@
 <?php
 
-namespace CoderstmCore\Enum;
+namespace Coderstm\Enum;
 
 enum AppRag: string
 {

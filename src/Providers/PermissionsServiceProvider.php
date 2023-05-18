@@ -1,8 +1,8 @@
 <?php
 
-namespace CoderstmCore\Providers;
+namespace Coderstm\Providers;
 
-use CoderstmCore\Models\Permission;
+use Coderstm\Models\Permission;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;

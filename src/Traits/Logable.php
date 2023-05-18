@@ -1,10 +1,10 @@
 <?php
 
-namespace CoderstmCore\Traits;
+namespace Coderstm\Traits;
 
-use CoderstmCore\Enum\LogType;
-use CoderstmCore\Models\Log;
-use CoderstmCore\Models\Plan;
+use Coderstm\Enum\LogType;
+use Coderstm\Models\Log;
+use Coderstm\Models\Plan;
 use Illuminate\Support\Str;
 
 trait Logable

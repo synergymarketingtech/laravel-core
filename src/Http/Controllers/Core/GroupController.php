@@ -1,10 +1,10 @@
 <?php
 
-namespace CoderstmCore\Http\Controllers\Core;
+namespace Coderstm\Http\Controllers\Core;
 
-use CoderstmCore\Models\Group;
+use Coderstm\Models\Group;
 use Illuminate\Http\Request;
-use CoderstmCore\Http\Controllers\Controller;
+use Coderstm\Http\Controllers\Controller;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class GroupController extends Controller
@@ -89,7 +89,7 @@ class GroupController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \CoderstmCore\Models\Group $group
+     * @param  \Coderstm\Models\Group $group
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Group $group)
@@ -124,7 +124,7 @@ class GroupController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \CoderstmCore\Models\Group $group
+     * @param  \Coderstm\Models\Group $group
      * @return \Illuminate\Http\Response
      */
     public function destroy(Group $group)
@@ -138,7 +138,7 @@ class GroupController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \CoderstmCore\Models\Group $group
+     * @param  \Coderstm\Models\Group $group
      * @return \Illuminate\Http\Response
      */
     public function destroy_selected(Request $request, Group $group)
@@ -157,7 +157,7 @@ class GroupController extends Controller
     /**
      * Restore the specified resource from storage.
      *
-     * @param  \CoderstmCore\Models\Group $group
+     * @param  \Coderstm\Models\Group $group
      * @return \Illuminate\Http\Response
      */
     public function restore($id)
@@ -174,7 +174,7 @@ class GroupController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \CoderstmCore\Models\Group $group
+     * @param  \Coderstm\Models\Group $group
      * @return \Illuminate\Http\Response
      */
     public function restore_selected(Request $request, Group $group)

@@ -1,6 +1,6 @@
 <?php
 
-namespace CoderstmCore\Providers;
+namespace Coderstm\Providers;
 
 use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Support\ServiceProvider;

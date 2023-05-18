@@ -2,9 +2,9 @@
   "name": "coderstm/core",
   "autoload": {
     "psr-4": {
-      "CoderstmCore\\": "src/",
-      "CoderstmCore\\Database\\Factories\\": "database/factories/",
-      "CoderstmCore\\Database\\Seeders\\": "database/seeders/"
+      "Coderstm\\": "src/",
+      "Coderstm\\Database\\Factories\\": "database/factories/",
+      "Coderstm\\Database\\Seeders\\": "database/seeders/"
     },
     "files": [
       "lib/helpers.php"
@@ -51,7 +51,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "CoderstmCore\\CoderstmCoreServiceProvider"
+        "Coderstm\\CoderstmCoreServiceProvider"
       ]
     }
   }

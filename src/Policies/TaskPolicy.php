@@ -1,9 +1,9 @@
 <?php
 
-namespace CoderstmCore\Policies;
+namespace Coderstm\Policies;
 
-use CoderstmCore\Models\Admin;
-use CoderstmCore\Models\Task;
+use Coderstm\Models\Admin;
+use Coderstm\Models\Task;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class TaskPolicy
@@ -13,7 +13,7 @@ class TaskPolicy
     /**
      * Perform pre-authorization checks.
      *
-     * @param  \CoderstmCore\Models\Admin  $admin
+     * @param  \Coderstm\Models\Admin  $admin
      * @param  string  $ability
      * @return void|bool
      */
@@ -27,7 +27,7 @@ class TaskPolicy
     /**
      * Determine whether the admin can view any models.
      *
-     * @param  \CoderstmCore\Models\Admin  $admin
+     * @param  \Coderstm\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function viewAny(Admin $admin)
@@ -38,8 +38,8 @@ class TaskPolicy
     /**
      * Determine whether the admin can view the model.
      *
-     * @param  \CoderstmCore\Models\Admin  $admin
-     * @param  \CoderstmCore\Models\Task  $task
+     * @param  \Coderstm\Models\Admin  $admin
+     * @param  \Coderstm\Models\Task  $task
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function view(Admin $admin, Task $task)
@@ -50,7 +50,7 @@ class TaskPolicy
     /**
      * Determine whether the admin can create models.
      *
-     * @param  \CoderstmCore\Models\Admin  $admin
+     * @param  \Coderstm\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function create(Admin $admin)
@@ -61,8 +61,8 @@ class TaskPolicy
     /**
      * Determine whether the admin can update the model.
      *
-     * @param  \CoderstmCore\Models\Admin  $admin
-     * @param  \CoderstmCore\Models\Task  $task
+     * @param  \Coderstm\Models\Admin  $admin
+     * @param  \Coderstm\Models\Task  $task
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function update(Admin $admin, Task $task)
@@ -73,7 +73,7 @@ class TaskPolicy
     /**
      * Determine whether the admin can delete the model.
      *
-     * @param  \CoderstmCore\Models\Admin  $admin
+     * @param  \Coderstm\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function delete(Admin $admin)
@@ -84,7 +84,7 @@ class TaskPolicy
     /**
      * Determine whether the admin can restore the model.
      *
-     * @param  \CoderstmCore\Models\Admin  $admin
+     * @param  \Coderstm\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function restore(Admin $admin)
@@ -95,7 +95,7 @@ class TaskPolicy
     /**
      * Determine whether the admin can permanently delete the model.
      *
-     * @param  \CoderstmCore\Models\Admin  $admin
+     * @param  \Coderstm\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function forceDelete(Admin $admin)

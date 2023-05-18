@@ -1,10 +1,10 @@
 <?php
 
-namespace CoderstmCore\Http\Controllers\User;
+namespace Coderstm\Http\Controllers\User;
 
-use CoderstmCore\Models\Shop\Product;
+use Coderstm\Models\Shop\Product;
 use Illuminate\Http\Request;
-use CoderstmCore\Http\Controllers\Controller;
+use Coderstm\Http\Controllers\Controller;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class ShopController extends Controller

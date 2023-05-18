@@ -1,11 +1,11 @@
 <?php
 
-namespace CoderstmCore\Traits;
+namespace Coderstm\Traits;
 
-use CoderstmCore\Traits\Cashier\ManagesCustomer;
+use Coderstm\Traits\Cashier\ManagesCustomer;
 use Laravel\Cashier\Concerns\HandlesTaxes;
-use CoderstmCore\Traits\Cashier\ManagesSubscriptions;
-use CoderstmCore\Traits\Cashier\ManagesPaymentMethods;
+use Coderstm\Traits\Cashier\ManagesSubscriptions;
+use Coderstm\Traits\Cashier\ManagesPaymentMethods;
 use Laravel\Cashier\Concerns\ManagesInvoices;
 use Laravel\Cashier\Concerns\PerformsCharges;
 

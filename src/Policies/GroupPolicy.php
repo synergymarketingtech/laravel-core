@@ -1,8 +1,8 @@
 <?php
 
-namespace CoderstmCore\Policies;
+namespace Coderstm\Policies;
 
-use CoderstmCore\Models\Admin;
+use Coderstm\Models\Admin;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class GroupPolicy
@@ -12,7 +12,7 @@ class GroupPolicy
     /**
      * Perform pre-authorization checks.
      *
-     * @param  \CoderstmCore\Models\Admin  $admin
+     * @param  \Coderstm\Models\Admin  $admin
      * @param  string  $ability
      * @return void|bool
      */
@@ -26,7 +26,7 @@ class GroupPolicy
     /**
      * Determine whether the admin can view any models.
      *
-     * @param  \CoderstmCore\Models\Admin  $admin
+     * @param  \Coderstm\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function viewAny(Admin $admin)
@@ -37,7 +37,7 @@ class GroupPolicy
     /**
      * Determine whether the admin can view the model.
      *
-     * @param  \CoderstmCore\Models\Admin  $admin
+     * @param  \Coderstm\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function view(Admin $admin)
@@ -48,7 +48,7 @@ class GroupPolicy
     /**
      * Determine whether the admin can create models.
      *
-     * @param  \CoderstmCore\Models\Admin  $admin
+     * @param  \Coderstm\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function create(Admin $admin)
@@ -59,7 +59,7 @@ class GroupPolicy
     /**
      * Determine whether the admin can update the model.
      *
-     * @param  \CoderstmCore\Models\Admin  $admin
+     * @param  \Coderstm\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function update(Admin $admin)
@@ -70,7 +70,7 @@ class GroupPolicy
     /**
      * Determine whether the admin can delete the model.
      *
-     * @param  \CoderstmCore\Models\Admin  $admin
+     * @param  \Coderstm\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function delete(Admin $admin)
@@ -81,7 +81,7 @@ class GroupPolicy
     /**
      * Determine whether the admin can restore the model.
      *
-     * @param  \CoderstmCore\Models\Admin  $admin
+     * @param  \Coderstm\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function restore(Admin $admin)
@@ -92,7 +92,7 @@ class GroupPolicy
     /**
      * Determine whether the admin can permanently delete the model.
      *
-     * @param  \CoderstmCore\Models\Admin  $admin
+     * @param  \Coderstm\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function forceDelete(Admin $admin)

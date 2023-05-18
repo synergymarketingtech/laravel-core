@@ -218,8 +218,8 @@ class Application
     {
         $kernel = 'Orchestra\Testbench\Console\Kernel';
 
-        if (file_exists($app->basePath('app/Console/Kernel.php')) && class_exists('CoderstmCore\Kernel')) {
-            $kernel = 'CoderstmCore\Kernel';
+        if (file_exists($app->basePath('app/Console/Kernel.php')) && class_exists('Coderstm\Kernel')) {
+            $kernel = 'Coderstm\Kernel';
         }
 
         $app->singleton('Illuminate\Contracts\Console\Kernel', $kernel);
@@ -235,8 +235,8 @@ class Application
     {
         $kernel = 'Orchestra\Testbench\Http\Kernel';
 
-        if (file_exists($app->basePath('app/Http/Kernel.php')) && class_exists('CoderstmCore\Http\Kernel')) {
-            $kernel = 'CoderstmCore\Http\Kernel';
+        if (file_exists($app->basePath('app/Http/Kernel.php')) && class_exists('Coderstm\Http\Kernel')) {
+            $kernel = 'Coderstm\Http\Kernel';
         }
 
         $app->singleton('Illuminate\Contracts\Http\Kernel', $kernel);

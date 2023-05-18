@@ -1,6 +1,6 @@
 <?php
 
-namespace CoderstmCore\Providers;
+namespace Coderstm\Providers;
 
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -21,7 +21,7 @@ class ProcessEnvironment
     /**
      * Handle the event.
      *
-     * @param  \CoderstmCore\Events\RachidLaasri\LaravelInstaller\Events\EnvironmentSaved  $event
+     * @param  \Coderstm\Events\RachidLaasri\LaravelInstaller\Events\EnvironmentSaved  $event
      * @return void
      */
     public function handle(EnvironmentSaved $event)

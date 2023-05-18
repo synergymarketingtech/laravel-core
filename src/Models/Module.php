@@ -1,8 +1,8 @@
 <?php
 
-namespace CoderstmCore\Models;
+namespace Coderstm\Models;
 
-use CoderstmCore\Models\Permission;
+use Coderstm\Models\Permission;
 use Illuminate\Database\Eloquent\Model;
 
 class Module extends Model

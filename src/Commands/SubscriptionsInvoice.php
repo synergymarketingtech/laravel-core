@@ -1,11 +1,11 @@
 <?php
 
-namespace CoderstmCore\Commands;
+namespace Coderstm\Commands;
 
-use CoderstmCore\Enum\AppStatus;
+use Coderstm\Enum\AppStatus;
 use Illuminate\Console\Command;
-use CoderstmCore\Models\Cashier\Subscription;
-use CoderstmCore\Models\Invoice;
+use Coderstm\Models\Cashier\Subscription;
+use Coderstm\Models\Invoice;
 
 class SubscriptionsCancel extends Command
 {

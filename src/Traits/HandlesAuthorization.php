@@ -1,6 +1,6 @@
 <?php
 
-namespace CoderstmCore\Traits;
+namespace Coderstm\Traits;
 
 use Illuminate\Auth\Access\Response;
 use Illuminate\Auth\Access\HandlesAuthorization as AccessHandlesAuthorization;

@@ -1,10 +1,10 @@
 <?php
 
-namespace CoderstmCore\Http\Controllers\Subscription;
+namespace Coderstm\Http\Controllers\Subscription;
 
-use CoderstmCore\Models\User;
+use Coderstm\Models\User;
 use Illuminate\Http\Request;
-use CoderstmCore\Http\Controllers\Controller;
+use Coderstm\Http\Controllers\Controller;
 
 class PaymentMethodController extends Controller
 {

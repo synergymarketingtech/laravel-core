@@ -879,7 +879,7 @@ abstract class Factory
                 ->make(Application::class)
                 ->getNamespace();
         } catch (Throwable $e) {
-            return 'CoderstmCore\\';
+            return 'Coderstm\\';
         }
     }
 

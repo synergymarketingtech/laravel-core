@@ -127,7 +127,7 @@ providers API changes), it will automatically use the next driver in line.
 To create your own driver, simply create a class in your application, and extend the abstract Driver:
 
 ```php
-namespace CoderstmCore\Location\Drivers;
+namespace Coderstm\Location\Drivers;
 
 use Illuminate\Support\Fluent;
 use Stevebauman\Location\Position;
@@ -170,7 +170,7 @@ Then, insert your driver class name into the configuration file:
 |
 */
 
-'driver' => CoderstmCore\Locations\MyDriver::class,
+'driver' => Coderstm\Locations\MyDriver::class,
 ```
 
 ## Versioning

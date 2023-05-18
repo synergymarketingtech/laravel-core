@@ -1,8 +1,8 @@
 <?php
 
-use CoderstmCore\Models\Module;
+use Coderstm\Models\Module;
 use Illuminate\Support\Str;
-use CoderstmCore\Models\Permission;
+use Coderstm\Models\Permission;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;

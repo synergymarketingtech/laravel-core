@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use CoderstmCore\Models\ClassList;
-use CoderstmCore\Models\ClassSchedule;
-use CoderstmCore\Models\Instructor;
-use CoderstmCore\Models\Location;
+use Coderstm\Models\ClassList;
+use Coderstm\Models\ClassSchedule;
+use Coderstm\Models\Instructor;
+use Coderstm\Models\Location;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 

@@ -1,13 +1,13 @@
 <?php
 
-namespace CoderstmCore\Models;
+namespace Coderstm\Models;
 
-use CoderstmCore\Traits\Base;
-use CoderstmCore\Models\Log;
-use CoderstmCore\Traits\Fileable;
-use CoderstmCore\Traits\Addressable;
+use Coderstm\Traits\Base;
+use Coderstm\Models\Log;
+use Coderstm\Traits\Fileable;
+use Coderstm\Traits\Addressable;
 use Laravel\Sanctum\HasApiTokens;
-use CoderstmCore\Traits\HasPermissionGroup;
+use Coderstm\Traits\HasPermissionGroup;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Notifications\Notifiable;

@@ -101,7 +101,7 @@ class PolicyMakeCommand extends GeneratorCommand
         }
 
         if (!$config->get('auth.providers.' . $guardProvider . '.model')) {
-            return 'CoderstmCore\\Models\\User';
+            return 'Coderstm\\Models\\User';
         }
 
         return $config->get(

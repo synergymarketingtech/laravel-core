@@ -1,9 +1,9 @@
 <?php
 
-namespace CoderstmCore\Listeners\Cashier;
+namespace Coderstm\Listeners\Cashier;
 
 use Carbon\Carbon;
-use CoderstmCore\Models\Invoice;
+use Coderstm\Models\Invoice;
 use Illuminate\Support\Str;
 use Laravel\Cashier\Cashier;
 use Laravel\Cashier\Events\WebhookReceived;

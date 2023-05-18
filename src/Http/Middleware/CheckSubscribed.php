@@ -1,9 +1,9 @@
 <?php
 
-namespace CoderstmCore\Http\Middleware;
+namespace Coderstm\Http\Middleware;
 
 use Closure;
-use CoderstmCore\Models\User;
+use Coderstm\Models\User;
 
 class CheckSubscribed
 {

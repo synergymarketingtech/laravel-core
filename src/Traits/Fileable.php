@@ -1,9 +1,9 @@
 <?php
 
-namespace CoderstmCore\Traits;
+namespace Coderstm\Traits;
 
-use CoderstmCore\Models\File;
-use CoderstmCore\Traits\HasMorphToOne;
+use Coderstm\Models\File;
+use Coderstm\Traits\HasMorphToOne;
 
 trait Fileable
 {

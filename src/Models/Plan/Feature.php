@@ -1,10 +1,10 @@
 <?php
 
-namespace CoderstmCore\Models\Plan;
+namespace Coderstm\Models\Plan;
 
 use Carbon\Carbon;
-use CoderstmCore\Models\Plan;
-use CoderstmCore\Services\Period;
+use Coderstm\Models\Plan;
+use Coderstm\Services\Period;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Illuminate\Database\Eloquent\Model;

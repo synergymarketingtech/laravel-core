@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use CoderstmCore\Models\ClassList;
-use CoderstmCore\Traits\Helpers;
+use Coderstm\Models\ClassList;
+use Coderstm\Traits\Helpers;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 

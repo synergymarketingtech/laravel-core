@@ -1,9 +1,9 @@
 <?php
 
-namespace CoderstmCore\Policies;
+namespace Coderstm\Policies;
 
-use CoderstmCore\Models\Admin;
-use CoderstmCore\Models\Enquiry;
+use Coderstm\Models\Admin;
+use Coderstm\Models\Enquiry;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class EnquiryPolicy
@@ -13,7 +13,7 @@ class EnquiryPolicy
     /**
      * Perform pre-authorization checks.
      *
-     * @param  \CoderstmCore\Models\Admin  $admin
+     * @param  \Coderstm\Models\Admin  $admin
      * @param  string  $ability
      * @return void|bool
      */
@@ -27,7 +27,7 @@ class EnquiryPolicy
     /**
      * Determine whether the admin can view any models.
      *
-     * @param  \CoderstmCore\Models\Admin  $admin
+     * @param  \Coderstm\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function viewAny(Admin $admin)
@@ -41,8 +41,8 @@ class EnquiryPolicy
     /**
      * Determine whether the admin can view the model.
      *
-     * @param  \CoderstmCore\Models\Admin  $admin
-     * @param  \CoderstmCore\Models\Enquiry  $enquiry
+     * @param  \Coderstm\Models\Admin  $admin
+     * @param  \Coderstm\Models\Enquiry  $enquiry
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function view(Admin $admin, Enquiry $enquiry)
@@ -56,7 +56,7 @@ class EnquiryPolicy
     /**
      * Determine whether the admin can create models.
      *
-     * @param  \CoderstmCore\Models\Admin  $admin
+     * @param  \Coderstm\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function create(Admin $admin)
@@ -70,8 +70,8 @@ class EnquiryPolicy
     /**
      * Determine whether the admin can update the model.
      *
-     * @param  \CoderstmCore\Models\Admin  $admin
-     * @param  \CoderstmCore\Models\Enquiry  $enquiry
+     * @param  \Coderstm\Models\Admin  $admin
+     * @param  \Coderstm\Models\Enquiry  $enquiry
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function update(Admin $admin, Enquiry $enquiry)
@@ -85,7 +85,7 @@ class EnquiryPolicy
     /**
      * Determine whether the admin can delete the model.
      *
-     * @param  \CoderstmCore\Models\Admin  $admin
+     * @param  \Coderstm\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function delete(Admin $admin)
@@ -96,7 +96,7 @@ class EnquiryPolicy
     /**
      * Determine whether the admin can restore the model.
      *
-     * @param  \CoderstmCore\Models\Admin  $admin
+     * @param  \Coderstm\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function restore(Admin $admin)
@@ -107,7 +107,7 @@ class EnquiryPolicy
     /**
      * Determine whether the admin can permanently delete the model.
      *
-     * @param  \CoderstmCore\Models\Admin  $admin
+     * @param  \Coderstm\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function forceDelete(Admin $admin)

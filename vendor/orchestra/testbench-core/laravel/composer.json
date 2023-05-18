@@ -13,7 +13,7 @@
       "tests/TestCase.php"
     ],
     "psr-4": {
-      "CoderstmCore\\": "app/"
+      "Coderstm\\": "app/"
     }
   },
   "extra": {

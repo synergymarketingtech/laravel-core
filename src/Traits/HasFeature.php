@@ -1,8 +1,8 @@
 <?php
 
-namespace CoderstmCore\Traits;
+namespace Coderstm\Traits;
 
-use CoderstmCore\Models\Plan\Usage;
+use Coderstm\Models\Plan\Usage;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 trait HasFeature
@@ -88,7 +88,7 @@ trait HasFeature
      * @param string $featureSlug
      * @param int    $uses
      *
-     * @return \CoderstmCore\Models\Plan\Usage
+     * @return \Coderstm\Models\Plan\Usage
      */
     public function recordFeatureUsage(string $featureSlug, int $uses = 1, bool $incremental = true): Usage
     {
@@ -123,7 +123,7 @@ trait HasFeature
      * @param string $featureSlug
      * @param int    $uses
      *
-     * @return \CoderstmCore\Models\Plan\Usage|null
+     * @return \Coderstm\Models\Plan\Usage|null
      */
     public function reduceFeatureUsage(string $featureSlug, int $uses = 1): ?Usage
     {

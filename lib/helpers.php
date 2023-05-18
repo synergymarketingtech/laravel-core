@@ -1,6 +1,6 @@
 <?php
 
-use CoderstmCore\Models\AppSetting;
+use Coderstm\Models\AppSetting;
 use Illuminate\Support\Facades\Notification;
 
 if (!function_exists('guard')) {

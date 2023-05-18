@@ -1,10 +1,10 @@
 <?php
 
-namespace CoderstmCore\Http\Controllers\Core;
+namespace Coderstm\Http\Controllers\Core;
 
-use CoderstmCore\Models\File;
+use Coderstm\Models\File;
 use Illuminate\Http\Request;
-use CoderstmCore\Http\Controllers\Controller;
+use Coderstm\Http\Controllers\Controller;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
@@ -61,7 +61,7 @@ class FileController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \CoderstmCore\Models\File  $file
+     * @param  \Coderstm\Models\File  $file
      * @return \Illuminate\Http\Response
      */
     public function show(File $file)
@@ -73,7 +73,7 @@ class FileController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \CoderstmCore\Models\File  $file
+     * @param  \Coderstm\Models\File  $file
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, File $file)
@@ -93,7 +93,7 @@ class FileController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \CoderstmCore\Models\File  $file
+     * @param  \Coderstm\Models\File  $file
      * @return \Illuminate\Http\Response
      */
     public function destroy(File $file)
@@ -106,7 +106,7 @@ class FileController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \CoderstmCore\Models\File  $file
+     * @param  \Coderstm\Models\File  $file
      * @return \Illuminate\Http\Response
      */
     public function destroy_selected(Request $request, File $file)
@@ -125,7 +125,7 @@ class FileController extends Controller
     /**
      * Restore the specified resource from storage.
      *
-     * @param  \CoderstmCore\Models\File  $file
+     * @param  \Coderstm\Models\File  $file
      * @return \Illuminate\Http\Response
      */
     public function restore($id)
@@ -142,7 +142,7 @@ class FileController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \CoderstmCore\Models\File  $file
+     * @param  \Coderstm\Models\File  $file
      * @return \Illuminate\Http\Response
      */
     public function restore_selected(Request $request, File $file)

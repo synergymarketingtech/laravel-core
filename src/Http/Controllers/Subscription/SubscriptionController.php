@@ -1,17 +1,17 @@
 <?php
 
-namespace CoderstmCore\Http\Controllers\Subscription;
+namespace Coderstm\Http\Controllers\Subscription;
 
-use CoderstmCore\Models\Plan;
-use CoderstmCore\Models\User;
-use CoderstmCore\Traits\Helpers;
+use Coderstm\Models\Plan;
+use Coderstm\Models\User;
+use Coderstm\Traits\Helpers;
 use Stripe\Subscription;
-use CoderstmCore\Models\Plan\Price;
+use Coderstm\Models\Plan\Price;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use Laravel\Cashier\Cashier;
 use Laravel\Cashier\Payment;
-use CoderstmCore\Http\Controllers\Controller;
+use Coderstm\Http\Controllers\Controller;
 use Laravel\Cashier\Exceptions\IncompletePayment;
 
 class SubscriptionController extends Controller
