@@ -1,8 +1,8 @@
 <?php
 
-namespace Coderstm\Http\Controllers\Core;
+namespace Coderstm\Http\Controllers;
 
-use Coderstm\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
 use Coderstm\Models\Log;
 use Illuminate\Http\Request;
 

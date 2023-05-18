@@ -4,7 +4,7 @@ namespace Coderstm\Http\Controllers\Subscription;
 
 use Coderstm\Models\User;
 use Illuminate\Http\Request;
-use Coderstm\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
 
 class PaymentMethodController extends Controller
 {

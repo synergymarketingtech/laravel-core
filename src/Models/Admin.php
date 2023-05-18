@@ -15,7 +15,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 class Admin extends User
 {
-    use Notifiable, HasPermissionGroup, HasApiTokens, Fileable, Addressable, Core;
+    use Notifiable, HasPermissionGroup, HasApiTokens, Fileable, Addressable, Base;
 
     protected $guard = "admins";
 

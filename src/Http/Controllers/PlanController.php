@@ -4,7 +4,7 @@ namespace Coderstm\Http\Controllers\Admin;
 
 use Coderstm\Models\Plan;
 use Illuminate\Http\Request;
-use Coderstm\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class PlanController extends Controller

@@ -2,7 +2,6 @@
 
 namespace Coderstm\Models;
 
-use Coderstm\Models\Permission;
 use Coderstm\Traits\Base;
 use Coderstm\Traits\HasPermission;
 use Illuminate\Database\Eloquent\Model;

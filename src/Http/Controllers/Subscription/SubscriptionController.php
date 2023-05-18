@@ -11,7 +11,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use Laravel\Cashier\Cashier;
 use Laravel\Cashier\Payment;
-use Coderstm\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
 use Laravel\Cashier\Exceptions\IncompletePayment;
 
 class SubscriptionController extends Controller

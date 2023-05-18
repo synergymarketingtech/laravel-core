@@ -1,10 +1,10 @@
 <?php
 
-namespace Coderstm\Http\Controllers\Core;
+namespace Coderstm\Http\Controllers;
 
 use Coderstm\Models\Task;
 use Illuminate\Http\Request;
-use Coderstm\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 

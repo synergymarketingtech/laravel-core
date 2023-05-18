@@ -1,10 +1,10 @@
 <?php
 
-namespace Coderstm\Http\Controllers\Core;
+namespace Coderstm\Http\Controllers;
 
 use Coderstm\Models\File;
 use Illuminate\Http\Request;
-use Coderstm\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;

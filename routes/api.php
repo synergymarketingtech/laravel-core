@@ -1,19 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Core\LogController;
-use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\Core\FileController;
-use App\Http\Controllers\Core\TaskController;
-use App\Http\Controllers\Admin\PlanController;
-use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Core\AdminController;
-use App\Http\Controllers\Core\GroupController;
-use App\Http\Controllers\Core\EnquiryController;
-use App\Http\Controllers\Core\ApplicationController;
-use App\Http\Controllers\Auth\ForgotPasswordController;
-use App\Http\Controllers\Subscription\SubscriptionController;
-use App\Http\Controllers\Subscription\PaymentMethodController;
+use Coderstm\Http\Controllers\Core\LogController;
+use Coderstm\Http\Controllers\Auth\AuthController;
+use Coderstm\Http\Controllers\Core\FileController;
+use Coderstm\Http\Controllers\Core\TaskController;
+use Coderstm\Http\Controllers\Admin\PlanController;
+use Coderstm\Http\Controllers\Admin\UserController;
+use Coderstm\Http\Controllers\Core\AdminController;
+use Coderstm\Http\Controllers\Core\GroupController;
+use Coderstm\Http\Controllers\Core\EnquiryController;
+use Coderstm\Http\Controllers\Core\ApplicationController;
+use Coderstm\Http\Controllers\Auth\ForgotPasswordController;
+use Coderstm\Http\Controllers\Subscription\SubscriptionController;
+use Coderstm\Http\Controllers\Subscription\PaymentMethodController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,7 +51,7 @@ Route::middleware(['auth:sanctum', 'guard:admins'])->group(function () {
     Route::controller(ApplicationController::class)->group(function () {
         Route::get('application/stats', 'stats')->name('application.stats');
         Route::get('application/settings/{key}', 'getSettings')->name('application.get-settings');
-        Route::middleware('can:update,App\Models\AppSetting')->group(function () {
+        Route::middleware('can:update,Coderstm\Models\AppSetting')->group(function () {
             Route::post('application/settings', 'updateSettings')->name('application.update-settings');
         });
     });
@@ -140,7 +140,7 @@ Route::middleware(['auth:sanctum', 'guard:admins'])->group(function () {
     // Users
     Route::prefix('users')->name('users.')->group(function () {
         Route::controller(UserController::class)->group(function () {
-            Route::get('enquiry', 'enquiry')->can('enquiry,App\Models\User')->name('enquiry');
+            Route::get('enquiry', 'enquiry')->can('enquiry,Coderstm\Models\User')->name('enquiry');
             Route::middleware('can:update,user')->group(function () {
                 Route::post('{user}/reset-password-request', 'resetPasswordRequest')->name('users.reset-password-request');
                 Route::post('{user}/change-active', 'changeActive')->name('users.change-active');

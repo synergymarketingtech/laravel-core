@@ -1,14 +1,14 @@
 <?php
 
-namespace Coderstm\Http\Controllers\Core;
+namespace Coderstm\Http\Controllers;
 
 use Coderstm\Models\Admin;
 use Coderstm\Models\Group;
 use Coderstm\Models\Module;
 use Illuminate\Http\Request;
 use Coderstm\Models\Permission;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
-use Coderstm\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 

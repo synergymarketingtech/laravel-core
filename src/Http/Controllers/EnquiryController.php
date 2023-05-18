@@ -1,10 +1,10 @@
 <?php
 
-namespace Coderstm\Http\Controllers\Core;
+namespace Coderstm\Http\Controllers;
 
 use Coderstm\Models\Enquiry;
 use Illuminate\Http\Request;
-use Coderstm\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class EnquiryController extends Controller
