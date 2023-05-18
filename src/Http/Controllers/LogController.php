@@ -2,7 +2,7 @@
 
 namespace Coderstm\Http\Controllers;
 
-use Illuminate\Routing\Controller;
+use Coderstm\Http\Controllers\Controller;
 use Coderstm\Models\Log;
 use Illuminate\Http\Request;
 

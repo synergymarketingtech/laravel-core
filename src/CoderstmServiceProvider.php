@@ -40,15 +40,15 @@ class CoderstmServiceProvider extends ServiceProvider
     }
 
     /**
-     * Setup the configuration for Cashier.
+     * Setup the configuration for Coderstm.
      *
      * @return void
      */
     protected function configure()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/cashier.php',
-            'cashier'
+            __DIR__ . '/../config/coderstm.php',
+            'coderstm'
         );
     }
 

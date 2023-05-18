@@ -4,7 +4,7 @@ namespace Coderstm\Http\Controllers;
 
 use Coderstm\Models\AppSetting;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
+use Coderstm\Http\Controllers\Controller;
 use Coderstm\Models\Enquiry;
 use Coderstm\Models\Task;
 

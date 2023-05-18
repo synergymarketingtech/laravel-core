@@ -2,12 +2,13 @@
 
 namespace Coderstm\Http\Controllers\Auth;
 
+use Coderstm\Coderstm;
 use Coderstm\Enum\AppStatus;
 use Coderstm\Models\User;
 use Coderstm\Traits\Helpers;
 use Illuminate\Http\Request;
 use Coderstm\Notifications\UserLogin;
-use Illuminate\Routing\Controller;
+use Coderstm\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Coderstm\Http\Requests\UpdateParqRequest;
@@ -102,7 +103,7 @@ class AuthController extends Controller
         ]);
 
         // create the user
-        $user = User::create($request->only([
+        $user = Coderstm::userModel()::create($request->only([
             'title',
             'email',
             'plan_id',
@@ -196,31 +197,9 @@ class AuthController extends Controller
                     'type' => 'avatar'
                 ]
             ]);
-            $user->update([
-                'request_avatar' => false
-            ]);
-            Notification::route('mail', [
-                'reception@nitrofit28.coderstm.com' => 'Reception'
-            ])->notify(new AvatarAttachedNotification($user->fresh('avatar')));
         }
 
         return $this->me($guard);
-    }
-
-    public function updateParq(UpdateParqRequest $request)
-    {
-        currentUser()->updateOrCreateParq($request->input());
-
-        currentUser()->update([
-            'request_parq' => 0
-        ]);
-
-        $user = currentUser()->fresh(['parq']);
-
-        return response()->json([
-            'data' =>  $user->parq,
-            'message' => 'Parq has been updated successfully!',
-        ], 200);
     }
 
     public function password(Request $request, $guard = 'users')

@@ -9,7 +9,7 @@ class Coderstm
      *
      * @var string
      */
-    public static $userModel = 'App\\Models\\User';
+    public static $userModel = 'Coderstm\\Models\\User';
 
     /**
      * Indicates if Coderstm's migrations will be run.

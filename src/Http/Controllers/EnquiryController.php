@@ -4,7 +4,7 @@ namespace Coderstm\Http\Controllers;
 
 use Coderstm\Models\Enquiry;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
+use Coderstm\Http\Controllers\Controller;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class EnquiryController extends Controller

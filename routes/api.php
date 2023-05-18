@@ -1,16 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Coderstm\Http\Controllers\Core\LogController;
+use Coderstm\Http\Controllers\LogController;
 use Coderstm\Http\Controllers\Auth\AuthController;
-use Coderstm\Http\Controllers\Core\FileController;
-use Coderstm\Http\Controllers\Core\TaskController;
-use Coderstm\Http\Controllers\Admin\PlanController;
-use Coderstm\Http\Controllers\Admin\UserController;
-use Coderstm\Http\Controllers\Core\AdminController;
-use Coderstm\Http\Controllers\Core\GroupController;
-use Coderstm\Http\Controllers\Core\EnquiryController;
-use Coderstm\Http\Controllers\Core\ApplicationController;
+use Coderstm\Http\Controllers\FileController;
+use Coderstm\Http\Controllers\TaskController;
+use Coderstm\Http\Controllers\PlanController;
+use Coderstm\Http\Controllers\UserController;
+use Coderstm\Http\Controllers\AdminController;
+use Coderstm\Http\Controllers\GroupController;
+use Coderstm\Http\Controllers\EnquiryController;
+use Coderstm\Http\Controllers\ApplicationController;
 use Coderstm\Http\Controllers\Auth\ForgotPasswordController;
 use Coderstm\Http\Controllers\Subscription\SubscriptionController;
 use Coderstm\Http\Controllers\Subscription\PaymentMethodController;
