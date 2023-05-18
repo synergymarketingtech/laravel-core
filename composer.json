@@ -51,7 +51,8 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Coderstm\\CoderstmCoreServiceProvider"
+        "Coderstm\\CoderstmServiceProvider",
+        "Coderstm\\CoderstmPermissionsServiceProvider"
       ]
     }
   }

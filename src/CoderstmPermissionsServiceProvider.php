@@ -1,13 +1,13 @@
 <?php
 
-namespace Coderstm\Providers;
+namespace Coderstm;
 
 use Coderstm\Models\Permission;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
-class PermissionsServiceProvider extends ServiceProvider
+class CoderstmPermissionsServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
