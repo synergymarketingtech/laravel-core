@@ -108,27 +108,32 @@ class CoderstmServiceProvider extends ServiceProvider
     protected function registerRoutes()
     {
         if (Coderstm::shouldRegistersRoutes()) {
-            Route::swap(app(Router::class));
             // register tunnel domain
             if (config('coderstm.tunnel_domain')) {
-                Route::domain(config('coderstm.tunnel_domain'))
-                    ->middleware('api')
-                    ->name('coderstm.tunnel.')
-                    ->group(__DIR__ . '/../routes/api.php');
+                Route::group([
+                    'domain' => config('coderstm.tunnel_domain'),
+                    'middleware' => 'api',
+                    'as' => 'tunnel.',
+                ], function () {
+                    $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
+                });
             }
+
+            $options = [
+                'prefix' => config('coderstm.api_prefix'),
+                'middleware' => 'api',
+                'as' => 'coderstm.',
+            ];
 
             // modify default api route
             if (config('coderstm.domain')) {
-                Route::domain(config('coderstm.api_prefix') . '.' . config('coderstm.domain'))
-                    ->middleware('api')
-                    ->name('coderstm.')
-                    ->group(__DIR__ . '/../routes/api.php');
-            } else {
-                Route::prefix(config('coderstm.api_prefix'))
-                    ->middleware('api')
-                    ->name('coderstm.')
-                    ->group(__DIR__ . '/../routes/api.php');
+                unset($options['prefix']);
+                $options['domain'] = config('coderstm.api_prefix') . '.' . config('coderstm.domain');
             }
+
+            Route::group($options, function () {
+                $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
+            });
         }
     }
 
