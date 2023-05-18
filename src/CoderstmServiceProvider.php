@@ -51,15 +51,15 @@ class CoderstmServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__ . '/../resources/views' => $this->app->resourcePath('views/vendor/coderstm'),
             ], 'coderstm-views');
+
+            $this->commands([
+                SubscriptionsCancel::class,
+                SubscriptionsInvoice::class,
+            ]);
         }
 
         $this->defineRoutes();
         $this->configureMiddleware();
-
-        $this->commands([
-            SubscriptionsCancel::class,
-            SubscriptionsInvoice::class,
-        ]);
 
         DB::statement('SET @@auto_increment_offset = 100000');
     }
