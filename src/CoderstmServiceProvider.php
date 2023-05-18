@@ -95,24 +95,21 @@ class CoderstmServiceProvider extends ServiceProvider
                 });
             }
 
+            $options = [
+                'prefix' => config('app.api_prefix'),
+                'middleware' => 'api',
+                'as' => 'coderstm.api.',
+            ];
+
             // modify default api route
             if (config('app.domain')) {
-                Route::group([
-                    'domain' => config('app.api_prefix') . '.' . config('app.domain'),
-                    'middleware' => 'api',
-                    'as' => 'coderstm.api.',
-                ], function () {
-                    $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
-                });
-            } else {
-                Route::group([
-                    'prefix' => config('app.api_prefix'),
-                    'middleware' => 'api',
-                    'as' => 'coderstm.api.',
-                ], function () {
-                    $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
-                });
+                unset($options['prefix']);
+                $options['domain'] = config('app.api_prefix') . '.' . config('app.domain');
             }
+
+            Route::group($options, function () {
+                $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
+            });
         }
     }
 
