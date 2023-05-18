@@ -14,7 +14,7 @@ class SubscriptionsInvoice extends Command
      *
      * @var string
      */
-    protected $signature = 'subscriptions:invoices';
+    protected $signature = 'coderstm:subscriptions-invoices';
 
     /**
      * The console command description.

@@ -4,6 +4,7 @@ namespace Coderstm;
 
 use Coderstm\Http\Routing\Router;
 use Illuminate\Support\Facades\DB;
+use Coderstm\Commands\InstallCommand;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Coderstm\Commands\SubscriptionsCancel;
@@ -94,6 +95,12 @@ class CoderstmServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__ . '/../resources/views' => $this->app->resourcePath('views/vendor/coderstm'),
             ], 'coderstm-views');
+
+            $this->publishes([
+                __DIR__ . '/../stubs/CoderstmRouteServiceProvider.stub' => app_path('Providers/CoderstmRouteServiceProvider.php'),
+                __DIR__ . '/../stubs/app.blade.stub' => $this->app->resourcePath('views/app.blade.php'),
+                __DIR__ . '/../stubs/admin.stub' => $this->app->basePath('routes/admin.php'),
+            ], 'coderstm-provider');
         }
     }
 
@@ -105,11 +112,9 @@ class CoderstmServiceProvider extends ServiceProvider
     protected function registerRoutes()
     {
         if (Coderstm::shouldRegistersRoutes()) {
-            Route::swap(app(Router::class));
             // register tunnel domain
-            if (config('app.tunnel_domain')) {
-                Route::group([
-                    'domain' => config('app.tunnel_domain'),
+            if (config('coderstm.tunnel_domain')) {
+                Route::group(['domain' => config('coderstm.tunnel_domain'),
                     'middleware' => 'api',
                     'as' => 'coderstm.tunnel.',
                 ], function () {
@@ -118,15 +123,15 @@ class CoderstmServiceProvider extends ServiceProvider
             }
 
             $options = [
-                'prefix' => config('app.api_prefix'),
+                'prefix' => config('coderstm.api_prefix'),
                 'middleware' => 'api',
                 'as' => 'coderstm.api.',
             ];
 
             // modify default api route
-            if (config('app.domain')) {
+            if (config('coderstm.domain')) {
                 unset($options['prefix']);
-                $options['domain'] = config('app.api_prefix') . '.' . config('app.domain');
+                $options['domain'] = config('coderstm.api_prefix') . '.' . config('coderstm.domain');
             }
 
             Route::group($options, function () {
@@ -154,7 +159,7 @@ class CoderstmServiceProvider extends ServiceProvider
     protected function registerCommands()
     {
         if ($this->app->runningInConsole()) {
-            $this->commands([
+            $this->commands([InstallCommand::class,
                 SubscriptionsCancel::class,
                 SubscriptionsInvoice::class,
             ]);

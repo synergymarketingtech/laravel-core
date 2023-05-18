@@ -13,7 +13,7 @@ class SubscriptionsCancel extends Command
      *
      * @var string
      */
-    protected $signature = 'subscriptions:cancel';
+    protected $signature = 'coderstm:subscriptions-cancel';
 
     /**
      * The console command description.
