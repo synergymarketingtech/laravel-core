@@ -6,12 +6,10 @@ use Coderstm\Models\User;
 use Coderstm\Traits\Base;
 use Coderstm\Enum\AppStatus;
 use Coderstm\Traits\Fileable;
-use Coderstm\Models\Shop\Order;
 use Coderstm\Events\EnquiryCreated;
 use Coderstm\Models\Enquiry\Reply;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Enquiry extends Model
 {
@@ -41,7 +39,6 @@ class Enquiry extends Model
         'seen',
         'is_archived',
         'user_archived',
-        'order_id',
         'source',
     ];
 
@@ -130,16 +127,6 @@ class Enquiry extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'email', 'email')->withOnly([]);
-    }
-
-    /**
-     * Get the order that owns the Enquiry
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function order(): BelongsTo
-    {
-        return $this->belongsTo(Order::class)->withOnly(['line_items']);
     }
 
     /**

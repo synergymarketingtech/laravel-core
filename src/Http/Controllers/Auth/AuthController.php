@@ -4,17 +4,13 @@ namespace Coderstm\Http\Controllers\Auth;
 
 use Coderstm\Coderstm;
 use Coderstm\Enum\AppStatus;
-use Coderstm\Models\User;
 use Coderstm\Traits\Helpers;
 use Illuminate\Http\Request;
 use Coderstm\Notifications\UserLogin;
 use Coderstm\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Coderstm\Http\Requests\UpdateParqRequest;
-use Illuminate\Support\Facades\Notification;
 use Illuminate\Validation\ValidationException;
-use Coderstm\Notifications\AvatarAttachedNotification;
 
 class AuthController extends Controller
 {

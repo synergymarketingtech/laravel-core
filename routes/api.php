@@ -36,7 +36,6 @@ Route::prefix('auth/{guard?}')->group(function () {
             Route::post('update', 'update')->name('users.update');
             Route::post('change-password', 'password')->name('users.change-password');
             Route::post('me', 'me')->name('users.current');
-            Route::post('update-parq', 'updateParq')->name('users.update-parq');
         });
     });
     Route::controller(ForgotPasswordController::class)->group(function () {
@@ -148,7 +147,6 @@ Route::middleware(['auth:sanctum', 'guard:admins'])->group(function () {
                 Route::post('{user}/notes', 'notes')->name('users.notes');
                 Route::post('{user}/mark-as-paid', 'markAsPaid')->name('mark-as-paid');
             });
-            Route::post('{user}/checked', [UserController::class, 'checked'])->can('admin,user')->name('users.checked');
         });
     });
     Route::apiResource('users', UserController::class);

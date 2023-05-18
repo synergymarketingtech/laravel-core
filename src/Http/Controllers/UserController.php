@@ -174,7 +174,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return response()->json($user->load(['notes', 'plan', 'parq']), 200);
+        return response()->json($user->load(['notes', 'plan']), 200);
     }
 
     /**
@@ -237,7 +237,7 @@ class UserController extends Controller
         $user->updateOrCreateAddress($request->input('address'));
 
         return response()->json([
-            'data' => $user->fresh(['address', 'notes', 'plan', 'parq']),
+            'data' => $user->fresh(['address', 'notes', 'plan']),
             'message' => 'Member has been update successfully!',
         ], 200);
     }

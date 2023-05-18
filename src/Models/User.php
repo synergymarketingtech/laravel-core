@@ -5,7 +5,7 @@ namespace Coderstm\Models;
 use Coderstm\Enum\AppRag;
 use Coderstm\Enum\AppStatus;
 use Coderstm\Models\Enquiry;
-use Coderstm\Models\Core\Log;
+use Coderstm\Models\Log;
 use Coderstm\Traits\Billable;
 use Coderstm\Models\Plan\Price;
 use Illuminate\Support\Facades\DB;
@@ -16,7 +16,6 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Stripe\Subscription as StripeSubscription;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class User extends Admin implements MustVerifyEmail
 {

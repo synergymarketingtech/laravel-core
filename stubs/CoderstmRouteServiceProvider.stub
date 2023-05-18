@@ -1,8 +1,7 @@
 <?php
 
-namespace Coderstm;
+namespace App\Providers;
 
-use Coderstm\Http\Routing\Router;
 use Illuminate\Cache\RateLimiting\Limit;
 use Coderstm\CoderstmRouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;

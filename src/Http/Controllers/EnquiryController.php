@@ -121,7 +121,7 @@ class EnquiryController extends Controller
     public function show(Request $request, Enquiry $enquiry)
     {
         $enquiry = $enquiry->markedAsSeen();
-        return response()->json($enquiry->load(['user', 'replies.user', 'media', 'order']), 200);
+        return response()->json($enquiry->load(['user', 'replies.user', 'media']), 200);
     }
 
     /**
@@ -144,7 +144,7 @@ class EnquiryController extends Controller
      * @param  \Coderstm\Models\Enquiry  $enquiry
      * @return \Illuminate\Http\Response
      */
-    public function destroy_selected(Request $request, Enquiry $enquiry)
+    public function destroySelected(Request $request, Enquiry $enquiry)
     {
         $this->validate($request, [
             'items' => 'required',
@@ -180,7 +180,7 @@ class EnquiryController extends Controller
      * @param  \Coderstm\Models\Enquiry  $enquiry
      * @return \Illuminate\Http\Response
      */
-    public function restore_selected(Request $request, Enquiry $enquiry)
+    public function restoreSelected(Request $request, Enquiry $enquiry)
     {
         $this->validate($request, [
             'items' => 'required',
