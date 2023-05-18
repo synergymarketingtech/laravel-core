@@ -3,7 +3,8 @@
   "autoload": {
     "psr-4": {
       "CoderstmCore\\": "src/",
-      "CoderstmCore\\Database\\Factories\\": "database/factories/"
+      "CoderstmCore\\Database\\Factories\\": "database/factories/",
+      "CoderstmCore\\Database\\Seeders\\": "database/seeders/"
     },
     "files": [
       "lib/helpers.php"
