@@ -140,6 +140,7 @@ Route::middleware(['auth:sanctum', 'guard:admins'])->group(function () {
     // Users
     Route::prefix('users')->name('users.')->group(function () {
         Route::controller(UserController::class)->group(function () {
+            Route::post('list-by-ids', 'listByIds')->name('list-by-ids');
             Route::get('enquiry', 'enquiry')->can('enquiry,Coderstm\Models\User')->name('enquiry');
             Route::middleware('can:update,user')->group(function () {
                 Route::post('{user}/reset-password-request', 'resetPasswordRequest')->name('users.reset-password-request');

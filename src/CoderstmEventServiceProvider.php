@@ -1,6 +1,6 @@
 <?php
 
-namespace Coderstm\Providers;
+namespace Coderstm;
 
 use Coderstm\Events\TaskCreated;
 use Coderstm\Events\EnquiryCreated;

@@ -59,6 +59,7 @@ class CoderstmServiceProvider extends ServiceProvider
      */
     protected function registerMigrations()
     {
+        logger('Coderstm::shouldRunMigrations()', [Coderstm::shouldRunMigrations()]);
         if (Coderstm::shouldRunMigrations() && $this->app->runningInConsole()) {
             $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         }
@@ -143,11 +144,11 @@ class CoderstmServiceProvider extends ServiceProvider
     {
         $kernel = app()->make(Kernel::class);
 
-        $kernel->middlewareGroup('guard', [
+        $kernel->appendMiddlewareToGroup('guard', [
             GuardMiddleware::class
         ]);
 
-        $kernel->middlewareGroup('subscribed', [
+        $kernel->appendMiddlewareToGroup('subscribed', [
             CheckSubscribed::class
         ]);
     }
