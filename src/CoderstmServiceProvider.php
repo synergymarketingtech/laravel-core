@@ -7,12 +7,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Laravel\Cashier\Events\WebhookReceived;
 use Coderstm\Http\Middleware\CheckSubscribed;
 use Coderstm\Http\Middleware\GuardMiddleware;
-use Coderstm\Events\Cashier\SubscriptionProcessed;
-use Coderstm\Listeners\Cashier\CashierEventListener;
-use Coderstm\Listeners\Cashier\SubscriptionEventListener;
 
 class CoderstmServiceProvider extends ServiceProvider
 {
@@ -23,9 +19,7 @@ class CoderstmServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if (!app()->configurationIsCached()) {
-            $this->mergeConfigFrom(__DIR__ . '/../config/coderstm.php', 'coderstm');
-        }
+        $this->configure();
     }
 
     /**
@@ -35,55 +29,82 @@ class CoderstmServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Route::swap(app(Router::class));
-
-        if (app()->runningInConsole()) {
-            $this->registerMigrations();
-
-            $this->publishes([
-                __DIR__ . '/../database/migrations' => database_path('migrations'),
-            ], 'coderstm-migrations');
-
-            $this->publishes([
-                __DIR__ . '/../config/coderstm.php' => config_path('coderstm.php'),
-            ], 'coderstm-config');
-
-            $this->publishes([
-                __DIR__ . '/../resources/views' => $this->app->resourcePath('views/vendor/coderstm'),
-            ], 'coderstm-views');
-
-            $this->commands([
-                SubscriptionsCancel::class,
-                SubscriptionsInvoice::class,
-            ]);
-        }
-
-        $this->defineRoutes();
-        $this->configureMiddleware();
+        $this->registerRoutes();
+        // $this->registerMiddleware();
+        // $this->registerResources();
+        // $this->registerMigrations();
+        // $this->registerPublishing();
+        // $this->registerCommands();
 
         DB::statement('SET @@auto_increment_offset = 100000');
     }
 
     /**
-     * Register Coderstm's migration files.
+     * Setup the configuration for Cashier.
+     *
+     * @return void
+     */
+    protected function configure()
+    {
+        $this->mergeConfigFrom(
+            __DIR__ . '/../config/cashier.php',
+            'cashier'
+        );
+    }
+
+    /**
+     * Register the package migrations.
      *
      * @return void
      */
     protected function registerMigrations()
     {
-        if (Coderstm::shouldRunMigrations()) {
-            return $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        if (Coderstm::shouldRunMigrations() && $this->app->runningInConsole()) {
+            $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         }
     }
 
     /**
-     * Define the Coderstm routes.
+     * Register the package resources.
      *
      * @return void
      */
-    protected function defineRoutes()
+    protected function registerResources()
+    {
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'coderstm-views');
+    }
+
+    /**
+     * Register the package's publishable resources.
+     *
+     * @return void
+     */
+    protected function registerPublishing()
+    {
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__ . '/../config/coderstm.php' => $this->app->configPath('coderstm.php'),
+            ], 'coderstm-config');
+
+            $this->publishes([
+                __DIR__ . '/../database/migrations' => $this->app->databasePath('migrations'),
+            ], 'coderstm-migrations');
+
+            $this->publishes([
+                __DIR__ . '/../resources/views' => $this->app->resourcePath('views/vendor/coderstm'),
+            ], 'coderstm-views');
+        }
+    }
+
+    /**
+     * Register the package routes.
+     *
+     * @return void
+     */
+    protected function registerRoutes()
     {
         if (Coderstm::shouldRegistersRoutes()) {
+            Route::swap(app(Router::class));
             // register tunnel domain
             if (config('app.tunnel_domain')) {
                 Route::group([
@@ -114,11 +135,11 @@ class CoderstmServiceProvider extends ServiceProvider
     }
 
     /**
-     * Configure the Coderstm middleware and priority.
+     * Register the package middlewares.
      *
      * @return void
      */
-    protected function configureMiddleware()
+    protected function registerMiddleware()
     {
         $kernel = app()->make(Kernel::class);
 
@@ -132,19 +153,17 @@ class CoderstmServiceProvider extends ServiceProvider
     }
 
     /**
-     * Configure the Coderstm event listeners.
+     * Register the package's commands.
      *
      * @return void
      */
-    protected function registerEventListeners()
+    protected function registerCommands()
     {
-        $this->app->events->listen(
-            SubscriptionProcessed::class,
-            CashierEventListener::class
-        );
-        $this->app->events->listen(
-            WebhookReceived::class,
-            SubscriptionEventListener::class
-        );
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                SubscriptionsCancel::class,
+                SubscriptionsInvoice::class,
+            ]);
+        }
     }
 }
