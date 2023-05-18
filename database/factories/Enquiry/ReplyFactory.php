@@ -3,7 +3,6 @@
 namespace Database\Factories\Enquiry;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 class ReplyFactory extends Factory
 {

@@ -23,6 +23,9 @@ return new class extends Migration
             $table->text('message')->nullable();
             $table->string('status')->nullable();
             $table->boolean('seen')->nullable()->default(false);
+            $table->boolean('source')->nullable()->default(true);
+            $table->boolean('is_archived')->nullable()->default(false);
+            $table->boolean('user_archived')->nullable()->default(false);
 
             $table->timestamps();
             $table->softDeletes();

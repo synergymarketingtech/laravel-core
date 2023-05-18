@@ -16,8 +16,34 @@ return new class extends Migration
     {
 
         $permissions = [
-            'Staff' => [
+            'Enquiries' => [
                 'sort_order' => 1,
+                'icon' => 'fas fa-square-question',
+                'url' => 'enquiries',
+                'show_menu' => 1,
+                'sub_items' => [
+                    'View',
+                    'Edit',
+                    'List',
+                    'New',
+                    'Delete',
+                ],
+            ],
+            'Tasks' => [
+                'sort_order' => 16,
+                'show_menu' => 1,
+                'icon' => 'fas fa-list-check',
+                'url' => 'tasks',
+                'sub_items' => [
+                    'View',
+                    'Edit',
+                    'List',
+                    'New',
+                    'Delete',
+                ],
+            ],
+            'Staff' => [
+                'sort_order' => 2,
                 'icon' => 'fas fa-user-shield',
                 'url' => 'staff',
                 'show_menu' => 1,
@@ -30,7 +56,7 @@ return new class extends Migration
                 ],
             ],
             'Groups' => [
-                'sort_order' => 2,
+                'sort_order' => 3,
                 'icon' => 'fas fa-user-group',
                 'url' => 'groups',
                 'show_menu' => 1,
@@ -42,10 +68,23 @@ return new class extends Migration
                     'Delete',
                 ],
             ],
-            'Members' => [
-                'sort_order' => 3,
+            'Users' => [
+                'sort_order' => 4,
                 'icon' => 'fas fa-user-tag',
-                'url' => 'members',
+                'url' => 'users',
+                'show_menu' => 1,
+                'sub_items' => [
+                    'View',
+                    'Edit',
+                    'List',
+                    'New',
+                    'Delete',
+                ],
+            ],
+            'Settings' => [
+                'sort_order' => 5,
+                'icon' => 'fas fa-gear',
+                'url' => 'settings',
                 'show_menu' => 1,
                 'sub_items' => [
                     'View',

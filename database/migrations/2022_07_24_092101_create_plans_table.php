@@ -21,8 +21,34 @@ return new class extends Migration
             $table->decimal('fee', 5, 2)->nullable()->default(0.00);
             $table->enum('type', ['monthly', 'yearly'])->default('monthly');
             $table->boolean('is_active')->default(true);
+            $table->string('stripe_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
+        });
+
+        Schema::create('plan_prices', function (Blueprint $table) {
+            $table->id();
+
+            $table->unsignedBigInteger('plan_id');
+            $table->string('stripe_id')->nullable();
+            $table->string('interval')->default('month');
+            $table->decimal('amount', 5, 2)->default(0.00);
+            $table->timestamps();
+
+            $table->foreign('plan_id')->references('id')->on('plans')->cascadeOnUpdate()->cascadeOnDelete();
+        });
+
+        Schema::create('plan_features', function (Blueprint $table) {
+            $table->id();
+
+            $table->unsignedBigInteger('plan_id');
+            $table->string('label');
+            $table->string('slug');
+            $table->mediumText('description')->nullable();
+            $table->integer('value')->unsigned()->default(0);
+            $table->timestamps();
+
+            $table->foreign('plan_id')->references('id')->on('plans')->cascadeOnUpdate()->cascadeOnDelete();
         });
     }
 
@@ -33,6 +59,8 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('plan_features');
+        Schema::dropIfExists('plan_prices');
         Schema::dropIfExists('plans');
     }
 };
