@@ -119,7 +119,7 @@ class Reply extends Model
             }
         });
         static::addGlobalScope('default', function (Builder $builder) {
-            if (is_user()) {
+            if (isUser()) {
                 $builder->where('staff_only', 0);
             }
         });

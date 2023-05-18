@@ -112,13 +112,8 @@ class Log extends Model
     {
         parent::booted();
         static::creating(function ($model) {
-            if (empty($model->admin_id) && is_admin()) {
+            if (empty($model->admin_id) && isAdmin()) {
                 $model->admin_id = currentUser()->id ?? null;
-            }
-        });
-        static::created(function ($model) {
-            if ($model->logable instanceof User && isset($model->options['status'])) {
-                event(new UserStatusUpdated($model, $model->options['status']['current']));
             }
         });
     }

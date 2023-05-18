@@ -26,7 +26,7 @@ class GuestPassController extends Controller
             $guestPass->onlyTrashed();
         }
 
-        if (is_user()) {
+        if (isUser()) {
             $guestPass->onlyOwner();
         }
 

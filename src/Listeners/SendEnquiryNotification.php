@@ -29,6 +29,6 @@ class SendEnquiryNotification implements ShouldQueue
      */
     public function handle(EnquiryCreated $event)
     {
-        admin_notify(new EnquiryNotification($event->enquiry));
+        adminNotify(new EnquiryNotification($event->enquiry));
     }
 }

@@ -36,10 +36,10 @@ class PageController extends Controller
         ]);
     }
 
-    public function opening_times(Request $request)
+    public function openingTimes(Request $request)
     {
         $announcements = Announcement::active()->paginate(10);
-        $openingTimes = opening_times();
+        $openingTimes = openingTimes();
         return view('pages.opening-times', [
             'title' => 'Opening Times',
             'subtitle' => 'Company',

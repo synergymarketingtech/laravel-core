@@ -4,7 +4,6 @@ namespace Coderstm;
 
 use Coderstm\Http\Routing\Router;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Coderstm\Commands\SubscriptionsCancel;
@@ -32,7 +31,7 @@ class CoderstmServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerRoutes();
-        // $this->registerMiddleware();
+        $this->registerRouteMiddleware();
         $this->registerResources();
         $this->registerMigrations();
         $this->registerPublishing();
@@ -61,7 +60,6 @@ class CoderstmServiceProvider extends ServiceProvider
      */
     protected function registerMigrations()
     {
-        logger('Coderstm::shouldRunMigrations()', [Coderstm::shouldRunMigrations()]);
         if (Coderstm::shouldRunMigrations() && $this->app->runningInConsole()) {
             $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         }
@@ -138,21 +136,14 @@ class CoderstmServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the package middlewares.
+     * Register the package route middlewares.
      *
      * @return void
      */
-    protected function registerMiddleware()
+    protected function registerRouteMiddleware()
     {
-        $kernel = app()->make(Kernel::class);
-
-        $kernel->appendMiddlewareToGroup('guard', [
-            GuardMiddleware::class
-        ]);
-
-        $kernel->appendMiddlewareToGroup('subscribed', [
-            CheckSubscribed::class
-        ]);
+        Route::aliasMiddleware('guard', GuardMiddleware::class);
+        Route::aliasMiddleware('subscribed', CheckSubscribed::class);
     }
 
     /**

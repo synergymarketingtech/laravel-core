@@ -44,7 +44,7 @@ class UserPolicy
      */
     public function view(Admin $admin, User $user)
     {
-        if (is_user()) {
+        if (isUser()) {
             return $user->id == currentUser()->id;
         }
         return $admin->can('members:view');
@@ -135,7 +135,7 @@ class UserPolicy
      */
     public function update_parq(Admin $admin, User $user)
     {
-        if (is_user()) {
+        if (isUser()) {
             return $user->id == currentUser()->id;
         }
         return $admin->can('members:enquiry');

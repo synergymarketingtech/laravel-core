@@ -93,7 +93,7 @@ class PaymentMethodController extends Controller
 
     private function user()
     {
-        if (request()->filled('user_id') && is_admin()) {
+        if (request()->filled('user_id') && isAdmin()) {
             return User::findOrFail(request()->user_id);
         }
         return currentUser();

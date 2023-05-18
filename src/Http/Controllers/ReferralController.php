@@ -26,7 +26,7 @@ class ReferralController extends Controller
             $referral->onlyTrashed();
         }
 
-        if (is_user()) {
+        if (isUser()) {
             $referral->onlyOwner();
         }
 

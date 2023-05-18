@@ -34,7 +34,7 @@ class CheckSubscribed
 
     private function user()
     {
-        if (request()->filled('user_id') && is_admin() && config('coderstm.user')) {
+        if (request()->filled('user_id') && isAdmin() && config('coderstm.user')) {
             return config('coderstm.user')::findOrFail(request()->user_id);
         }
         return currentUser();

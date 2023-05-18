@@ -20,22 +20,22 @@ if (!function_exists('currentUser')) {
     }
 }
 
-if (!function_exists('is_user')) {
-    function is_user()
+if (!function_exists('isUser')) {
+    function isUser()
     {
         return guard() == 'users';
     }
 }
 
-if (!function_exists('is_admin')) {
-    function is_admin()
+if (!function_exists('isAdmin')) {
+    function isAdmin()
     {
         return guard() == 'admins';
     }
 }
 
-if (!function_exists('app_url')) {
-    function app_url($subdomain = 'app')
+if (!function_exists('appUrl')) {
+    function appUrl($subdomain = 'app')
     {
         $scheme = request()->getScheme();
         if ($subdomain) {
@@ -45,45 +45,38 @@ if (!function_exists('app_url')) {
     }
 }
 
-if (!function_exists('admin_url')) {
-    function admin_url($path = '')
+if (!function_exists('adminUrl')) {
+    function adminUrl($path = '')
     {
-        return config('app.admin_url') . '/' . $path;
+        return config('app.adminUrl') . '/' . $path;
     }
 }
 
-if (!function_exists('members_url')) {
-    function member_url($path = '')
-    {
-        return config('app.members_url') . '/' . $path;
-    }
-}
-
-if (!function_exists('is_active')) {
-    function is_active(...$routes)
+if (!function_exists('isActive')) {
+    function isActive(...$routes)
     {
         return request()->is($routes) ? 'active' : '';
     }
 }
 
-if (!function_exists('has_recaptcha')) {
-    function has_recaptcha()
+if (!function_exists('hasRecaptcha')) {
+    function hasRecaptcha()
     {
         return !empty(config('recaptcha.site_key'));
     }
 }
 
-if (!function_exists('app_settings')) {
-    function app_settings($key)
+if (!function_exists('appSettings')) {
+    function appSettings($key)
     {
         return AppSetting::findByKey($key);
     }
 }
 
-if (!function_exists('opening_times')) {
-    function opening_times()
+if (!function_exists('openingTimes')) {
+    function openingTimes()
     {
-        return app_settings('opening-times')->map(function ($item, $key) {
+        return appSettings('opening-times')->map(function ($item, $key) {
             $item['is_today'] = now()->format('l') == $item['name'];
             return $item;
         });
@@ -116,23 +109,14 @@ if (!function_exists('string2hsl')) {
     }
 }
 
-if (!function_exists('admin_notification')) {
-    function admin_notification()
-    {
-        return Notification::route('mail', [
-            config('app.admin_email') => 'Admin'
-        ]);
-    }
-}
-
 /**
  * Send the admin notification.
  *
  * @param  mixed  $notification
  * @return void
  */
-if (!function_exists('admin_notify')) {
-    function admin_notify($notification)
+if (!function_exists('adminNotify')) {
+    function adminNotify($notification)
     {
         return Notification::route('mail', [
             config('app.admin_email') => 'Admin'

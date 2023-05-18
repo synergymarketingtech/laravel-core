@@ -64,7 +64,7 @@ class TaskUserNotification extends Notification
             ->greeting("Hi " . optional($this->user)->first_name . ",")
             ->subject("[Task] {$this->issue->subject} by {$this->issue->user->name}")
             ->line(new HtmlString($this->message))
-            ->action('Open Task', admin_url("tasks/{$this->issue->id}?action=edit"))
+            ->action('Open Task', adminUrl("tasks/{$this->issue->id}?action=edit"))
             ->line(new HtmlString($this->attachments))
             ->line(new HtmlString('<p style="color:red"><small>Please dont respond to this email, any response should be using admin portal.</small></p>'));
     }

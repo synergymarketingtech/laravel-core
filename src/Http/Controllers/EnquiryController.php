@@ -43,7 +43,7 @@ class EnquiryController extends Controller
             $enquiry->onlyTrashed();
         }
 
-        if (is_user()) {
+        if (isUser()) {
             $enquiry->onlyOwner();
         }
 

@@ -252,7 +252,7 @@ class Enquiry extends Model
     {
         switch ($status) {
             case 'Live':
-                if (is_user()) {
+                if (isUser()) {
                     return $query->whereUserArchived(0);
                 } else {
                     return $query->whereIsArchived(0);
@@ -260,7 +260,7 @@ class Enquiry extends Model
                 break;
 
             case 'Archive':
-                if (is_user()) {
+                if (isUser()) {
                     return $query->whereUserArchived(1);
                 } else {
                     return $query->whereIsArchived(1);
