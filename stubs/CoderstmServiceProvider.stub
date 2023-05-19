@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Auth\Notifications\ResetPassword;
 
 class CoderstmServiceProvider extends ServiceProvider
 {
@@ -24,6 +25,10 @@ class CoderstmServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->mapApiRoutes();
+
+        ResetPassword::createUrlUsing(function ($user, string $token) {
+            return request()->headers->get('origin') . config('coderstm.reset_password_url') . "?token={$token}&email={$user->email}";
+        });
     }
 
     protected function mapApiRoutes()
