@@ -43,6 +43,9 @@ class InstallCommand extends Command
         $this->comment('Publishing Coderstm Controllers...');
         $this->callSilent('vendor:publish', ['--tag' => 'coderstm-controllers']);
 
+        $this->comment('Publishing Coderstm Models...');
+        $this->callSilent('vendor:publish', ['--tag' => 'coderstm-models']);
+
         $this->comment('Publishing Coderstm Policies...');
         $this->callSilent('vendor:publish', ['--tag' => 'coderstm-policies']);
 

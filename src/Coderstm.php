@@ -25,7 +25,7 @@ class Coderstm
      *
      * @var string
      */
-    public static $enquiryModel = Enquiry::class;
+    public static $enquiryModel = 'App\\Models\\Enquiry';
 
     /**
      * Indicates if Coderstm's migrations will be run.

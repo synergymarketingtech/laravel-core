@@ -112,27 +112,35 @@ class CoderstmServiceProvider extends ServiceProvider
             ], 'coderstm-migrations');
 
             $this->publishes([
-                $this->packagePath('stubs/routes/web.stub') => $this->app->basePath('routes/coderstm/web.php'),
-                $this->packagePath('stubs/routes/api.stub') => $this->app->basePath('routes/coderstm/api.php'),
+                $this->packageStubPath('routes/web.stub') => $this->app->basePath('routes/coderstm/web.php'),
+                $this->packageStubPath('routes/api.stub') => $this->app->basePath('routes/coderstm/api.php'),
             ], 'coderstm-routes');
 
             $this->publishes([
-                $this->packagePath('stubs/views/app.blade.stub') => $this->app->resourcePath('views/app.blade.php'),
+                $this->packageStubPath('views/app.blade.stub') => $this->app->resourcePath('views/app.blade.php'),
             ], 'coderstm-views');
 
             $this->publishes([
-                $this->packagePath('stubs/controllers/AdminController.stub') => app_path('Http/Controllers/AdminController.php'),
-                $this->packagePath('stubs/controllers/UserController.stub') => app_path('Http/Controllers/UserController.php'),
+                $this->packageStubPath('controllers/AdminController.stub') => app_path('Http/Controllers/AdminController.php'),
+                $this->packageStubPath('controllers/UserController.stub') => app_path('Http/Controllers/UserController.php'),
+                $this->packageStubPath('controllers/EnquiryController.stub') => app_path('Http/Controllers/EnquiryController.php'),
             ], 'coderstm-controllers');
 
             $this->publishes([
-                $this->packagePath('stubs/policies/UserPolicy.stub') => app_path('Policies/UserPolicy.php'),
-                $this->packagePath('stubs/policies/AdminPolicy.stub') => app_path('Policies/AdminPolicy.php'),
+                $this->packageStubPath('models/Admin.stub') => app_path('Models/Admin.php'),
+                $this->packageStubPath('models/User.stub') => app_path('Models/User.php'),
+                $this->packageStubPath('models/Enquiry.stub') => app_path('Models/Enquiry.php'),
+            ], 'coderstm-models');
+
+            $this->publishes([
+                $this->packageStubPath('policies/AdminPolicy.stub') => app_path('Policies/AdminPolicy.php'),
+                $this->packageStubPath('policies/UserPolicy.stub') => app_path('Policies/UserPolicy.php'),
+                $this->packageStubPath('policies/EnquiryPolicy.stub') => app_path('Policies/EnquiryPolicy.php'),
             ], 'coderstm-policies');
 
             $this->publishes([
-                $this->packagePath('stubs/CoderstmServiceProvider.stub') => app_path('Providers/CoderstmServiceProvider.php'),
-                $this->packagePath('stubs/CoderstmRouteServiceProvider.stub') => app_path('Providers/CoderstmRouteServiceProvider.php'),
+                $this->packageStubPath('CoderstmServiceProvider.stub') => app_path('Providers/CoderstmServiceProvider.php'),
+                $this->packageStubPath('CoderstmRouteServiceProvider.stub') => app_path('Providers/CoderstmRouteServiceProvider.php'),
             ], 'coderstm-provider');
         }
     }
@@ -167,5 +175,10 @@ class CoderstmServiceProvider extends ServiceProvider
     protected function packagePath(string $path)
     {
         return __DIR__ . '/../' . $path;
+    }
+
+    protected function packageStubPath(string $path)
+    {
+        return __DIR__ . '/../stubs/' . $path;
     }
 }

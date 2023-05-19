@@ -9,7 +9,7 @@ use Coderstm\Http\Controllers\PlanController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use Coderstm\Http\Controllers\GroupController;
-use Coderstm\Http\Controllers\EnquiryController;
+use App\Http\Controllers\EnquiryController;
 use Coderstm\Http\Controllers\ApplicationController;
 use Coderstm\Http\Controllers\Auth\ForgotPasswordController;
 use Coderstm\Http\Controllers\Subscription\SubscriptionController;
