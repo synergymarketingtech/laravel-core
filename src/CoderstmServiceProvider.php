@@ -2,7 +2,6 @@
 
 namespace Coderstm;
 
-use Coderstm\Http\Routing\Router;
 use Illuminate\Support\Facades\DB;
 use Coderstm\Commands\InstallCommand;
 use Illuminate\Support\Facades\Route;
@@ -31,7 +30,7 @@ class CoderstmServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->registerRoutes();
+        // $this->registerRoutes();
         $this->registerRouteMiddleware();
         $this->registerResources();
         $this->registerMigrations();
