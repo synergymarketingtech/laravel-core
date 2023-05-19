@@ -2,7 +2,7 @@
 
 namespace Coderstm\Traits;
 
-use Coderstm\Models\Admin;
+use Coderstm\Coderstm;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -16,7 +16,7 @@ trait TaskUser
      */
     public function user(): BelongsTo
     {
-        return $this->belongsTo(Admin::class, 'user_id');
+        return $this->belongsTo(Coderstm::$adminModel, 'user_id');
     }
 
     /**
@@ -26,7 +26,7 @@ trait TaskUser
      */
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany(Admin::class, 'task_users', 'task_id', 'user_id')->withOnly([]);
+        return $this->belongsToMany(Coderstm::$adminModel, 'task_users', 'task_id', 'user_id')->withOnly([]);
     }
 
     public function syncUsers(Collection $users, bool $detach = true)

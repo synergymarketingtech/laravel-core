@@ -2,7 +2,6 @@
 
 namespace Coderstm\Models;
 
-use Coderstm\Models\File;
 use Coderstm\Traits\Base;
 use Illuminate\Database\Eloquent\Model;
 

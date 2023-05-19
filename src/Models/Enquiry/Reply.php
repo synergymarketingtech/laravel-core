@@ -2,9 +2,9 @@
 
 namespace Coderstm\Models\Enquiry;
 
+use Coderstm\Coderstm;
 use Coderstm\Enum\AppStatus;
 use Coderstm\Traits\Fileable;
-use Coderstm\Models\Enquiry;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -72,7 +72,7 @@ class Reply extends Model
      */
     public function enquiry()
     {
-        return $this->belongsTo(Enquiry::class);
+        return $this->belongsTo(Coderstm::$enquiryModel);
     }
 
     /**

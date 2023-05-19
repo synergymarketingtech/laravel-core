@@ -2,7 +2,6 @@
 
 namespace Coderstm\Traits\Cashier;
 
-use Illuminate\Support\Arr;
 use Laravel\Cashier\Concerns\ManagesPaymentMethods as CashierManagesPaymentMethods;
 
 trait ManagesPaymentMethods

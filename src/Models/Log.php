@@ -2,10 +2,8 @@
 
 namespace Coderstm\Models;
 
-use Coderstm\Models\User;
-use Coderstm\Models\Admin;
+use Coderstm\Coderstm;
 use Coderstm\Traits\Fileable;
-use Coderstm\Events\UserStatusUpdated;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -87,7 +85,7 @@ class Log extends Model
      */
     public function admin()
     {
-        return $this->belongsTo(Admin::class)->withOnly([]);
+        return $this->belongsTo(Coderstm::$adminModel)->withOnly([]);
     }
 
     /**

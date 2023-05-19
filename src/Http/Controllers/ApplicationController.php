@@ -2,11 +2,11 @@
 
 namespace Coderstm\Http\Controllers;
 
-use Coderstm\Models\AppSetting;
-use Illuminate\Http\Request;
-use Coderstm\Http\Controllers\Controller;
-use Coderstm\Models\Enquiry;
+use Coderstm\Coderstm;
 use Coderstm\Models\Task;
+use Illuminate\Http\Request;
+use Coderstm\Models\AppSetting;
+use Coderstm\Http\Controllers\Controller;
 
 class ApplicationController extends Controller
 {
@@ -18,7 +18,7 @@ class ApplicationController extends Controller
     public function stats(Request $request)
     {
         return response()->json([
-            'unread_support' => Enquiry::onlyActive()->count(),
+            'unread_support' => Coderstm::$enquiryModel::onlyActive()->count(),
             'unread_tasks' => Task::onlyActive()->count(),
         ], 200);
     }

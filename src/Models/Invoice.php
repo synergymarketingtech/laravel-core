@@ -5,7 +5,6 @@ namespace Coderstm\Models;
 use Coderstm\Traits\Base;
 use Laravel\Cashier\Cashier;
 use Coderstm\Models\Invoice\LineItem;
-use Coderstm\Models\Cashier\Subscription;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -48,7 +47,7 @@ class Invoice extends Model
      */
     public function subscription(): BelongsTo
     {
-        return $this->belongsTo(Subscription::class);
+        return $this->belongsTo(Cashier::$subscriptionModel);
     }
 
     /**

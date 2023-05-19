@@ -2,7 +2,7 @@
 
 namespace Coderstm\Http\Controllers\Subscription;
 
-use Coderstm\Models\User;
+use Coderstm\Coderstm;
 use Illuminate\Http\Request;
 use Coderstm\Http\Controllers\Controller;
 
@@ -94,7 +94,7 @@ class PaymentMethodController extends Controller
     private function user()
     {
         if (request()->filled('user_id') && isAdmin()) {
-            return User::findOrFail(request()->user_id);
+            return Coderstm::$userModel::findOrFail(request()->user_id);
         }
         return currentUser();
     }

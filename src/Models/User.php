@@ -2,20 +2,20 @@
 
 namespace Coderstm\Models;
 
+use Coderstm\Coderstm;
 use Coderstm\Enum\AppRag;
 use Coderstm\Enum\AppStatus;
-use Coderstm\Models\Enquiry;
 use Coderstm\Models\Log;
 use Coderstm\Traits\Billable;
 use Coderstm\Models\Plan\Price;
 use Illuminate\Support\Facades\DB;
 use Coderstm\Traits\HasBelongsToOne;
-use Coderstm\Models\Cashier\Subscription;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Stripe\Subscription as StripeSubscription;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Laravel\Cashier\Cashier;
 
 class User extends Admin implements MustVerifyEmail
 {
@@ -145,7 +145,7 @@ class User extends Admin implements MustVerifyEmail
      */
     public function appInvoices()
     {
-        return $this->hasManyThrough(Invoice::class, Subscription::class);
+        return $this->hasManyThrough(Invoice::class, Cashier::$subscriptionModel);
     }
 
     /**
@@ -154,7 +154,7 @@ class User extends Admin implements MustVerifyEmail
      */
     public function latestInvoice()
     {
-        return $this->hasOneThrough(Invoice::class, Subscription::class)->orderByDesc('created_at');
+        return $this->hasOneThrough(Invoice::class, Cashier::$subscriptionModel)->orderByDesc('created_at');
     }
 
     /**
@@ -185,7 +185,7 @@ class User extends Admin implements MustVerifyEmail
      */
     public function enquiries(): HasMany
     {
-        return $this->hasMany(Enquiry::class, 'email', 'email');
+        return $this->hasMany(Coderstm::$enquiryModel, 'email', 'email');
     }
 
     /**
@@ -527,8 +527,8 @@ class User extends Admin implements MustVerifyEmail
     {
         parent::boot();
         static::updated(function ($model) {
-            Enquiry::withoutEvents(function () use ($model) {
-                Enquiry::where('email', $model->getOriginal('email'))->update([
+            Coderstm::$enquiryModel::withoutEvents(function () use ($model) {
+                Coderstm::$enquiryModel::where('email', $model->getOriginal('email'))->update([
                     'email' => $model->email
                 ]);
             });

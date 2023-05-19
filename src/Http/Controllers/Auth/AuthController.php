@@ -99,7 +99,7 @@ class AuthController extends Controller
         ]);
 
         // create the user
-        $user = Coderstm::userModel()::create($request->only([
+        $user = Coderstm::$userModel::create($request->only([
             'title',
             'email',
             'plan_id',

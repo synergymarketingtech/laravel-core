@@ -2,6 +2,7 @@
 
 namespace Coderstm\Http\Controllers\Subscription;
 
+use Coderstm\Coderstm;
 use Coderstm\Models\Plan;
 use Coderstm\Models\User;
 use Coderstm\Traits\Helpers;
@@ -210,7 +211,7 @@ class SubscriptionController extends Controller
     private function user()
     {
         if (request()->filled('user_id') && isAdmin()) {
-            return User::findOrFail(request()->user_id);
+            return Coderstm::$userModel::findOrFail(request()->user_id);
         }
         return currentUser();
     }

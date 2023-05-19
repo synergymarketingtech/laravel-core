@@ -2,14 +2,19 @@
 
 namespace Coderstm;
 
+use Laravel\Cashier\Cashier;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Pagination\Paginator;
 use Coderstm\Commands\InstallCommand;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Coderstm\Models\Cashier\Subscription;
 use Coderstm\Commands\SubscriptionsCancel;
 use Coderstm\Commands\SubscriptionsInvoice;
 use Coderstm\Http\Middleware\CheckSubscribed;
 use Coderstm\Http\Middleware\GuardMiddleware;
+use Coderstm\Models\Cashier\SubscriptionItem;
+use Illuminate\Database\Eloquent\Relations\Relation;
 
 class CoderstmServiceProvider extends ServiceProvider
 {
@@ -39,6 +44,20 @@ class CoderstmServiceProvider extends ServiceProvider
         $this->registerCommands();
 
         DB::statement('SET @@auto_increment_offset = 100000');
+
+        Relation::morphMap([
+            'User' => Coderstm::$userModel,
+            'Admin' => Coderstm::$adminModel,
+            'Address' => 'Coderstm\Models\Address',
+            'Group' => 'Coderstm\Models\Group',
+        ]);
+
+        Paginator::useBootstrapFive();
+
+        Cashier::ignoreMigrations();
+
+        Cashier::useSubscriptionModel(Subscription::class);
+        Cashier::useSubscriptionItemModel(SubscriptionItem::class);
     }
 
     /**
@@ -100,6 +119,16 @@ class CoderstmServiceProvider extends ServiceProvider
             $this->publishes([
                 $this->packagePath('stubs/views/app.blade.stub') => $this->app->resourcePath('views/app.blade.php'),
             ], 'coderstm-views');
+
+            $this->publishes([
+                $this->packagePath('stubs/controllers/AdminController.stub') => app_path('Http/Controllers/AdminController.php'),
+                $this->packagePath('stubs/controllers/UserController.stub') => app_path('Http/Controllers/UserController.php'),
+            ], 'coderstm-controllers');
+
+            $this->publishes([
+                $this->packagePath('stubs/policies/UserPolicy.stub') => app_path('Policies/UserPolicy.php'),
+                $this->packagePath('stubs/policies/AdminPolicy.stub') => app_path('Policies/AdminPolicy.php'),
+            ], 'coderstm-policies');
 
             $this->publishes([
                 $this->packagePath('stubs/CoderstmServiceProvider.stub') => app_path('Providers/CoderstmServiceProvider.php'),

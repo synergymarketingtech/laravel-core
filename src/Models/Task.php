@@ -2,12 +2,12 @@
 
 namespace Coderstm\Models;
 
+use Coderstm\Coderstm;
 use Coderstm\Traits\Base;
 use Coderstm\Enum\AppStatus;
 use Coderstm\Traits\Fileable;
 use Coderstm\Traits\TaskUser;
 use Coderstm\Events\TaskCreated;
-use Coderstm\Models\Admin;
 use Coderstm\Models\Task\Reply;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
@@ -93,7 +93,7 @@ class Task extends Model
      */
     public function archives(): BelongsToMany
     {
-        return $this->belongsToMany(Admin::class, 'task_archives', 'task_id', 'user_id');
+        return $this->belongsToMany(Coderstm::$adminModel, 'task_archives', 'task_id', 'user_id');
     }
 
     /**

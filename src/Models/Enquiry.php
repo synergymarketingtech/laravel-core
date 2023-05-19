@@ -2,7 +2,7 @@
 
 namespace Coderstm\Models;
 
-use Coderstm\Models\User;
+use Coderstm\Coderstm;
 use Coderstm\Traits\Base;
 use Coderstm\Enum\AppStatus;
 use Coderstm\Traits\Fileable;
@@ -126,7 +126,7 @@ class Enquiry extends Model
      */
     public function user()
     {
-        return $this->belongsTo(User::class, 'email', 'email')->withOnly([]);
+        return $this->belongsTo(Coderstm::$userModel, 'email', 'email')->withOnly([]);
     }
 
     /**

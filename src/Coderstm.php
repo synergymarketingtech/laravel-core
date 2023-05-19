@@ -2,6 +2,8 @@
 
 namespace Coderstm;
 
+use Coderstm\Models\Enquiry;
+
 class Coderstm
 {
     /**
@@ -17,6 +19,13 @@ class Coderstm
      * @var string
      */
     public static $adminModel = 'App\\Models\\Admin';
+
+    /**
+     * The default enquiry model class name.
+     *
+     * @var string
+     */
+    public static $enquiryModel = Enquiry::class;
 
     /**
      * Indicates if Coderstm's migrations will be run.
@@ -96,5 +105,16 @@ class Coderstm
     public static function useAdminModel($adminModel)
     {
         static::$adminModel = $adminModel;
+    }
+
+    /**
+     * Set the enquiry model class name.
+     *
+     * @param  string  $enquiryModel
+     * @return void
+     */
+    public static function useEnquiryModel($enquiryModel)
+    {
+        static::$enquiryModel = $enquiryModel;
     }
 }

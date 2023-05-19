@@ -2,7 +2,7 @@
 
 namespace Coderstm\Models;
 
-use Coderstm\Models\User;
+use Coderstm\Coderstm;
 use Coderstm\Traits\Base;
 use Coderstm\Events\ReferralCreated;
 use Illuminate\Support\Facades\DB;
@@ -80,7 +80,7 @@ class Referral extends Model
      */
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class)->withOnly([]);
+        return $this->belongsTo(Coderstm::$userModel)->withOnly([]);
     }
 
     /**
