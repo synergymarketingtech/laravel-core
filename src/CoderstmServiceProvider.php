@@ -33,7 +33,7 @@ class CoderstmServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerRouteMiddleware();
-        $this->registerResources();
+        // $this->registerResources();
         $this->registerMigrations();
         $this->registerPublishing();
         $this->registerCommands();
@@ -49,7 +49,7 @@ class CoderstmServiceProvider extends ServiceProvider
     protected function configure()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/coderstm.php',
+            $this->packagePath('config/coderstm.php'),
             'coderstm'
         );
     }
@@ -62,7 +62,7 @@ class CoderstmServiceProvider extends ServiceProvider
     protected function registerMigrations()
     {
         if (Coderstm::shouldRunMigrations() && $this->app->runningInConsole()) {
-            $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+            $this->loadMigrationsFrom($this->packagePath('database/migrations'));
         }
     }
 
@@ -73,7 +73,7 @@ class CoderstmServiceProvider extends ServiceProvider
      */
     protected function registerResources()
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'coderstm-views');
+        $this->loadViewsFrom($this->packagePath('resources/views'), 'coderstm');
     }
 
     /**
@@ -85,19 +85,25 @@ class CoderstmServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/coderstm.php' => $this->app->configPath('coderstm.php'),
+                $this->packagePath('config/coderstm.php') => $this->app->configPath('coderstm.php'),
             ], 'coderstm-config');
 
             $this->publishes([
-                __DIR__ . '/../database/migrations' => $this->app->databasePath('migrations'),
+                $this->packagePath('database/migrations') => $this->app->databasePath('migrations'),
             ], 'coderstm-migrations');
 
             $this->publishes([
-                __DIR__ . '/../stubs/CoderstmServiceProvider.stub' => app_path('Providers/CoderstmServiceProvider.php'),
-                __DIR__ . '/../stubs/CoderstmRouteServiceProvider.stub' => app_path('Providers/CoderstmRouteServiceProvider.php'),
-                __DIR__ . '/../stubs/app.blade.stub' => $this->app->resourcePath('views/app.blade.php'),
-                __DIR__ . '/../stubs/routes/web.stub' => $this->app->basePath('routes/coderstm/web.php'),
-                __DIR__ . '/../stubs/routes/api.stub' => $this->app->basePath('routes/coderstm/api.php'),
+                $this->packagePath('stubs/routes/web.stub') => $this->app->basePath('routes/coderstm/web.php'),
+                $this->packagePath('stubs/routes/api.stub') => $this->app->basePath('routes/coderstm/api.php'),
+            ], 'coderstm-routes');
+
+            $this->publishes([
+                $this->packagePath('stubs/views/app.blade.stub') => $this->app->resourcePath('views/app.blade.php'),
+            ], 'coderstm-views');
+
+            $this->publishes([
+                $this->packagePath('stubs/CoderstmServiceProvider.stub') => app_path('Providers/CoderstmServiceProvider.php'),
+                $this->packagePath('stubs/CoderstmRouteServiceProvider.stub') => app_path('Providers/CoderstmRouteServiceProvider.php'),
             ], 'coderstm-provider');
         }
     }
@@ -127,5 +133,10 @@ class CoderstmServiceProvider extends ServiceProvider
                 SubscriptionsInvoice::class,
             ]);
         }
+    }
+
+    protected function packagePath(string $path)
+    {
+        return __DIR__ . '/../' . $path;
     }
 }
