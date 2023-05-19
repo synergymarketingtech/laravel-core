@@ -40,7 +40,7 @@ class InstallCommand extends Command
     }
 
     /**
-     * Register the Coderstm service provider in the application configuration file.
+     * Register the Coderstm route service provider in the application configuration file.
      *
      * @return void
      */
@@ -72,6 +72,42 @@ class InstallCommand extends Command
             "namespace App\Providers;",
             "namespace {$namespace}\Providers;",
             file_get_contents(app_path('Providers/CoderstmRouteServiceProvider.php'))
+        ));
+    }
+
+    /**
+     * Register the Coderstm service provider in the application configuration file.
+     *
+     * @return void
+     */
+    protected function registerCoderstmServiceProvider()
+    {
+        $namespace = Str::replaceLast('\\', '', $this->laravel->getNamespace());
+
+        $appConfig = file_get_contents(config_path('app.php'));
+
+        if (Str::contains($appConfig, $namespace . '\\Providers\\CoderstmServiceProvider::class')) {
+            return;
+        }
+
+        $lineEndingCount = [
+            "\r\n" => substr_count($appConfig, "\r\n"),
+            "\r" => substr_count($appConfig, "\r"),
+            "\n" => substr_count($appConfig, "\n"),
+        ];
+
+        $eol = array_keys($lineEndingCount, max($lineEndingCount))[0];
+
+        file_put_contents(config_path('app.php'), str_replace(
+            "{$namespace}\\Providers\CoderstmRouteServiceProvider::class," . $eol,
+            "{$namespace}\\Providers\CoderstmRouteServiceProvider::class," . $eol . "        {$namespace}\Providers\CoderstmServiceProvider::class," . $eol,
+            $appConfig
+        ));
+
+        file_put_contents(app_path('Providers/CoderstmServiceProvider.php'), str_replace(
+            "namespace App\Providers;",
+            "namespace {$namespace}\Providers;",
+            file_get_contents(app_path('Providers/CoderstmServiceProvider.php'))
         ));
     }
 }

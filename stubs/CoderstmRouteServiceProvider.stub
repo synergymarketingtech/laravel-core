@@ -2,11 +2,32 @@
 
 namespace App\Providers;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
-class CoderstmServiceProvider extends ServiceProvider
+class CoderstmRouteServiceProvider extends ServiceProvider
 {
+    /**
+     * The path to the "home" route for your application.
+     *
+     * This is used by Laravel authentication to redirect users after login.
+     *
+     * @var string
+     */
+    public const HOME = '/';
+
+    /**
+     * The controller namespace for the application.
+     *
+     * When present, controller route declarations will automatically be prefixed with this namespace.
+     *
+     * @var string|null
+     */
+    // protected $namespace = 'App\\Http\\Controllers';
+
     /**
      * Define your route model bindings, pattern filters, etc.
      *
@@ -14,33 +35,45 @@ class CoderstmServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // $this->app->bind(\Coderstm\Http\Controllers\EnquiryController::class, \App\Http\Controllers\EnquiryController::class);
-        // $this->app->bind(\Coderstm\Http\Controllers\ApplicationController::class, \App\Http\Controllers\ApplicationController::class);
-        // $this->app->bind(\Coderstm\Http\Controllers\UserController::class, \App\Http\Controllers\Admin\UserController::class);
+        $this->configureRateLimiting();
 
-        $this->mapApiRoutes();
-    }
-
-    protected function mapApiRoutes()
-    {
-        if (file_exists(base_path('routes/coderstm.php'))) {
+        $this->routes(function () {
             // register tunnel domain
             if (config('coderstm.tunnel_domain')) {
                 Route::domain(config('coderstm.tunnel_domain'))
                     ->middleware('api')
-                    ->group(base_path('routes/coderstm.php'));
+                    ->namespace($this->namespace)
+                    ->group(base_path('routes/api.php'));
             }
 
             // modify default api route
             if (config('coderstm.domain')) {
                 Route::domain(config('coderstm.api_prefix') . '.' . config('coderstm.domain'))
                     ->middleware('api')
-                    ->group(base_path('routes/coderstm.php'));
+                    ->namespace($this->namespace)
+                    ->group(base_path('routes/api.php'));
             } else {
                 Route::middleware('api')
                     ->prefix(config('coderstm.api_prefix'))
-                    ->group(base_path('routes/coderstm.php'));
+                    ->namespace($this->namespace)
+                    ->group(base_path('routes/api.php'));
             }
-        }
+
+            Route::middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/web.php'));
+        });
+    }
+
+    /**
+     * Configure the rate limiters for the application.
+     *
+     * @return void
+     */
+    protected function configureRateLimiting()
+    {
+        RateLimiter::for('api', function (Request $request) {
+            return Limit::perMinute(60);
+        });
     }
 }

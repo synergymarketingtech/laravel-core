@@ -32,7 +32,6 @@ class CoderstmServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // $this->registerRoutes();
         $this->registerRouteMiddleware();
         $this->registerResources();
         $this->registerMigrations();
@@ -94,47 +93,12 @@ class CoderstmServiceProvider extends ServiceProvider
             ], 'coderstm-migrations');
 
             $this->publishes([
+                __DIR__ . '/../stubs/CoderstmServiceProvider.stub' => app_path('Providers/CoderstmServiceProvider.php'),
                 __DIR__ . '/../stubs/CoderstmRouteServiceProvider.stub' => app_path('Providers/CoderstmRouteServiceProvider.php'),
                 __DIR__ . '/../stubs/app.blade.stub' => $this->app->resourcePath('views/app.blade.php'),
-                __DIR__ . '/../stubs/admin.stub' => $this->app->basePath('routes/admin.php'),
+                __DIR__ . '/../stubs/routes/web.stub' => $this->app->basePath('routes/coderstm/web.php'),
+                __DIR__ . '/../stubs/routes/api.stub' => $this->app->basePath('routes/coderstm/api.php'),
             ], 'coderstm-provider');
-        }
-    }
-
-    /**
-     * Register the package routes.
-     *
-     * @return void
-     */
-    protected function registerRoutes()
-    {
-        if (Coderstm::shouldRegistersRoutes()) {
-            // register tunnel domain
-            if (config('coderstm.tunnel_domain')) {
-                Route::group([
-                    'domain' => config('coderstm.tunnel_domain'),
-                    'middleware' => 'api',
-                    'as' => 'tunnel.',
-                ], function () {
-                    $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
-                });
-            }
-
-            $options = [
-                'prefix' => config('coderstm.api_prefix'),
-                'middleware' => 'api',
-                'as' => 'coderstm.',
-            ];
-
-            // modify default api route
-            if (config('coderstm.domain')) {
-                unset($options['prefix']);
-                $options['domain'] = config('coderstm.api_prefix') . '.' . config('coderstm.domain');
-            }
-
-            Route::group($options, function () {
-                $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
-            });
         }
     }
 
