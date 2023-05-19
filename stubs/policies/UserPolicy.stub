@@ -13,11 +13,11 @@ class UserPolicy
     /**
      * Perform pre-authorization checks.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\Admin|User  $admin
      * @param  string  $ability
      * @return void|bool
      */
-    public function before(Admin $admin, $ability)
+    public function before(Admin|User $admin, $ability)
     {
         if ($admin->is_supper_admin) {
             return true;
@@ -38,11 +38,11 @@ class UserPolicy
     /**
      * Determine whether the admin can view the model.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\Admin|User  $admin
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(Admin $admin, User $user)
+    public function view(Admin|User $admin, User $user)
     {
         if (isUser()) {
             return $user->id == currentUser()->id;
