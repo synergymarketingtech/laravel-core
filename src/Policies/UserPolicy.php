@@ -106,42 +106,6 @@ class UserPolicy
     }
 
     /**
-     * Determine whether the admin can view monthly reports of the model.
-     *
-     * @param  \Coderstm\Models\Admin  $admin
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
-    public function reports_monthly(Admin $admin)
-    {
-        return $admin->can('reports:monthly-reports');
-    }
-
-    /**
-     * Determine whether the admin can view yearly reports of the model.
-     *
-     * @param  \Coderstm\Models\Admin  $admin
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
-    public function reports_yearly(Admin $admin)
-    {
-        return $admin->can('reports:yearly-reports');
-    }
-    /**
-     * Determine whether the admin can update parq of the model.
-     *
-     * @param  \Coderstm\Models\Admin  $admin
-     * @param  \Coderstm\Models\User  $user
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
-    public function update_parq(Admin $admin, User $user)
-    {
-        if (isUser()) {
-            return $user->id == currentUser()->id;
-        }
-        return $admin->can('members:enquiry');
-    }
-
-    /**
      * Determine whether the admin can view enquiry of the model.
      *
      * @param  \Coderstm\Models\Admin  $admin
@@ -150,49 +114,5 @@ class UserPolicy
     public function enquiry(Admin $admin)
     {
         return $admin->can('members:enquiry');
-    }
-
-    /**
-     * Determine whether the admin can update admin of the model.
-     *
-     * @param  \Coderstm\Models\Admin  $admin
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
-    public function admin(Admin $admin)
-    {
-        return $admin->can('finance:admin');
-    }
-
-    /**
-     * Determine whether the admin can update membership of the model.
-     *
-     * @param  \Coderstm\Models\Admin  $admin
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
-    public function membership(Admin $admin)
-    {
-        return $admin->can('finance:membership');
-    }
-
-    /**
-     * Determine whether the admin can update types of the model.
-     *
-     * @param  \Coderstm\Models\Admin  $admin
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
-    public function types(Admin $admin)
-    {
-        return $admin->can('finance:type');
-    }
-
-    /**
-     * Determine whether the admin can use reconciles of the model.
-     *
-     * @param  \Coderstm\Models\Admin  $admin
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
-    public function reconciles(Admin $admin)
-    {
-        return $admin->can('finance:reconcile') || $admin->can('reconcile:rolling') || $admin->can('reconcile:yearly') || $admin->can('reconcile:end-date');
     }
 }
