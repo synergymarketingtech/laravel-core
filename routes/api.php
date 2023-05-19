@@ -60,7 +60,7 @@ Route::middleware(['auth:sanctum', 'guard:admins'])->group(function () {
         Route::post('tasks/{task}/reply', 'reply')->name('tasks.reply');
         Route::post('tasks/{task}/change-archived', 'changeArchived')->name('tasks.change-archived');
     });
-    Route::apiResource('tasks', TaskController::class)->except([
+    Route::resource('tasks', TaskController::class)->except([
         'update'
     ]);
 
@@ -74,14 +74,14 @@ Route::middleware(['auth:sanctum', 'guard:admins'])->group(function () {
             Route::post('admins/{admin}/change-admin', 'changeAdmin')->name('admins.change-admin');
         });
     });
-    Route::apiResource('admins', AdminController::class);
+    Route::resource('admins', AdminController::class);
 
     // Groups
-    Route::apiResource('groups', GroupController::class);
+    Route::resource('groups', GroupController::class);
 
     // Logs
     Route::post('logs/{log}/reply', [LogController::class, 'reply'])->name('logs.reply');
-    Route::apiResource('logs', LogController::class)->only([
+    Route::resource('logs', LogController::class)->only([
         'show', 'update', 'destroy',
     ]);
 });
@@ -92,7 +92,7 @@ Route::get('files/{path}', [FileController::class, 'download'])->name('files.dow
 Route::middleware(['auth:sanctum'])->group(function () {
     // Files
     Route::post('files/upload-from-source', [FileController::class, 'uploadFromSource'])->name('files.upload-from-source');
-    Route::apiResource('files', FileController::class)->except([
+    Route::resource('files', FileController::class)->except([
         'destroySelected', 'restore', 'restoreSelected',
     ]);
 
@@ -102,7 +102,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
         Route::post('enquiries/{enquiry}/change-user-archived', 'changeUserArchived')->name('enquiries.change-user-archived');
         Route::post('enquiries/{enquiry}/change-archived', 'changeArchived')->name('enquiries.change-archived');
     });
-    Route::apiResource('enquiries', EnquiryController::class);
+    Route::resource('enquiries', EnquiryController::class);
 });
 
 // Common Routes
@@ -149,11 +149,11 @@ Route::middleware(['auth:sanctum', 'guard:admins'])->group(function () {
             });
         });
     });
-    Route::apiResource('users', UserController::class);
+    Route::resource('users', UserController::class);
 
     // Plans
     Route::middleware('can:update,plan')->group(function () {
         Route::post('plans/{plan}/change-active', [PlanController::class, 'changeActive'])->name('plans.change-active');
     });
-    Route::apiResource('plans', PlanController::class);
+    Route::resource('plans', PlanController::class);
 });

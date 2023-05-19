@@ -21,6 +21,8 @@ class CoderstmServiceProvider extends ServiceProvider
     public function register()
     {
         $this->configure();
+
+        $this->app->bind(\Illuminate\Routing\ResourceRegistrar::class, \Coderstm\Http\Routing\ResourceRegistrar::class);
     }
 
     /**
