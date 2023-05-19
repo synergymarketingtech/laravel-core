@@ -2,7 +2,7 @@
 
 namespace Coderstm\Http\Controllers;
 
-use Coderstm\Models\User;
+use App\Models\User;
 use Coderstm\Traits\Helpers;
 use Coderstm\Enum\AppStatus;
 use Illuminate\Http\Request;
@@ -169,7 +169,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \Coderstm\Models\User  $user
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
@@ -181,7 +181,7 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Coderstm\Models\User  $user
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
@@ -245,7 +245,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \Coderstm\Models\User  $user
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)
@@ -259,7 +259,7 @@ class UserController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \Coderstm\Models\User  $user
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function destroySelected(Request $request, User $user)
@@ -278,7 +278,7 @@ class UserController extends Controller
     /**
      * Restore the specified resource from storage.
      *
-     * @param  \Coderstm\Models\User  $user
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function restore($id)
@@ -295,7 +295,7 @@ class UserController extends Controller
     /**
      * Remove the selected resource from storage.
      *
-     * @param  \Coderstm\Models\User  $user
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function restoreSelected(Request $request, User $user)
@@ -315,7 +315,7 @@ class UserController extends Controller
     /**
      * Send reset password request to specified resource from storage.
      *
-     * @param  \Coderstm\Models\User  $user
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function resetPasswordRequest(Request $request, User $user)
@@ -333,7 +333,7 @@ class UserController extends Controller
     /**
      * Change active of specified resource from storage.
      *
-     * @param  \Coderstm\Models\User  $user
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function changeActive(Request $request, User $user)
@@ -350,7 +350,7 @@ class UserController extends Controller
     /**
      * Create notes for specified resource from storage.
      *
-     * @param  \Coderstm\Models\User $user
+     * @param  \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
     public function notes(Request $request, User $user)

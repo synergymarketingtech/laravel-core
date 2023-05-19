@@ -2,7 +2,8 @@
 
 namespace Coderstm\Policies;
 
-use Coderstm\Models\Admin;
+use App\Models\Admin;
+use App\Models\User;
 use Coderstm\Models\Enquiry;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -13,11 +14,11 @@ class EnquiryPolicy
     /**
      * Perform pre-authorization checks.
      *
-     * @param  \Coderstm\Models\Admin  $admin
+     * @param  \App\Models\Admin|User  $admin
      * @param  string  $ability
      * @return void|bool
      */
-    public function before(Admin $admin, $ability)
+    public function before(Admin|User $admin, $ability)
     {
         if ($admin->is_supper_admin) {
             return true;
@@ -27,10 +28,10 @@ class EnquiryPolicy
     /**
      * Determine whether the admin can view any models.
      *
-     * @param  \Coderstm\Models\Admin  $admin
+     * @param  \App\Models\Admin|User  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function viewAny(Admin $admin)
+    public function viewAny(Admin|User $admin)
     {
         if (isUser()) {
             return true;
@@ -41,11 +42,11 @@ class EnquiryPolicy
     /**
      * Determine whether the admin can view the model.
      *
-     * @param  \Coderstm\Models\Admin  $admin
-     * @param  \Coderstm\Models\Enquiry  $enquiry
+     * @param  \App\Models\Admin|User  $admin
+     * @param  \App\Models\Core\Enquiry  $enquiry
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(Admin $admin, Enquiry $enquiry)
+    public function view(Admin|User $admin, Enquiry $enquiry)
     {
         if (isUser()) {
             return $enquiry->email == currentUser()->email;
@@ -56,10 +57,10 @@ class EnquiryPolicy
     /**
      * Determine whether the admin can create models.
      *
-     * @param  \Coderstm\Models\Admin  $admin
+     * @param  \App\Models\Admin|User  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function create(Admin $admin)
+    public function create(Admin|User $admin)
     {
         if (isUser()) {
             return true;
@@ -70,11 +71,11 @@ class EnquiryPolicy
     /**
      * Determine whether the admin can update the model.
      *
-     * @param  \Coderstm\Models\Admin  $admin
-     * @param  \Coderstm\Models\Enquiry  $enquiry
+     * @param  \App\Models\Admin|User  $admin
+     * @param  \App\Models\Core\Enquiry  $enquiry
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(Admin $admin, Enquiry $enquiry)
+    public function update(Admin|User $admin, Enquiry $enquiry)
     {
         if (isUser()) {
             return $enquiry->email == currentUser()->email;
@@ -85,7 +86,7 @@ class EnquiryPolicy
     /**
      * Determine whether the admin can delete the model.
      *
-     * @param  \Coderstm\Models\Admin  $admin
+     * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function delete(Admin $admin)
@@ -96,7 +97,7 @@ class EnquiryPolicy
     /**
      * Determine whether the admin can restore the model.
      *
-     * @param  \Coderstm\Models\Admin  $admin
+     * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function restore(Admin $admin)
@@ -107,7 +108,7 @@ class EnquiryPolicy
     /**
      * Determine whether the admin can permanently delete the model.
      *
-     * @param  \Coderstm\Models\Admin  $admin
+     * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function forceDelete(Admin $admin)

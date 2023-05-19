@@ -9,7 +9,14 @@ class Coderstm
      *
      * @var string
      */
-    public static $userModel = 'Coderstm\\Models\\User';
+    public static $userModel = 'App\\Models\\User';
+
+    /**
+     * The default admin model class name.
+     *
+     * @var string
+     */
+    public static $adminModel = 'App\\Models\\Admin';
 
     /**
      * Indicates if Coderstm's migrations will be run.
@@ -70,12 +77,24 @@ class Coderstm
     }
 
     /**
-     * Get the token model class name.
+     * Set the user model class name.
      *
-     * @return string
+     * @param  string  $userModel
+     * @return void
      */
-    public static function userModel()
+    public static function useUserModel($userModel)
     {
-        return static::$userModel;
+        static::$userModel = $userModel;
+    }
+
+    /**
+     * Set the admin model class name.
+     *
+     * @param  string  $adminModel
+     * @return void
+     */
+    public static function useAdminModel($adminModel)
+    {
+        static::$adminModel = $adminModel;
     }
 }

@@ -3,14 +3,11 @@
 namespace Coderstm\Notifications;
 
 use Coderstm\Models\Log;
-use Illuminate\Http\Request;
 use Illuminate\Bus\Queueable;
 use Illuminate\Support\HtmlString;
 use Illuminate\Notifications\Notification;
-use Stevebauman\Location\Facades\Location;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
-use Browser;
 
 class UserLogin extends Notification
 {

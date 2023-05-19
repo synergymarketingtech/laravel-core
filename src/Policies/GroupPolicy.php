@@ -2,7 +2,7 @@
 
 namespace Coderstm\Policies;
 
-use Coderstm\Models\Admin;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class GroupPolicy
@@ -12,11 +12,11 @@ class GroupPolicy
     /**
      * Perform pre-authorization checks.
      *
-     * @param  \Coderstm\Models\Admin  $admin
+     * @param  \Illuminate\Database\Eloquent\Model  $admin
      * @param  string  $ability
      * @return void|bool
      */
-    public function before(Admin $admin, $ability)
+    public function before(Model $admin, $ability)
     {
         if ($admin->is_supper_admin) {
             return true;
@@ -26,10 +26,10 @@ class GroupPolicy
     /**
      * Determine whether the admin can view any models.
      *
-     * @param  \Coderstm\Models\Admin  $admin
+     * @param  \Illuminate\Database\Eloquent\Model  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function viewAny(Admin $admin)
+    public function viewAny(Model $admin)
     {
         return $admin->can('groups:list');
     }
@@ -37,10 +37,10 @@ class GroupPolicy
     /**
      * Determine whether the admin can view the model.
      *
-     * @param  \Coderstm\Models\Admin  $admin
+     * @param  \Illuminate\Database\Eloquent\Model  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(Admin $admin)
+    public function view(Model $admin)
     {
         return $admin->can('groups:view');
     }
@@ -48,10 +48,10 @@ class GroupPolicy
     /**
      * Determine whether the admin can create models.
      *
-     * @param  \Coderstm\Models\Admin  $admin
+     * @param  \Illuminate\Database\Eloquent\Model  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function create(Admin $admin)
+    public function create(Model $admin)
     {
         return $admin->can('groups:new');
     }
@@ -59,10 +59,10 @@ class GroupPolicy
     /**
      * Determine whether the admin can update the model.
      *
-     * @param  \Coderstm\Models\Admin  $admin
+     * @param  \Illuminate\Database\Eloquent\Model  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(Admin $admin)
+    public function update(Model $admin)
     {
         return $admin->can('groups:edit');
     }
@@ -70,10 +70,10 @@ class GroupPolicy
     /**
      * Determine whether the admin can delete the model.
      *
-     * @param  \Coderstm\Models\Admin  $admin
+     * @param  \Illuminate\Database\Eloquent\Model  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(Admin $admin)
+    public function delete(Model $admin)
     {
         return $admin->can('groups:delete');
     }
@@ -81,10 +81,10 @@ class GroupPolicy
     /**
      * Determine whether the admin can restore the model.
      *
-     * @param  \Coderstm\Models\Admin  $admin
+     * @param  \Illuminate\Database\Eloquent\Model  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(Admin $admin)
+    public function restore(Model $admin)
     {
         return $admin->can('groups:restore');
     }
@@ -92,10 +92,10 @@ class GroupPolicy
     /**
      * Determine whether the admin can permanently delete the model.
      *
-     * @param  \Coderstm\Models\Admin  $admin
+     * @param  \Illuminate\Database\Eloquent\Model  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(Admin $admin)
+    public function forceDelete(Model $admin)
     {
         return $admin->can('groups:forceDelete');
     }

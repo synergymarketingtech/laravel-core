@@ -39,16 +39,16 @@ if (!function_exists('appUrl')) {
     {
         $scheme = request()->getScheme();
         if ($subdomain) {
-            return "{$scheme}://$subdomain." . config('app.domain');
+            return "{$scheme}://$subdomain." . config('coderstm.domain');
         }
-        return "{$scheme}://" . config('app.domain');
+        return "{$scheme}://" . config('coderstm.domain');
     }
 }
 
 if (!function_exists('adminUrl')) {
     function adminUrl($path = '')
     {
-        return config('app.adminUrl') . '/' . $path;
+        return config('coderstm.admin_url') . '/' . $path;
     }
 }
 
@@ -119,7 +119,7 @@ if (!function_exists('adminNotify')) {
     function adminNotify($notification)
     {
         return Notification::route('mail', [
-            config('app.admin_email') => 'Admin'
+            config('coderstm.admin_email') => 'Admin'
         ])->notify($notification);
     }
 }

@@ -34,4 +34,7 @@ return [
     'admin_url' => env('APP_ADMIN_URL', 'http://localhost'),
     'member_url' => env('APP_MEMBER_URL', 'http://localhost'),
 
+    'user_model' => App\Models\User::class,
+    'admin_model' => App\Models\Admin::class
+
 ];
