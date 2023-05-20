@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
             $table->nullableMorphs('addressable');
-            $table->string('line1');
+            $table->string('line1')->nullable();
             $table->string('line2')->nullable();
-            $table->string('city');
+            $table->string('city')->nullable();
             $table->string('state')->nullable();
-            $table->string('postal_code');
-            $table->string('country');
+            $table->string('postal_code')->nullable();
+            $table->string('country')->nullable();
             $table->boolean('default')->default(false);
             $table->string('ref')->nullable();
             $table->timestamps();

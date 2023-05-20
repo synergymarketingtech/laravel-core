@@ -16,7 +16,7 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        Coderstm::$userModel::factory()->count(20)->create()->each(function ($user) {
+        Coderstm::$adminModel::factory()->count(20)->create()->each(function ($user) {
             $user->updateOrCreateAddress(Address::factory()->make()->toArray());
         });
     }
