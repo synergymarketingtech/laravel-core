@@ -14,12 +14,21 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('title')->nullable()->after('password');
-            $table->string('phone_number')->nullable()->after('password');
-            $table->boolean('is_enquiry')->nullable()->default(false);
-            $table->string('status')->nullable()->after('password');
-            $table->string('gender')->nullable()->after('password');
-            $table->string('rag')->nullable()->after('password');
+            $table->string('name')->nullable()->change();
+            $table->string('first_name')->nullable()->after('id');
+            $table->string('last_name')->nullable()->after('first_name');
+            $table->string('phone_number')->nullable()->after('email');
+            $table->boolean('is_active')->nullable()->default(true)->after('remember_token');
+            $table->string('title')->nullable()->after('id');
+            $table->boolean('is_enquiry')->nullable()->default(false)->after('is_active');
+            $table->string('status')->nullable()->after('is_active');
+            $table->string('gender')->nullable()->after('name');
+            $table->string('rag')->nullable()->after('is_active');
+            $table->unsignedBigInteger('plan_id')->nullable()->after('status');
+            $table->string('username')->nullable()->after('name');
+
+            $table->foreign('plan_id')->references('id')->on('plans')->cascadeOnUpdate()->nullOnDelete();
+            $table->softDeletes();
         });
     }
 

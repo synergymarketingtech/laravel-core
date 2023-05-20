@@ -2,8 +2,8 @@
 
 namespace Coderstm\Database\Seeders;
 
-use Coderstm\Models\Admin;
-use Coderstm\Models\Task;
+use Coderstm\Database\Factories\AdminFactory;
+use Coderstm\Database\Factories\TaskFactory;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -16,6 +16,6 @@ class TaskSeeder extends Seeder
      */
     public function run()
     {
-        Task::factory()->for(Admin::factory(), 'user')->has(Admin::factory()->count(rand(2, 3)), 'users')->count(3)->create();
+        TaskFactory::new()->for(AdminFactory::new(), 'user')->has(AdminFactory::new()->count(rand(2, 3)), 'users')->count(3)->create();
     }
 }

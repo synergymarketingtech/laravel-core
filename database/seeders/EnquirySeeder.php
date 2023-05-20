@@ -2,9 +2,8 @@
 
 namespace Coderstm\Database\Seeders;
 
-use Coderstm\Models\Admin;
-use Coderstm\Models\Enquiry;
-use Coderstm\Models\Enquiry\Reply;
+use Coderstm\Database\Factories\Enquiry\ReplyFactory;
+use Coderstm\Database\Factories\EnquiryFactory;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -17,10 +16,9 @@ class EnquirySeeder extends Seeder
      */
     public function run()
     {
-        Enquiry::factory()->count(150)
+        EnquiryFactory::new()->count(150)
             ->has(
-                Reply::factory()
-                    ->for(Admin::inRandomOrder()->first(), 'user')
+                ReplyFactory::new()
                     ->count(rand(0, 1))
             )
             ->create();
