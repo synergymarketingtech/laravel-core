@@ -4,7 +4,6 @@ namespace Coderstm\Http\Controllers\Subscription;
 
 use Coderstm\Coderstm;
 use Coderstm\Models\Plan;
-use Coderstm\Models\User;
 use Coderstm\Traits\Helpers;
 use Stripe\Subscription;
 use Coderstm\Models\Plan\Price;
