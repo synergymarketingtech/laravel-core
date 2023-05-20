@@ -19,28 +19,30 @@ class UserSeeder extends Seeder
     public function run()
     {
         UserFactory::new()
-            ->count(2000)
+            ->count(10)
             ->create()
             ->each(function ($user) {
                 $user->updateOrCreateAddress(AddressFactory::new()->make()->toArray());
                 if ($user->status == AppStatus::ACTIVE) {
-                    $price = $user->plan->prices[rand(0, 1)]; // 0 => month and 1 => year
+                    Subscription::withoutEvents(function () use ($user) {
+                        $price = $user->plan->prices[rand(0, 1)]; // 0 => month and 1 => year
 
-                    // Generate a fake subscription
-                    $subscription = Subscription::create([
-                        'user_id' => $user->id,
-                        'name' => 'default',
-                        'stripe_id' => fake()->unique()->lexify('sub_????????????????'),
-                        'stripe_status' => 'active',
-                        'stripe_price' => $price->stripe_id,
-                        'quantity' => 1,
-                        'trial_ends_at' => now()->addDays(14),
-                        'created_at' => $user->created_at,
-                        'ends_at' => rand(0, 1) ? $user->created_at->addMonths(rand(5, 8)) : null,
-                    ]);
+                        // Generate a fake subscription
+                        $subscription = Subscription::create([
+                            'user_id' => $user->id,
+                            'name' => 'default',
+                            'stripe_id' => fake()->unique()->lexify('sub_????????????????'),
+                            'stripe_status' => 'active',
+                            'stripe_price' => $price->stripe_id,
+                            'quantity' => 1,
+                            'trial_ends_at' => now()->addDays(14),
+                            'created_at' => $user->created_at,
+                            'ends_at' => rand(0, 1) ? $user->created_at->addMonths(rand(5, 8)) : null,
+                        ]);
 
-                    // Associate the subscription with the user
-                    $user->subscriptions()->save($subscription);
+                        // Associate the subscription with the user
+                        $user->subscriptions()->save($subscription);
+                    });
                 }
             });
     }
