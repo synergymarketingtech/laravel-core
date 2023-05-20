@@ -50,6 +50,7 @@ class InstallCommand extends Command
         $this->callSilent('vendor:publish', ['--tag' => 'coderstm-policies']);
 
         $this->registerCoderstmRouteServiceProvider();
+        $this->registerCoderstmRouteServiceProvider();
 
         $this->info('Coderstm scaffolding installed successfully.');
     }
