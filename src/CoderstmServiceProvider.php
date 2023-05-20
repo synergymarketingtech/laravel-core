@@ -43,8 +43,6 @@ class CoderstmServiceProvider extends ServiceProvider
         $this->registerPublishing();
         $this->registerCommands();
 
-        DB::statement('SET @@auto_increment_offset = 100000');
-
         Relation::morphMap([
             'User' => Coderstm::$userModel,
             'Admin' => Coderstm::$adminModel,
@@ -53,8 +51,6 @@ class CoderstmServiceProvider extends ServiceProvider
         ]);
 
         Paginator::useBootstrapFive();
-
-        Cashier::ignoreMigrations();
 
         Cashier::useSubscriptionModel(Subscription::class);
         Cashier::useSubscriptionItemModel(SubscriptionItem::class);
