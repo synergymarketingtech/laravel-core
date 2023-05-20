@@ -2,7 +2,7 @@
 
 namespace Coderstm\Models;
 
-use Coderstm\Traits\Base;
+use Coderstm\Traits\Core;
 use Laravel\Cashier\Cashier;
 use Coderstm\Models\Invoice\LineItem;
 use Illuminate\Database\Eloquent\Model;
@@ -13,7 +13,7 @@ use Stripe\Invoice as StripeInvoice;
 
 class Invoice extends Model
 {
-    use Base;
+    use Core;
 
     /**
      * The attributes that are mass assignable.

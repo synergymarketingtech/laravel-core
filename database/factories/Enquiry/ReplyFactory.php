@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Factories\Enquiry;
+namespace Coderstm\Database\Factories\Enquiry;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

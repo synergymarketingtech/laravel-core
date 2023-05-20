@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Coderstm\Traits\Logable;
 
-trait Base
+trait Core
 {
     use SoftDeletes, HasFactory, Logable;
 

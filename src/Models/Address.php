@@ -2,12 +2,12 @@
 
 namespace Coderstm\Models;
 
-use Coderstm\Traits\Base;
+use Coderstm\Traits\Core;
 use Illuminate\Database\Eloquent\Model;
 
 class Address extends Model
 {
-    use Base;
+    use Core;
 
     /**
      * The attributes that are mass assignable.

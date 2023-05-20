@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders;
+namespace Coderstm\Database\Seeders;
 
 use Coderstm\Models\Admin;
 use Coderstm\Models\Task;

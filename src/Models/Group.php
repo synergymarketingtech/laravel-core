@@ -2,13 +2,13 @@
 
 namespace Coderstm\Models;
 
-use Coderstm\Traits\Base;
+use Coderstm\Traits\Core;
 use Coderstm\Traits\HasPermission;
 use Illuminate\Database\Eloquent\Model;
 
 class Group extends Model
 {
-    use Base, HasPermission;
+    use Core, HasPermission;
 
     /**
      * The attributes that are mass assignable.

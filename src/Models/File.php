@@ -2,14 +2,14 @@
 
 namespace Coderstm\Models;
 
-use Coderstm\Traits\Base;
+use Coderstm\Traits\Core;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class File extends Model
 {
-    use Base;
+    use Core;
 
     protected $file;
 

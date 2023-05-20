@@ -3,7 +3,7 @@
 namespace Coderstm\Models;
 
 use Coderstm\Coderstm;
-use Coderstm\Traits\Base;
+use Coderstm\Traits\Core;
 use Coderstm\Enum\AppStatus;
 use Coderstm\Traits\Fileable;
 use Coderstm\Events\EnquiryCreated;
@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Enquiry extends Model
 {
-    use Base, Fileable;
+    use Core, Fileable;
 
     /**
      * The event map for the model.

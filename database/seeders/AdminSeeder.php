@@ -1,8 +1,8 @@
 <?php
 
-namespace Database\Seeders;
+namespace Coderstm\Database\Seeders;
 
-use Coderstm\Models\Admin;
+use Coderstm\Coderstm;
 use Coderstm\Models\Address;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -16,7 +16,7 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        Admin::factory()->count(20)->create()->each(function ($user) {
+        Coderstm::$userModel::factory()->count(20)->create()->each(function ($user) {
             $user->updateOrCreateAddress(Address::factory()->make()->toArray());
         });
     }

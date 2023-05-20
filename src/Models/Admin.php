@@ -2,7 +2,7 @@
 
 namespace Coderstm\Models;
 
-use Coderstm\Traits\Base;
+use Coderstm\Traits\Core;
 use Coderstm\Models\Log;
 use Coderstm\Traits\Fileable;
 use Coderstm\Traits\Addressable;
@@ -15,7 +15,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 class Admin extends Authenticatable
 {
-    use Notifiable, HasPermissionGroup, HasApiTokens, Fileable, Addressable, Base;
+    use Notifiable, HasPermissionGroup, HasApiTokens, Fileable, Addressable, Core;
 
     protected $guard = "admins";
 

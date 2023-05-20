@@ -3,7 +3,7 @@
 namespace Coderstm\Models;
 
 use Coderstm\Coderstm;
-use Coderstm\Traits\Base;
+use Coderstm\Traits\Core;
 use Coderstm\Enum\AppStatus;
 use Coderstm\Traits\Fileable;
 use Coderstm\Traits\TaskUser;
@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Task extends Model
 {
-    use Base, Fileable, TaskUser;
+    use Core, Fileable, TaskUser;
 
     /**
      * The event map for the model.
