@@ -28,6 +28,7 @@ class UserSeeder extends Seeder
 
                     // Generate a fake subscription
                     $subscription = Subscription::create([
+                        'user_id' => $user->id,
                         'name' => 'default',
                         'stripe_id' => fake()->unique()->lexify('sub_????????????????'),
                         'stripe_status' => 'active',

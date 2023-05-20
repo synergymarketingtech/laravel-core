@@ -16,9 +16,13 @@ class SubscriptionEventListener
      */
     public function handle(SubscriptionProcessed $event)
     {
-        $subscription = $event->subscription;
-        Invoice::createFromStripe($subscription->latestInvoice(), [
-            'subscription_id' => $subscription->id
-        ]);
+        try {
+            $subscription = $event->subscription;
+            Invoice::createFromStripe($subscription->latestInvoice(), [
+                'subscription_id' => $subscription->id
+            ]);
+        } catch (\Throwable $th) {
+            report($th);
+        }
     }
 }
