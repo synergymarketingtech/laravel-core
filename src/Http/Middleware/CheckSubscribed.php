@@ -3,6 +3,7 @@
 namespace Coderstm\Http\Middleware;
 
 use Closure;
+use Coderstm\Coderstm;
 use Coderstm\Models\User;
 
 class CheckSubscribed
@@ -34,8 +35,8 @@ class CheckSubscribed
 
     private function user()
     {
-        if (request()->filled('user_id') && isAdmin() && config('coderstm.user')) {
-            return config('coderstm.user')::findOrFail(request()->user_id);
+        if (request()->filled('user_id') && isAdmin()) {
+            return Coderstm::$userModel::findOrFail(request()->user_id);
         }
         return currentUser();
     }
