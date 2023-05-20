@@ -1,1 +1,4 @@
 vendor
+.DS_Store
+.thumbs.db
+*.bak

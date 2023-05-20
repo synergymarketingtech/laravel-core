@@ -9,11 +9,11 @@ use Coderstm\Traits\Addressable;
 use Laravel\Sanctum\HasApiTokens;
 use Coderstm\Traits\HasPermissionGroup;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Foundation\Auth\User;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-class Admin extends User
+class Admin extends Authenticatable
 {
     use Notifiable, HasPermissionGroup, HasApiTokens, Fileable, Addressable, Base;
 
