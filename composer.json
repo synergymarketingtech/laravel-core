@@ -1,66 +1,86 @@
 {
-  "name": "coderstm/laravel-core",
-  "version": "1.0",
-  "description": "Laravel package that provides essential core functionalities and utilities for Laravel applications.",
-  "keywords": ["laravel", "sanctum", "auth", "enquiry", "multi auth guard", "tasks", "log", "subscription"],
-  "license": "MIT",
-  "support": {
-      "issues": "https://github.com/coders-tm/laravel-core/issues",
-      "source": "https://github.com/coders-tm/laravel-core"
-  },
-  "autoload": {
-    "psr-4": {
-      "Coderstm\\": "src/",
-      "Coderstm\\Database\\Factories\\": "database/factories/",
-      "Coderstm\\Database\\Seeders\\": "database/seeders/"
+    "name": "coderstm/laravel-core",
+    "version": "1.0",
+    "description": "Laravel package that provides essential core functionalities and utilities for Laravel applications.",
+    "keywords": [
+        "laravel",
+        "sanctum",
+        "auth",
+        "enquiry",
+        "multi auth guard",
+        "tasks",
+        "log",
+        "subscription"
+    ],
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/coders-tm/laravel-core/issues",
+        "source": "https://github.com/coders-tm/laravel-core"
     },
-    "files": [
-      "lib/helpers.php"
-    ]
-  },
-  "authors": [
-    {
-      "name": "Dipak Sarkar",
-      "email": "hello@dipaksarkar.in"
-    }
-  ],
-  "require": {
-    "php": "^8.0.2",
-    "ext-json": "*",
-    "barryvdh/laravel-dompdf": "^2.0",
-    "creativeorange/gravatar": "^1.0",
-    "doctrine/dbal": "^3.4",
-    "hisorange/browser-detect": "^4.5",
-    "illuminate/console": "^9.21|^10.0",
-    "illuminate/contracts": "^9.21|^10.0",
-    "illuminate/database": "^9.21|^10.0",
-    "illuminate/support": "^9.21|^10.0",
-    "laravel/cashier": "^14.8",
-    "laravel/sanctum": "^3.2",
-    "spatie/laravel-sluggable": "^3.4",
-    "stevebauman/location": "^6.5"
-  },
-  "require-dev": {
-      "mockery/mockery": "^1.0",
-      "orchestra/testbench": "^7.0|^8.0",
-      "phpstan/phpstan": "^1.10",
-      "phpunit/phpunit": "^9.3"
-  },
-  "extra": {
-    "branch-alias": {
-      "dev-master": "1.x-dev"
+    "authors": [
+        {
+            "name": "Dipak Sarkar",
+            "email": "hello@dipaksarkar.in"
+        }
+    ],
+    "require": {
+        "php": "^8.0.2",
+        "ext-json": "*",
+        "barryvdh/laravel-dompdf": "^2.0",
+        "creativeorange/gravatar": "^1.0",
+        "doctrine/dbal": "^3.4",
+        "hisorange/browser-detect": "^4.5",
+        "illuminate/console": "^9.21|^10.0",
+        "illuminate/contracts": "^9.21|^10.0",
+        "illuminate/database": "^9.21|^10.0",
+        "illuminate/support": "^9.21|^10.0",
+        "laravel/cashier": "^14.0",
+        "laravel/sanctum": "^3.0",
+        "spatie/laravel-sluggable": "^3.4",
+        "stevebauman/location": "^6.5"
     },
-    "laravel": {
-      "providers": [
-        "Coderstm\\CoderstmServiceProvider",
-        "Coderstm\\CoderstmPermissionsServiceProvider",
-        "Coderstm\\CoderstmEventServiceProvider"
-      ]
-    }
-  },
-  "config": {
-    "sort-packages": true
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true
+    "require-dev": {
+        "mockery/mockery": "^1.0",
+        "nunomaduro/collision": "^6.4",
+        "orchestra/testbench": "^7.0|^8.0",
+        "phpstan/phpstan": "^1.10",
+        "phpunit/phpunit": "^9.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Coderstm\\": "src/",
+            "Coderstm\\Database\\Factories\\": "database/factories/",
+            "Coderstm\\Database\\Seeders\\": "database/seeders/"
+        },
+        "files": [
+            "lib/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Coderstm\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "@php vendor/bin/testbench package:discover --ansi"
+        ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Coderstm\\CoderstmServiceProvider",
+                "Coderstm\\CoderstmPermissionsServiceProvider",
+                "Coderstm\\CoderstmEventServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
