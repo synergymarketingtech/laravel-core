@@ -9,7 +9,7 @@
 
 ## Introduction
 
-[Laravel](https://laravel.com) package that provides essential core functionalities and utilities for Laravel applications.
+[Laravel Core](https://laravel.com) package that provides essential core functionalities and utilities for Laravel applications.
 
 ## Official Documentation
 
