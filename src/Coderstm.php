@@ -2,8 +2,6 @@
 
 namespace Coderstm;
 
-use Coderstm\Models\Enquiry;
-
 class Coderstm
 {
     /**

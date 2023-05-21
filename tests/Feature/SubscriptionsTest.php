@@ -2,16 +2,16 @@
 
 namespace Coderstm\Tests\Feature;
 
-use Carbon\Carbon;
 use DateTime;
+use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Laravel\Cashier\Cashier;
-use Laravel\Cashier\Exceptions\IncompletePayment;
 use Laravel\Cashier\Payment;
-use Laravel\Cashier\Subscription;
 use Coderstm\Tests\Fixtures\User;
 use Stripe\Invoice as StripeInvoice;
+use Coderstm\Models\Cashier\Subscription;
 use Stripe\Subscription as StripeSubscription;
+use Laravel\Cashier\Exceptions\IncompletePayment;
 
 class SubscriptionsTest extends FeatureTestCase
 {

@@ -12,7 +12,7 @@ use Stripe\StripeClient;
 
 abstract class FeatureTestCase extends TestCase
 {
-    // use RefreshDatabase;
+    use RefreshDatabase;
 
     protected function setUp(): void
     {
@@ -41,7 +41,8 @@ abstract class FeatureTestCase extends TestCase
     {
         return User::create(array_merge([
             'email' => "{$description}@cashier-test.com",
-            'name' => 'Dipak Sarkar',
+            'first_name' => 'Dipak',
+            'last_name' => 'Sarkar',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
         ], $options));
     }

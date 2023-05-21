@@ -8,7 +8,10 @@ use InvalidArgumentException;
 use Coderstm\Tests\Fixtures\User;
 use Coderstm\CoderstmServiceProvider;
 use Coderstm\CoderstmEventServiceProvider;
+use Laravel\Cashier\CashierServiceProvider;
 use Coderstm\CoderstmPermissionsServiceProvider;
+use Coderstm\Models\Admin;
+use Coderstm\Models\Enquiry;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
 abstract class TestCase extends OrchestraTestCase
@@ -22,11 +25,14 @@ abstract class TestCase extends OrchestraTestCase
         }
 
         Coderstm::useUserModel(User::class);
+        Coderstm::useAdminModel(Admin::class);
+        Coderstm::useEnquiryModel(Enquiry::class);
     }
 
     protected function getPackageProviders($app)
     {
         return [
+            CashierServiceProvider::class,
             CoderstmServiceProvider::class,
             CoderstmPermissionsServiceProvider::class,
             CoderstmEventServiceProvider::class,
