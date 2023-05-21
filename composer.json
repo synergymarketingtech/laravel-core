@@ -24,7 +24,7 @@
         }
     ],
     "require": {
-        "php": "^8.0.2",
+        "php": "^8.1",
         "ext-json": "*",
         "barryvdh/laravel-dompdf": "^2.0",
         "creativeorange/gravatar": "^1.0",
