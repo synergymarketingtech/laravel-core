@@ -52,6 +52,7 @@ class CoderstmServiceProvider extends ServiceProvider
 
         Paginator::useBootstrapFive();
 
+        Cashier::useCustomerModel(Coderstm::$userModel);
         Cashier::useSubscriptionModel(Subscription::class);
         Cashier::useSubscriptionItemModel(SubscriptionItem::class);
     }

@@ -2,7 +2,7 @@
   "name": "coderstm/laravel-core",
   "version": "1.0",
   "description": "Laravel package that provides essential core functionalities and utilities for Laravel applications.",
-  "keywords": ["laravel", "sanctum", "auth"],
+  "keywords": ["laravel", "sanctum", "auth", "enquiry", "multi auth guard", "tasks", "log", "subscription"],
   "license": "MIT",
   "support": {
       "issues": "https://github.com/coders-tm/laravel-core/issues",
