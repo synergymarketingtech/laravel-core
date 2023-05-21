@@ -1,7 +1,7 @@
 {
     "name": "coderstm/laravel-core",
     "version": "1.1",
-    "description": "Laravel package that provides essential core functionalities and utilities for Laravel applications.",
+    "description": "Laravel Core package that provides essential core functionalities and utilities for Laravel applications.",
     "keywords": [
         "laravel",
         "sanctum",
