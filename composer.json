@@ -1,6 +1,6 @@
 {
     "name": "coderstm/laravel-core",
-    "version": "1.1",
+    "version": "1.2",
     "description": "Laravel Core package that provides essential core functionalities and utilities for Laravel applications.",
     "keywords": [
         "laravel",
