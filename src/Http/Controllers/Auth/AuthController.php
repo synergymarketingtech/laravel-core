@@ -6,10 +6,11 @@ use Coderstm\Coderstm;
 use Coderstm\Enum\AppStatus;
 use Coderstm\Traits\Helpers;
 use Illuminate\Http\Request;
-use Coderstm\Notifications\UserLogin;
-use Coderstm\Http\Controllers\Controller;
+use Coderstm\Events\UserSubscribed;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Coderstm\Notifications\UserLogin;
+use Coderstm\Http\Controllers\Controller;
 use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
@@ -114,6 +115,8 @@ class AuthController extends Controller
 
         // add address to the user
         $user->updateOrCreateAddress($request->input());
+
+        event(new UserSubscribed($user));
 
         // create and return user with token
         $token = $user->createToken($request->device_id, [$guard]);
