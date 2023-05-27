@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Str;
+use Laravel\Cashier\Cashier;
 use Coderstm\Models\AppSetting;
 use Illuminate\Support\Facades\Notification;
 
@@ -117,6 +118,13 @@ if (!function_exists('model_log_name')) {
             return $model->logName;
         }
         return Str::of(class_basename(get_class($model)))->snake()->replace('_', ' ')->title();
+    }
+}
+
+if (!function_exists('format_amount')) {
+    function format_amount($amount, $currency = null, $locale = null, array $options = [])
+    {
+        return Cashier::formatAmount($amount, $currency, $locale, $options);
     }
 }
 
