@@ -34,7 +34,7 @@ class AuthController extends Controller
             $user = $request->user($guard);
 
             // check user status
-            if (!$user->isActive()) {
+            if (!$user->is_active()) {
                 Auth::guard($guard)->logout();
                 abort(403, 'Your account has been disabled and cannot access this application. Please contact with admin.');
             }
@@ -144,7 +144,7 @@ class AuthController extends Controller
 
     public function me($guard = 'users')
     {
-        $user = currentUser()->fresh([
+        $user = current_user()->fresh([
             'address',
             'lastLogin'
         ]);
@@ -160,7 +160,7 @@ class AuthController extends Controller
 
     public function update(Request $request, $guard = 'users')
     {
-        $user = currentUser();
+        $user = current_user();
 
         $rules = [
             'title' => 'required',
@@ -208,7 +208,7 @@ class AuthController extends Controller
         // Validate those rules
         $this->validate($request, $rules);
 
-        $user = currentUser();
+        $user = current_user();
         if (Hash::check($request->old_password,  $user->password)) {
             $user->update([
                 'password' => bcrypt($request->password)

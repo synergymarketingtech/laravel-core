@@ -209,9 +209,9 @@ class SubscriptionController extends Controller
 
     private function user()
     {
-        if (request()->filled('user_id') && isAdmin()) {
+        if (request()->filled('user_id') && is_admin()) {
             return Coderstm::$userModel::findOrFail(request()->user_id);
         }
-        return currentUser();
+        return current_user();
     }
 }

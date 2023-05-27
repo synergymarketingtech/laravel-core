@@ -73,6 +73,10 @@ trait Logable
                 'message' => "{$modelName} has been updated.",
                 'options' => $options
             ]);
+
+            if (method_exists(static::class, 'customUpdated')) {
+                static::customUpdated($model, $modelName);
+            }
         });
         if (method_exists(static::class, 'restored')) {
             static::restored(function ($model) {

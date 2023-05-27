@@ -44,8 +44,8 @@ class UserPolicy
      */
     public function view(Admin|User $admin, User $user)
     {
-        if (isUser()) {
-            return $user->id == currentUser()->id;
+        if (is_user()) {
+            return $user->id == current_user()->id;
         }
         return $admin->can('members:view');
     }

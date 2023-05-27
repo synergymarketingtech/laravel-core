@@ -198,9 +198,9 @@ class TaskController extends Controller
     public function changeArchived(Request $request, Task $task)
     {
         if (!$task->is_archived) {
-            $task->archives()->attach(currentUser());
+            $task->archives()->attach(current_user());
         } else {
-            $task->archives()->detach(currentUser());
+            $task->archives()->detach(current_user());
         }
 
         return response()->json([

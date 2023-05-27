@@ -39,7 +39,7 @@ class CoderstmPermissionsServiceProvider extends ServiceProvider
 
         //Blade directives
         Blade::directive('group', function ($group, $guard = 'users') {
-            return "if(guard() == {$guard} && currentUser()->hasGroup({$group})) :"; //return this if statement inside php tag
+            return "if(guard() == {$guard} && current_user()->hasGroup({$group})) :"; //return this if statement inside php tag
         });
 
         Blade::directive('endgroup', function ($group) {

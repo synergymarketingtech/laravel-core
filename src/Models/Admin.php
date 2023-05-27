@@ -103,7 +103,7 @@ class Admin extends Authenticatable
         return $this->morphOne(Log::class, 'logable')->whereType('created');
     }
 
-    public function isActive()
+    public function is_active()
     {
         return $this->is_active;
     }
@@ -127,7 +127,7 @@ class Admin extends Authenticatable
      */
     public function scopeExcludeCurrent($query)
     {
-        return $query->where('id', '<>', currentUser()->id);
+        return $query->where('id', '<>', current_user()->id);
     }
 
     /**

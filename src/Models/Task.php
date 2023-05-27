@@ -135,13 +135,13 @@ class Task extends Model
      */
     public function scopeOnlyOwner($query)
     {
-        if (currentUser()->is_supper_admin) {
+        if (current_user()->is_supper_admin) {
             return $query;
         }
         return $query->whereHas('user', function ($q) {
-            $q->where('id', currentUser()->id);
+            $q->where('id', current_user()->id);
         })->orWhereHas('users', function ($q) {
-            $q->where('id', currentUser()->id);
+            $q->where('id', current_user()->id);
         });
     }
 
@@ -222,7 +222,7 @@ class Task extends Model
                 $model->status = AppStatus::PENDING->value;
             }
             if (empty($model->user_id)) {
-                $model->user_id = optional(currentUser())->id;
+                $model->user_id = optional(current_user())->id;
             }
         });
     }

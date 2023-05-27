@@ -170,7 +170,7 @@ class Enquiry extends Model
     public function createReply(array $attributes = [])
     {
         $reply = new Reply($attributes);
-        $reply->user()->associate(currentUser());
+        $reply->user()->associate(current_user());
         return $this->replies()->save($reply);
     }
 
@@ -202,7 +202,7 @@ class Enquiry extends Model
     public function scopeOnlyOwner($query)
     {
         return $query->whereHas('user', function ($q) {
-            $q->where('id', currentUser()->id);
+            $q->where('id', current_user()->id);
         });
     }
 
@@ -239,7 +239,7 @@ class Enquiry extends Model
     {
         switch ($status) {
             case 'Live':
-                if (isUser()) {
+                if (is_user()) {
                     return $query->whereUserArchived(0);
                 } else {
                     return $query->whereIsArchived(0);
@@ -247,7 +247,7 @@ class Enquiry extends Model
                 break;
 
             case 'Archive':
-                if (isUser()) {
+                if (is_user()) {
                     return $query->whereUserArchived(1);
                 } else {
                     return $query->whereIsArchived(1);
@@ -293,7 +293,7 @@ class Enquiry extends Model
                 $model->status = AppStatus::PENDING->value;
             }
             if (empty($model->email)) {
-                $model->email = optional(currentUser())->email;
+                $model->email = optional(current_user())->email;
             }
         });
     }

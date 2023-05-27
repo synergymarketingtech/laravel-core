@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Str;
 use Coderstm\Models\AppSetting;
 use Illuminate\Support\Facades\Notification;
 
@@ -13,29 +14,29 @@ if (!function_exists('guard')) {
     }
 }
 
-if (!function_exists('currentUser')) {
-    function currentUser()
+if (!function_exists('current_user')) {
+    function current_user()
     {
         return request()->user();
     }
 }
 
-if (!function_exists('isUser')) {
-    function isUser()
+if (!function_exists('is_user')) {
+    function is_user()
     {
         return guard() == 'users';
     }
 }
 
-if (!function_exists('isAdmin')) {
-    function isAdmin()
+if (!function_exists('is_admin')) {
+    function is_admin()
     {
         return guard() == 'admins';
     }
 }
 
-if (!function_exists('appUrl')) {
-    function appUrl($subdomain = 'app')
+if (!function_exists('app_url')) {
+    function app_url($subdomain = 'app')
     {
         $scheme = request()->getScheme();
         if ($subdomain) {
@@ -45,46 +46,46 @@ if (!function_exists('appUrl')) {
     }
 }
 
-if (!function_exists('adminUrl')) {
-    function adminUrl($path = '')
+if (!function_exists('admin_url')) {
+    function admin_url($path = '')
     {
         return config('coderstm.admin_url') . '/' . $path;
     }
 }
 
-if (!function_exists('isActive')) {
-    function isActive(...$routes)
+if (!function_exists('is_active')) {
+    function is_active(...$routes)
     {
         return request()->is($routes) ? 'active' : '';
     }
 }
 
-if (!function_exists('hasRecaptcha')) {
-    function hasRecaptcha()
+if (!function_exists('has_recaptcha')) {
+    function has_recaptcha()
     {
         return !empty(config('recaptcha.site_key'));
     }
 }
 
-if (!function_exists('appSettings')) {
-    function appSettings($key)
+if (!function_exists('app_settings')) {
+    function app_settings($key)
     {
         return AppSetting::findByKey($key);
     }
 }
 
-if (!function_exists('openingTimes')) {
-    function openingTimes()
+if (!function_exists('opening_times')) {
+    function opening_times()
     {
-        return appSettings('opening-times')->map(function ($item, $key) {
+        return app_settings('opening-times')->map(function ($item, $key) {
             $item['is_today'] = now()->format('l') == $item['name'];
             return $item;
         });
     }
 }
 
-if (!function_exists('string2hex')) {
-    function string2hex($name = 'Name')
+if (!function_exists('string_to_hex')) {
+    function string_to_hex($name = 'Name')
     {
         $alphabet = range('A', 'Z');
         $numbers = collect(explode(' ', $name))->map(function ($item) use ($alphabet) {
@@ -95,8 +96,8 @@ if (!function_exists('string2hex')) {
     }
 }
 
-if (!function_exists('string2hsl')) {
-    function string2hsl($str, $saturation = 35, $lightness = 65)
+if (!function_exists('string_to_hsl')) {
+    function string_to_hsl($str, $saturation = 35, $lightness = 65)
     {
         $hash = 0;
 
@@ -109,14 +110,24 @@ if (!function_exists('string2hsl')) {
     }
 }
 
+if (!function_exists('model_log_name')) {
+    function model_log_name($model)
+    {
+        if ($model->logName) {
+            return $model->logName;
+        }
+        return Str::of(class_basename(get_class($model)))->snake()->replace('_', ' ')->title();
+    }
+}
+
 /**
  * Send the admin notification.
  *
  * @param  mixed  $notification
  * @return void
  */
-if (!function_exists('adminNotify')) {
-    function adminNotify($notification)
+if (!function_exists('admin_notify')) {
+    function admin_notify($notification)
     {
         return Notification::route('mail', [
             config('coderstm.admin_email') => 'Admin'

@@ -103,7 +103,7 @@ class Referral extends Model
     public function scopeOnlyOwner($query)
     {
         return $query->whereHas('user', function ($q) {
-            $q->where('id', currentUser()->id);
+            $q->where('id', current_user()->id);
         });
     }
 
@@ -135,7 +135,7 @@ class Referral extends Model
         parent::booted();
         static::creating(function ($model) {
             if (empty($model->user_id)) {
-                $model->user_id = optional(currentUser())->id;
+                $model->user_id = optional(current_user())->id;
             }
         });
     }
