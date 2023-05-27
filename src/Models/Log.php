@@ -4,12 +4,22 @@ namespace Coderstm\Models;
 
 use Coderstm\Coderstm;
 use Coderstm\Traits\Fileable;
+use Coderstm\Events\LogCreated;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Log extends Model
 {
     use HasFactory, Fileable;
+
+    /**
+     * The event map for the model.
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'created' => LogCreated::class,
+    ];
 
     /**
      * The attributes that are mass assignable.

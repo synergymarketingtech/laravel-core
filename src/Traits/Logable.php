@@ -39,7 +39,7 @@ trait Logable
     {
         parent::boot();
         static::created(function ($model) {
-            $modelName = class_basename(get_class($model));
+            $modelName = model_log_name($model);
             $data = [
                 'message' => "{$modelName} has been created.",
             ];
@@ -51,14 +51,14 @@ trait Logable
             ], $data);
         });
         static::deleted(function ($model) {
-            $modelName = class_basename(get_class($model));
+            $modelName = model_log_name($model);
             $model->logs()->create([
                 'type' => LogType::DELETED,
                 'message' => "{$modelName} has been deleted.",
             ]);
         });
         static::updated(function ($model) {
-            $modelName = class_basename(get_class($model));
+            $modelName = model_log_name($model);
             $options = [];
             foreach ($model->getFillable() as $key) {
                 if ($model->wasChanged($key)) {
