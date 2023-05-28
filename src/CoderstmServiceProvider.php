@@ -4,6 +4,7 @@ namespace Coderstm;
 
 use Laravel\Cashier\Cashier;
 use Illuminate\Support\Facades\DB;
+use Coderstm\Commands\CheckHoldUser;
 use Illuminate\Pagination\Paginator;
 use Coderstm\Commands\InstallCommand;
 use Illuminate\Support\Facades\Route;
@@ -38,7 +39,7 @@ class CoderstmServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerRouteMiddleware();
-        // $this->registerResources();
+        $this->registerResources();
         $this->registerMigrations();
         $this->registerPublishing();
         $this->registerCommands();
@@ -165,6 +166,7 @@ class CoderstmServiceProvider extends ServiceProvider
                 InstallCommand::class,
                 SubscriptionsCancel::class,
                 SubscriptionsInvoice::class,
+                CheckHoldUser::class,
             ]);
         }
     }

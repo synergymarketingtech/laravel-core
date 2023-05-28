@@ -4,9 +4,11 @@ namespace Coderstm;
 
 use Coderstm\Events\TaskCreated;
 use Coderstm\Events\EnquiryCreated;
+use Coderstm\Events\UserSubscribed;
+use Laravel\Cashier\Events\WebhookReceived;
+use Coderstm\Listeners\SendSignupNotification;
 use Coderstm\Listeners\SendEnquiryConfirmation;
 use Coderstm\Listeners\SendEnquiryNotification;
-use Laravel\Cashier\Events\WebhookReceived;
 use Coderstm\Listeners\SendTaskUsersNotification;
 use Coderstm\Events\Cashier\SubscriptionProcessed;
 use Coderstm\Listeners\Cashier\CashierEventListener;
@@ -36,6 +38,9 @@ class CoderstmEventServiceProvider extends ServiceProvider
         ],
         SubscriptionProcessed::class => [
             SubscriptionEventListener::class,
+        ],
+        UserSubscribed::class => [
+            SendSignupNotification::class,
         ],
     ];
 
