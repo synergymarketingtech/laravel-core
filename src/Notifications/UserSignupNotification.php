@@ -50,7 +50,7 @@ class UserSignupNotification extends Notification
 
         return (new MailMessage)
             ->subject($this->subject)
-            ->markdown('vendor.emails.user.signup', [
+            ->markdown('coderstm::emails.user.signup', [
                 'name' => $this->user->first_name,
                 'plan' => optional($this->user->plan)->label,
                 'price' => format_amount(optional($this->subscription->price)->amount * 100),

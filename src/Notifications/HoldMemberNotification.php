@@ -50,7 +50,7 @@ class HoldMemberNotification extends Notification
 
         return (new MailMessage)
             ->subject($this->subject)
-            ->markdown('vendor.emails.admin.hold-release', [
+            ->markdown('coderstm::emails.admin.hold-release', [
                 'id' => $this->user->id,
                 'name' => $this->user->name,
                 'email' => $this->user->email,
