@@ -115,6 +115,7 @@ class CoderstmServiceProvider extends ServiceProvider
             ], 'coderstm-routes');
 
             $this->publishes([
+                $this->packagePath('resources/views') => $this->app->resourcePath('views/vendor/coderstm'),
                 $this->packageStubPath('views/app.blade.stub') => $this->app->resourcePath('views/app.blade.php'),
             ], 'coderstm-views');
 
