@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Coderstm\Http\Controllers\FileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// File Download
+Route::get('files/{path}', [FileController::class, 'download'])->name('files.download');
 
 Route::get('{query?}', function () {
     return view('app');
