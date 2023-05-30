@@ -36,6 +36,15 @@ class Usage extends Model
     ];
 
     /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'reset_at' => 'datetime',
+    ];
+
+    /**
      * Scope a query to only include byFeatureSlug
      *
      * @param  \Illuminate\Database\Eloquent\Builder $query
@@ -57,6 +66,6 @@ class Usage extends Model
             return false;
         }
 
-        return Carbon::now()->lte($this->reset_at);
+        return Carbon::now()->gte($this->reset_at);
     }
 }
