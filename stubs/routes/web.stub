@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Coderstm\Http\Controllers\FileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +13,6 @@ use Coderstm\Http\Controllers\FileController;
 |
 */
 
-// File Download
-Route::get('files/{path}', [FileController::class, 'download'])->name('files.download');
-
 Route::get('{query?}', function () {
     return view('app');
-})->where('query', '.*')->name('admin.web');
+})->where('query', '.*')->name('coderstm.web');
