@@ -4,7 +4,6 @@ namespace Coderstm\Http\Middleware;
 
 use Closure;
 use Coderstm\Coderstm;
-use Coderstm\Models\User;
 
 class CheckSubscribed
 {
