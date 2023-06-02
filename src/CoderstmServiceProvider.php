@@ -3,7 +3,6 @@
 namespace Coderstm;
 
 use Laravel\Cashier\Cashier;
-use Illuminate\Support\Facades\DB;
 use Coderstm\Commands\CheckHoldUser;
 use Illuminate\Pagination\Paginator;
 use Coderstm\Commands\InstallCommand;
