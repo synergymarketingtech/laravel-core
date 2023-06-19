@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Http;
 class ReCaptchaRule implements Rule
 {
     const URL = 'https://www.google.com/recaptcha/api/siteverify';
+    const BOT_SCORE = 0.0;
 
     /**
      * Determine if the validation rule passes.
@@ -24,7 +25,7 @@ class ReCaptchaRule implements Rule
             'remoteip' => request()->ip()
         ])->json();
 
-        return $response['success'] === true ?? false;
+        return $response['success'] === true && $response['score'] > static::BOT_SCORE ?? false;
     }
 
     /**
@@ -34,6 +35,6 @@ class ReCaptchaRule implements Rule
      */
     public function message()
     {
-        return 'The recaptcha verification failed. Please try again.';
+        return 'The verification process for reCAPTCHA failed. Please attempt again.';
     }
 }
