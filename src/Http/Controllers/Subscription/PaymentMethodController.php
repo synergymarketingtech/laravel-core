@@ -41,7 +41,7 @@ class PaymentMethodController extends Controller
         // create or get stripe customer
         $user->createOrGetStripeCustomer();
 
-        if ($request->boolean('is_deafult')) {
+        if ($request->boolean('is_default')) {
             $user->updateDefaultPaymentMethod($paymentMethod);
             $user->updateDefaultPaymentMethodFromStripe();
         } else {

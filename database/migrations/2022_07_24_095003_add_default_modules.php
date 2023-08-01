@@ -68,10 +68,10 @@ return new class extends Migration
                     'Delete',
                 ],
             ],
-            'Users' => [
+            'Members' => [
                 'sort_order' => 4,
                 'icon' => 'fas fa-user-tag',
-                'url' => 'users',
+                'url' => 'members',
                 'show_menu' => 1,
                 'sub_items' => [
                     'View',

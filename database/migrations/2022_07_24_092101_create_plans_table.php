@@ -56,6 +56,18 @@ return new class extends Migration
 
             $table->foreign('plan_id')->references('id')->on('plans')->cascadeOnUpdate()->cascadeOnDelete();
         });
+
+        Schema::create('plan_usages', function (Blueprint $table) {
+            $table->id();
+
+            $table->string('slug');
+            $table->integer('used')->unsigned()->default(0);
+            $table->unsignedBigInteger('subscription_id');
+            $table->dateTime('reset_at')->nullable();
+
+            $table->unique(['slug', 'subscription_id']);
+            $table->foreign('subscription_id')->references('id')->on('subscriptions')->cascadeOnUpdate()->cascadeOnDelete();
+        });
     }
 
     /**

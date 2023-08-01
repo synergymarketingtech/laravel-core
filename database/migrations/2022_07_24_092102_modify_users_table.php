@@ -26,28 +26,10 @@ return new class extends Migration
             $table->string('rag')->nullable()->after('is_active');
             $table->unsignedBigInteger('plan_id')->nullable()->after('status');
             $table->string('username')->nullable()->after('name');
+            $table->string('rfid')->nullable()->after('phone_number');
 
             $table->foreign('plan_id')->references('id')->on('plans')->cascadeOnUpdate()->nullOnDelete();
             $table->softDeletes();
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn([
-                'title',
-                'phone_number',
-                'is_enquiry',
-                'status',
-                'gender',
-                'rag',
-            ]);
         });
     }
 };

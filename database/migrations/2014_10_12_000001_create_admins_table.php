@@ -24,6 +24,7 @@ return new class extends Migration
             $table->boolean('is_active')->nullable()->default(true);
             $table->boolean('is_supper_admin')->nullable()->default(false);
             $table->string('remember_token', 100)->nullable();
+            $table->string('rfid')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
