@@ -29,6 +29,7 @@ class Price extends Model
         'plan_id',
         'stripe_id',
         'interval',
+        'interval_count',
         'amount',
     ];
 
@@ -86,7 +87,10 @@ class Price extends Model
             'product' => $optional->stripe_id,
             'unit_amount' => $optional->amount * 100,
             'currency' => config('cashier.currency'),
-            'recurring' => ['interval' => $optional->interval],
+            'recurring' => [
+                'interval' => $optional->interval,
+                'interval_count' => $optional->interval_count
+            ],
         ]);
     }
 }

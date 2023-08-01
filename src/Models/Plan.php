@@ -8,10 +8,7 @@ use Coderstm\Models\Plan\Price;
 use Coderstm\Models\Plan\Feature;
 use Laravel\Cashier\Cashier;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Plan extends Model
@@ -28,6 +25,13 @@ class Plan extends Model
         'description',
         'note',
         'is_active',
+        'is_custom',
+        'interval',
+        'default_interval',
+        'interval_count',
+        'custom_fee',
+        'monthly_fee',
+        'yearly_fee',
         'stripe_id',
     ];
 
@@ -45,6 +49,8 @@ class Plan extends Model
      */
     protected $casts = [
         'is_active' => 'boolean',
+        'is_custom' => 'boolean',
+        'interval' => PlanInterval::class,
         'created_at' => 'datetime:d M, Y \a\t h:i a',
     ];
 
@@ -111,12 +117,27 @@ class Plan extends Model
             $plan->stripe_id = $product->id;
             $plan->save();
 
-            // Create monthly and yearly prices
-            $monthlyPrice = static::createPrice($plan, $attributes['monthly_fee'], PlanInterval::MONTH);
-            $yearlyPrice = static::createPrice($plan, $attributes['yearly_fee'], PlanInterval::YEAR);
+            $prices = [];
+            $optional = optional((object) $attributes);
+            if ($plan->is_custom) {
+                $prices[] = static::createPrice($plan, [
+                    'amount' => $attributes['custom_fee'],
+                    'interval' => $optional->interval,
+                    'interval_count' => $optional->interval_count ?? 1,
+                ]);
+            } else {
+                $prices[] = static::createPrice($plan, [
+                    'amount' => $attributes['monthly_fee'],
+                    'interval' => PlanInterval::MONTH->value,
+                ]);
+                $prices[] = static::createPrice($plan, [
+                    'amount' => $attributes['yearly_fee'],
+                    'interval' => PlanInterval::YEAR->value,
+                ]);
+            }
 
             // Attach the prices to the plan
-            $plan->prices()->saveMany([$monthlyPrice, $yearlyPrice]);
+            $plan->prices()->saveMany($prices);
 
             return $plan;
         } catch (\Throwable $th) {
@@ -145,20 +166,25 @@ class Plan extends Model
     }
 
     // Create a price for a given plan and amount
-    protected static function createPrice($plan, $amount, $interval)
+    protected static function createPrice($plan, $options = [])
     {
+        $optional = optional((object) $options);
         $price = Cashier::stripe()->prices->create([
             'nickname' => $plan->label,
             'product' => $plan->stripe_id,
-            'unit_amount' => $amount * 100,
+            'unit_amount' => $optional->amount * 100,
             'currency' => config('cashier.currency'),
-            'recurring' => ['interval' => $interval->value],
+            'recurring' => [
+                'interval' => $optional->interval,
+                'interval_count' => $optional->interval_count ?? 1
+            ],
         ]);
 
         return $plan->prices()->create([
-            'amount' => $amount,
+            'amount' => $optional->amount,
             'stripe_id' => $price->id,
-            'interval' => $interval->value,
+            'interval' => $optional->interval,
+            'interval_count' => $optional->interval_count ?? 1,
         ]);
     }
 
@@ -181,18 +207,6 @@ class Plan extends Model
                     'description' => $model->description ?? "",
                 ]);
             }
-        });
-        static::addGlobalScope('default', function (Builder $builder) {
-            $builder->withCount([
-                'prices as monthly_fee' => function (Builder $query) {
-                    $query->select(DB::raw("SUM(amount) as amount_sum"))
-                        ->where('interval', PlanInterval::MONTH->value);
-                },
-                'prices as yearly_fee' => function (Builder $query) {
-                    $query->select(DB::raw("SUM(amount) as amount_sum"))
-                        ->where('interval', PlanInterval::YEAR->value);
-                },
-            ]);
         });
     }
 }

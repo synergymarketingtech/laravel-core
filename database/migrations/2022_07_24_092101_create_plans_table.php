@@ -18,9 +18,14 @@ return new class extends Migration
             $table->string('label')->nullable();
             $table->longText('description')->nullable();
             $table->longText('note')->nullable();
-            $table->decimal('fee', 5, 2)->nullable()->default(0.00);
-            $table->enum('type', ['monthly', 'yearly'])->default('monthly');
             $table->boolean('is_active')->default(true);
+            $table->boolean('is_custom')->default(false);
+            $table->string('interval')->default('month');
+            $table->string('default_interval')->default('month');
+            $table->unsignedInteger('interval_count')->default(1);
+            $table->decimal('custom_fee', 5, 2)->default(0.00);
+            $table->decimal('monthly_fee', 5, 2)->default(0.00);
+            $table->decimal('yearly_fee', 5, 2)->default(0.00);
             $table->string('stripe_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
@@ -32,6 +37,7 @@ return new class extends Migration
             $table->unsignedBigInteger('plan_id');
             $table->string('stripe_id')->nullable();
             $table->string('interval')->default('month');
+            $table->unsignedInteger('interval_count')->default(1);
             $table->decimal('amount', 5, 2)->default(0.00);
             $table->timestamps();
 
