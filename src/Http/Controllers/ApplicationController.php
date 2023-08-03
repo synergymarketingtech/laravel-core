@@ -42,12 +42,12 @@ class ApplicationController extends Controller
     {
         $rules = [
             'key' => 'required',
-            'options' => 'required',
+            'options' => 'array',
         ];
 
         $this->validate($request, $rules);
 
-        AppSetting::create($request->key, $request->options);
+        AppSetting::create($request->key, $request->options ?? []);
 
         return response()->json([
             'message' => 'App settings has been updated successfully!'
