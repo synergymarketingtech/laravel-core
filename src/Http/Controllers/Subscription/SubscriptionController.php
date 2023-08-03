@@ -65,7 +65,8 @@ class SubscriptionController extends Controller
         $user = $this->user();
         $payment_method = $request->input('payment_method');
         $payment_interval = optional($request)->payment_interval ?? 'month';
-        $price = Price::planById($request->input('plan'), $payment_interval);
+        $plan = Plan::find($request->input('plan'));
+        $price = Price::planById($request->input('plan'), $plan->is_custom ?? $payment_interval);
         $planID = $price->stripe_id;
         $isSubscribed = $user->subscribed();
         $subscription = null;

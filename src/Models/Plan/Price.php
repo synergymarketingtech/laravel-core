@@ -64,7 +64,11 @@ class Price extends Model
 
     public static function planById($id, $interval = 'month')
     {
-        return static::with('plan')->wherePlanId($id)->whereInterval($interval)->first();
+        $price = static::with('plan')->wherePlanId($id);
+        if (in_array((string) $interval, ['month', 'year'])) {
+            $price = $price->whereInterval($interval);
+        }
+        return $price->first();
     }
 
     public function createAsPaymentGatewayPrice()
