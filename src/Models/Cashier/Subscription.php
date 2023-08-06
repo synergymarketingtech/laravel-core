@@ -2,6 +2,7 @@
 
 namespace Coderstm\Models\Cashier;
 
+use Laravel\Cashier\Cashier;
 use Coderstm\Models\Plan\Price;
 use Coderstm\Traits\HasFeature;
 use Coderstm\Events\Cashier\SubscriptionProcessed;
@@ -46,6 +47,22 @@ class Subscription extends CashierSubscription
     public function price(): BelongsTo
     {
         return $this->belongsTo(Price::class, 'stripe_price', 'stripe_id');
+    }
+
+
+    public function releaseSchedule()
+    {
+        try {
+            if ($this->schedule) {
+                Cashier::stripe()->subscriptionSchedules->release($this->schedule);
+                $this->fill([
+                    'schedule' => null,
+                    'is_downgrade' => false,
+                ])->save();
+            }
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
 

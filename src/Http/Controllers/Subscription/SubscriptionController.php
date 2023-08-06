@@ -3,15 +3,16 @@
 namespace Coderstm\Http\Controllers\Subscription;
 
 use Coderstm\Coderstm;
-use Coderstm\Models\Plan;
-use Coderstm\Traits\Helpers;
 use Stripe\Subscription;
-use Coderstm\Models\Plan\Price;
+use Coderstm\Models\Plan;
 use Illuminate\Support\Arr;
+use Coderstm\Traits\Helpers;
 use Illuminate\Http\Request;
 use Laravel\Cashier\Cashier;
 use Laravel\Cashier\Payment;
+use Coderstm\Models\Plan\Price;
 use Coderstm\Http\Controllers\Controller;
+use Illuminate\Validation\ValidationException;
 use Laravel\Cashier\Exceptions\IncompletePayment;
 
 class SubscriptionController extends Controller
@@ -44,7 +45,11 @@ class SubscriptionController extends Controller
                 'amount' => $upcomingInvoice->total(),
                 'date' => $upcomingInvoice->date()->toFormattedDateString(),
             ];
-            $subscription['message'] = "Next invoice {$subscription['upcomingInvoice']['amount']} on {$subscription['upcomingInvoice']['date']}";
+            if ($subscription->is_downgrade) {
+                $subscription['message'] = "Price change will become effective on {$subscription['upcomingInvoice']['date']}";
+            } else {
+                $subscription['message'] = "Next invoice {$subscription['upcomingInvoice']['amount']} on {$subscription['upcomingInvoice']['date']}";
+            }
         }
         return response()->json($subscription, 200);
     }
@@ -72,12 +77,20 @@ class SubscriptionController extends Controller
         $subscription = null;
 
         if ($isSubscribed && $user->subscription()->stripe_price == $planID) {
-            abort(403, "You already subscribed to {$price->plan->label} plan.");
+            throw ValidationException::withMessages([
+                'plan' => "You already subscribed to {$price->plan->label} plan.",
+            ]);
         }
 
         try {
             if ($isSubscribed) {
-                $subscription = $user->subscription()->swapAndInvoice($planID);
+                $subscription = $user->subscription();
+                if ($price->amount < $subscription->price->amount) {
+                    $this->downgrade($subscription, $planID);
+                } else {
+                    $subscription->releaseSchedule();
+                    $subscription->swapAndInvoice($planID);
+                }
             } else {
                 $subscription = $user->newSubscription('default', $planID)
                     ->create($payment_method);
@@ -138,6 +151,14 @@ class SubscriptionController extends Controller
 
         return response()->json([
             'message' => 'You have successfully cancelled your subscription.'
+        ], 200);
+    }
+
+    public function cancelDowngrade(Request $request)
+    {
+        $this->user()->subscription()->releaseSchedule();
+        return response()->json([
+            'message' => 'You have successfully upgraded your subscription.'
         ], 200);
     }
 
@@ -214,5 +235,61 @@ class SubscriptionController extends Controller
             return Coderstm::$userModel::findOrFail(request()->user_id);
         }
         return current_user();
+    }
+
+    private function downgrade($subscription, $planID)
+    {
+
+        try {
+            $stripeSubscription = $subscription->asStripeSubscription();
+
+            if ($stripeSubscription->schedule) {
+                $subscriptionSchedule = Cashier::stripe()->subscriptionSchedules->retrieve($stripeSubscription->schedule);
+            } else {
+                $subscriptionSchedule = Cashier::stripe()->subscriptionSchedules->create([
+                    'from_subscription' => $subscription->stripe_id,
+                ]);
+            }
+
+            // Get the current phase (the first phase in the phases array)
+            $currPhase = $subscriptionSchedule->phases[0];
+
+            // Create the updated phases array for the subscription schedule
+            $updated_phases = [
+                [
+                    'items' => [
+                        [
+                            'price' => $currPhase->items[0]->price,
+                            'quantity' => 1,
+                        ],
+                    ],
+                    'start_date' => $currPhase->start_date,
+                    'end_date' => $currPhase->end_date,
+                    'proration_behavior' => 'none',
+                ],
+                [
+                    'items' => [
+                        [
+                            'price' => $planID,
+                            'quantity' => 1,
+                        ],
+                    ],
+                    'proration_behavior' => 'none',
+                    'iterations' => 1,
+                ],
+            ];
+
+            Cashier::stripe()->subscriptionSchedules->update($subscriptionSchedule->id, [
+                'phases' => $updated_phases
+            ]);
+
+
+            // Update the UserSubscription record with downgrade status
+            $subscription->is_downgrade = true;
+            $subscription->schedule = $subscriptionSchedule->id; // or the date of the next renewal with the downgrade
+            $subscription->save();
+        } catch (\Stripe\Exception\ApiErrorException $e) {
+            throw $e;
+        }
     }
 }
