@@ -8,7 +8,6 @@ use Illuminate\Pagination\Paginator;
 use Coderstm\Commands\InstallCommand;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Coderstm\Models\Cashier\Subscription;
 use Coderstm\Commands\SubscriptionsCancel;
 use Coderstm\Commands\SubscriptionsInvoice;
 use Coderstm\Http\Middleware\CheckSubscribed;
@@ -53,7 +52,7 @@ class CoderstmServiceProvider extends ServiceProvider
         Paginator::useBootstrapFive();
 
         Cashier::useCustomerModel(Coderstm::$userModel);
-        Cashier::useSubscriptionModel(Subscription::class);
+        Cashier::useSubscriptionModel(Coderstm::$subscriptionModel);
         Cashier::useSubscriptionItemModel(SubscriptionItem::class);
     }
 

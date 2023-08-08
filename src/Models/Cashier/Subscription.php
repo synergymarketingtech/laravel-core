@@ -24,6 +24,25 @@ class Subscription extends CashierSubscription
     ];
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'user_id',
+        'name',
+        'stripe_id',
+        'stripe_status',
+        'stripe_price',
+        'quantity',
+        'is_downgrade',
+        'schedule',
+        'trial_ends_at',
+        'ends_at',
+        'cancels_at',
+    ];
+
+    /**
      * The event map for the model.
      *
      * @var array

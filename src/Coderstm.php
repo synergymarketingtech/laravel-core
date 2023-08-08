@@ -26,6 +26,13 @@ class Coderstm
     public static $enquiryModel = 'App\\Models\\Enquiry';
 
     /**
+     * The default subscription model class name.
+     *
+     * @var string
+     */
+    public static $subscriptionModel = 'Coderstm\\Models\\Cashier\\Subscription';
+
+    /**
      * Indicates if Coderstm's migrations will be run.
      *
      * @var bool
@@ -114,5 +121,16 @@ class Coderstm
     public static function useEnquiryModel($enquiryModel)
     {
         static::$enquiryModel = $enquiryModel;
+    }
+
+    /**
+     * Set the subscription model class name.
+     *
+     * @param  string  $subscriptionModel
+     * @return void
+     */
+    public static function useSubscriptionModel($subscriptionModel)
+    {
+        static::$subscriptionModel = $subscriptionModel;
     }
 }
