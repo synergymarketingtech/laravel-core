@@ -8,6 +8,7 @@ use Coderstm\Traits\HasFeature;
 use Coderstm\Events\Cashier\SubscriptionProcessed;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Laravel\Cashier\Subscription as CashierSubscription;
+use InvalidArgumentException;
 
 class Subscription extends CashierSubscription
 {
@@ -74,5 +75,71 @@ class Subscription extends CashierSubscription
     public function getIsValidAttribute()
     {
         return $this->valid() ?: false;
+    }
+
+    /**
+     * Swap the subscription to new Stripe prices.
+     *
+     * @param  string|array  $prices
+     * @param  array  $options
+     * @return $this
+     *
+     * @throws \Laravel\Cashier\Exceptions\IncompletePayment
+     * @throws \Laravel\Cashier\Exceptions\SubscriptionUpdateFailure
+     */
+    public function swap($prices, array $options = [])
+    {
+        if (empty($prices = (array) $prices)) {
+            throw new InvalidArgumentException('Please provide at least one price when swapping.');
+        }
+
+        $this->guardAgainstIncomplete();
+
+        $items = $this->mergeItemsThatShouldBeDeletedDuringSwap(
+            $this->parseSwapPrices($prices)
+        );
+
+        $stripeSubscription = $this->owner->stripe()->subscriptions->update(
+            $this->stripe_id,
+            $this->getSwapOptions($items, $options)
+        );
+
+        /** @var \Stripe\SubscriptionItem $firstItem */
+        $firstItem = $stripeSubscription->items->first();
+        $isSinglePrice = $stripeSubscription->items->count() === 1;
+        $metadata = isset($options['metadata']) ? $options['metadata'] : [];
+
+        $this->fill(array_merge(
+            $metadata,
+            [
+                'stripe_status' => $stripeSubscription->status,
+                'stripe_price' => $isSinglePrice ? $firstItem->price->id : null,
+                'quantity' => $isSinglePrice ? ($firstItem->quantity ?? null) : null,
+                'ends_at' => null,
+            ]
+        ))->save();
+
+        $stripePrices = [];
+
+        foreach ($stripeSubscription->items as $item) {
+            $stripePrices[] = $item->price->id;
+
+            $this->items()->updateOrCreate([
+                'stripe_id' => $item->id,
+            ], [
+                'stripe_product' => $item->price->product,
+                'stripe_price' => $item->price->id,
+                'quantity' => $item->quantity ?? null,
+            ]);
+        }
+
+        // Delete items that aren't attached to the subscription anymore...
+        $this->items()->whereNotIn('stripe_price', $stripePrices)->delete();
+
+        $this->unsetRelation('items');
+
+        $this->handlePaymentFailure($this);
+
+        return $this;
     }
 }

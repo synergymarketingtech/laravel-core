@@ -57,8 +57,9 @@ class SubscriptionController extends Controller
     public function subscribe(Request $request)
     {
         $request->validate([
-            'payment_method' => 'required',
+            'payment_method' => 'required|string',
             'plan' => 'required',
+            'metadata' => 'array',
         ]);
 
         if ($request->input('payment_method') == 'manual') {
@@ -75,6 +76,7 @@ class SubscriptionController extends Controller
         $planID = $price->stripe_id;
         $isSubscribed = $user->subscribed();
         $subscription = null;
+        $metadata = $request->input('metadata') ?? [];
 
         if ($isSubscribed && $user->subscription()->stripe_price == $planID) {
             throw ValidationException::withMessages([
@@ -86,13 +88,19 @@ class SubscriptionController extends Controller
             if ($isSubscribed) {
                 $subscription = $user->subscription();
                 if ($price->amount < $subscription->price->amount) {
-                    $this->downgrade($subscription, $planID);
+                    $this->downgrade($subscription, [
+                        'plan' => $planID,
+                        'metadata' => $metadata,
+                    ]);
                 } else {
                     $subscription->releaseSchedule();
-                    $subscription->swapAndInvoice($planID);
+                    $subscription->swapAndInvoice($planID, [
+                        'metadata' => $metadata,
+                    ]);
                 }
             } else {
                 $subscription = $user->newSubscription('default', $planID)
+                    ->withMetadata($metadata)
                     ->create($payment_method);
             }
         } catch (IncompletePayment $exception) {
@@ -113,8 +121,8 @@ class SubscriptionController extends Controller
     public function confirm(Request $request)
     {
         $request->validate([
-            'payment_intent' => 'required',
-            'plan' => 'required',
+            'payment_intent' => 'required|string',
+            'plan' => 'required|string',
         ]);
 
         $user = $this->user();
@@ -196,7 +204,7 @@ class SubscriptionController extends Controller
         return $this->user()->createSetupIntent();
     }
 
-    private function paymentIntents($id)
+    protected function paymentIntents($id)
     {
         $payment = new Payment(
             Cashier::stripe()->paymentIntents->retrieve(
@@ -222,14 +230,14 @@ class SubscriptionController extends Controller
     }
 
     //update user plan
-    private function updateUserPlan($planID)
+    protected function updateUserPlan($planID)
     {
         $this->user()->update([
             'plan_id' => $planID
         ]);
     }
 
-    private function user()
+    protected function user()
     {
         if (request()->filled('user_id') && is_admin()) {
             return Coderstm::$userModel::findOrFail(request()->user_id);
@@ -237,8 +245,14 @@ class SubscriptionController extends Controller
         return current_user();
     }
 
-    private function downgrade($subscription, $planID)
+    protected function downgrade($subscription, array $options = [])
     {
+
+        if (!isset($options['plan'])) {
+            throw ValidationException::withMessages([
+                'plan' => "A valid plan ID is necessary for downgrading the subscription.",
+            ]);
+        }
 
         try {
             $stripeSubscription = $subscription->asStripeSubscription();
@@ -270,10 +284,11 @@ class SubscriptionController extends Controller
                 [
                     'items' => [
                         [
-                            'price' => $planID,
+                            'price' => $options['plan'],
                             'quantity' => 1,
                         ],
                     ],
+                    'metadata' => $options['metadata'] ?? [],
                     'proration_behavior' => 'none',
                     'iterations' => 1,
                 ],
