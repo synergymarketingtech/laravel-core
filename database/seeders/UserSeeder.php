@@ -25,7 +25,11 @@ class UserSeeder extends Seeder
                 $user->updateOrCreateAddress(AddressFactory::new()->make()->toArray());
                 if ($user->status == AppStatus::ACTIVE) {
                     Subscription::withoutEvents(function () use ($user) {
-                        $price = $user->plan->prices[rand(0, 1)]; // 0 => month and 1 => year
+                        if ($user->plan->is_custom) {
+                            $price = $user->plan->prices[0];
+                        } else {
+                            $price = $user->plan->prices[rand(0, 1)]; // 0 => month and 1 => year
+                        }
 
                         // Generate a fake subscription
                         $subscription = Subscription::create([
