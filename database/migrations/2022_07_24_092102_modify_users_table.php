@@ -24,11 +24,8 @@ return new class extends Migration
             $table->string('status')->nullable()->after('is_active');
             $table->string('gender')->nullable()->after('name');
             $table->string('rag')->nullable()->after('is_active');
-            $table->unsignedBigInteger('plan_id')->nullable()->after('status');
             $table->string('username')->nullable()->after('name');
             $table->string('rfid')->nullable()->after('phone_number');
-
-            $table->foreign('plan_id')->references('id')->on('plans')->cascadeOnUpdate()->nullOnDelete();
             $table->softDeletes();
         });
     }

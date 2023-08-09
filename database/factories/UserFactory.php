@@ -2,7 +2,6 @@
 
 namespace Coderstm\Database\Factories;
 
-use Coderstm\Models\Plan;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -38,7 +37,6 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             'status' => ['Active', 'Pending'][rand(0, 1)],
             'created_at' => $created_at,
-            'plan_id' => Plan::inRandomOrder()->first()->id,
         ];
     }
 

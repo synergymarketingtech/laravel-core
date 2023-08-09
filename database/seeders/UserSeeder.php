@@ -2,11 +2,12 @@
 
 namespace Coderstm\Database\Seeders;
 
-use Coderstm\Database\Factories\AddressFactory;
-use Coderstm\Database\Factories\UserFactory;
+use Coderstm\Models\Plan;
 use Coderstm\Enum\AppStatus;
 use Illuminate\Database\Seeder;
 use Coderstm\Models\Cashier\Subscription;
+use Coderstm\Database\Factories\UserFactory;
+use Coderstm\Database\Factories\AddressFactory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class UserSeeder extends Seeder
@@ -25,10 +26,12 @@ class UserSeeder extends Seeder
                 $user->updateOrCreateAddress(AddressFactory::new()->make()->toArray());
                 if ($user->status == AppStatus::ACTIVE) {
                     Subscription::withoutEvents(function () use ($user) {
-                        if ($user->plan->is_custom) {
-                            $price = $user->plan->prices[0];
-                        } else {
-                            $price = $user->plan->prices[rand(0, 1)]; // 0 => month and 1 => year
+                        if ($plan = Plan::inRandomOrder()->first()) {
+                            if ($plan->is_custom) {
+                                $price = $plan->prices[0];
+                            } else {
+                                $price = $plan->prices[rand(0, 1)]; // 0 => month and 1 => year
+                            }
                         }
 
                         // Generate a fake subscription
