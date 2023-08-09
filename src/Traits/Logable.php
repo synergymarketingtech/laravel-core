@@ -24,15 +24,7 @@ trait Logable
 
     private static function getLogValue($key, $value)
     {
-        switch ($key) {
-            case 'plan_id':
-                return optional(Plan::find($value))->label;
-                break;
-
-            default:
-                return $value;
-                break;
-        }
+        return $value;
     }
 
     protected static function boot()

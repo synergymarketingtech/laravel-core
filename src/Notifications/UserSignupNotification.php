@@ -52,7 +52,7 @@ class UserSignupNotification extends Notification
             ->subject($this->subject)
             ->markdown('coderstm::emails.user.signup', [
                 'name' => $this->user->first_name,
-                'plan' => optional($this->user->plan)->label,
+                'plan' => optional($this->user->price)->label,
                 'price' => format_amount(optional($this->subscription->price)->amount * 100),
                 'interval' => optional($this->subscription->price)->interval,
             ]);

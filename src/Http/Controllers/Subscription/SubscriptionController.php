@@ -108,8 +108,6 @@ class SubscriptionController extends Controller
             if ($paymentIntents['paymentIntent']['status'] != 'requires_payment_method') {
                 return $paymentIntents;
             }
-        } finally {
-            $this->updateUserPlan($price->plan_id);
         }
 
         return response()->json([
@@ -146,8 +144,6 @@ class SubscriptionController extends Controller
             }
         } catch (\Throwable $th) {
             throw $th;
-        } finally {
-            $this->updateUserPlan($plan->id);
         }
 
         return response()->json(['subscription' => $user->subscription(), 'message' => "You have successfully subscribe to {$plan->label} plan."]);
@@ -227,14 +223,6 @@ class SubscriptionController extends Controller
             'customer' => $payment->customer(),
             'requiresAction' => true,
         ];
-    }
-
-    //update user plan
-    protected function updateUserPlan($planID)
-    {
-        $this->user()->update([
-            'plan_id' => $planID
-        ]);
     }
 
     protected function user()

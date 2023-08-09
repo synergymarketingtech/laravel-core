@@ -3,9 +3,10 @@
 namespace Coderstm\Models;
 
 use Coderstm\Coderstm;
+use Coderstm\Models\Log;
 use Coderstm\Enum\AppRag;
 use Coderstm\Enum\AppStatus;
-use Coderstm\Models\Log;
+use Laravel\Cashier\Cashier;
 use Coderstm\Traits\Billable;
 use Coderstm\Models\Plan\Price;
 use Illuminate\Support\Facades\DB;
@@ -15,7 +16,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Stripe\Subscription as StripeSubscription;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Laravel\Cashier\Cashier;
+use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 
 class User extends Admin implements MustVerifyEmail
 {
@@ -35,7 +36,6 @@ class User extends Admin implements MustVerifyEmail
         'password',
         'phone_number',
         'is_active',
-        // extra
         'title',
         'note',
         'status',
@@ -158,23 +158,13 @@ class User extends Admin implements MustVerifyEmail
     }
 
     /**
-     * Get the plan that owns the User
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function plan(): BelongsTo
-    {
-        return $this->belongsTo(Plan::class);
-    }
-
-    /**
      * The price that belong to the User
      *
-     * @return \Coderstm\Relations\BelongsToOne
+     * @return \Illuminate\Database\Eloquent\Relations\HasOneThrough
      */
-    public function price()
+    public function price(): HasOneThrough
     {
-        return $this->belongsToOne(Price::class, 'subscriptions', 'user_id', 'stripe_price', 'id', 'stripe_id')
+        return $this->hasOneThrough(Price::class, Cashier::$subscriptionModel, 'user_id', 'stripe_id', 'id', 'stripe_price')
             ->orderByDesc('created_at');
     }
 
@@ -418,8 +408,14 @@ class User extends Admin implements MustVerifyEmail
                     ->orderBy('created_by', $direction ?? 'asc');
                 break;
 
-            case 'email':
-                $query->orderBy('email', $direction ?? 'asc');
+            case 'price':
+                $query->leftJoin('subscriptions', function ($join) {
+                    $join->on('subscriptions.user_id', '=', "users.id")->orderByDesc('created_at')->limit(1);
+                })->leftJoin('plan_prices', function ($join) {
+                    $join->on('plan_prices.stripe_id', '=', "subscriptions.stripe_price");
+                })->leftJoin('plans', function ($join) {
+                    $join->on('plans.id', '=', "plan_prices.plan_id");
+                })->orderBy(DB::raw('plans.label'), $direction ?? 'asc');
                 break;
 
             case 'name':

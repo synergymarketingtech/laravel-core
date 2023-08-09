@@ -3,9 +3,10 @@
 namespace Coderstm\Models\Plan;
 
 use Coderstm\Models\Plan;
-use Coderstm\Enum\PlanInterval;
 use Laravel\Cashier\Cashier;
+use Coderstm\Enum\PlanInterval;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -96,5 +97,13 @@ class Price extends Model
                 'interval_count' => $optional->interval_count
             ],
         ]);
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope('default', function (Builder $builder) {
+            $builder->withMax('plan as label', 'label');
+        });
     }
 }

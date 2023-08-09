@@ -94,7 +94,6 @@ class AuthController extends Controller
         $this->validate($request, $rules);
 
         $request->merge([
-            'plan_id' => $request->input('plan'),
             'password' => Hash::make($request->password),
             'status' => AppStatus::PENDING->value
         ]);
@@ -103,7 +102,6 @@ class AuthController extends Controller
         $user = Coderstm::$userModel::create($request->only([
             'title',
             'email',
-            'plan_id',
             'first_name',
             'last_name',
             'company_name',
